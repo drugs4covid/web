@@ -1,18 +1,19 @@
 <template>
   <div id="home">
     <b-container>
-      <b-jumbotron header="BootstrapVue" lead="Bootstrap v4 Components for Vue.js 2">
-        <p>For more information visit our website</p>
-        <b-btn variant="primary" href="https://bootstrap-vue.org/">More Info</b-btn>
-      </b-jumbotron>
+        <b-card-group deck>
+          <b-card v-for="tool in toolItems"
+                  :key=tool.title
+                  :title=tool.title
+                  :img-src=tool.img
+                  :img-alt=tool.img_alt img-top>
 
-      <b-form-group
-          horizontal
-          :label-cols="4"
-          description="Let us know your name."
-          label="Enter your name"
-      >
-      </b-form-group>
+            <b-card-text>{{tool.description}}</b-card-text>
+            <template #footer>
+              <small class="text-muted">{{ tool.button_text }}</small>
+            </template>
+          </b-card>
+        </b-card-group>
     </b-container>
   </div>
 </template>
@@ -20,8 +21,30 @@
 <script>
 export default {
   name: 'HomeView',
-  components: {
-
-  }
+  data: () => ({
+    toolItems:[
+      {
+        title: 'Search engine',
+        img: 'https://placekitten.com/g/400/450',
+        img_alt: 'Image',
+        description: 'Tool description',
+        button_text: 'Start Searching',
+      },
+      {
+        title: 'Search engine',
+        img: 'https://placekitten.com/g/400/450',
+        img_alt: 'Image',
+        description: 'Tool description',
+        button_text: 'Start Searching',
+      },
+      {
+        title: 'Search engine',
+        img: 'https://placekitten.com/g/400/450',
+        img_alt: 'Image',
+        description: 'Tool description',
+        button_text: 'Start Searching',
+      },
+    ],
+  }),
 }
 </script>

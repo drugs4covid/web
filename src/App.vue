@@ -2,7 +2,7 @@
   <div id="app">
 
     <!-- Header -->
-    <b-navbar toggleable="lg" type="dark" variant="primary" fixed="top">
+    <b-navbar toggleable="lg" type="dark" variant="primary" fixed="top" sticky>
       <b-navbar-brand to="/">Drugs4Covid</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -28,6 +28,7 @@
     </b-navbar>
 
     <!-- Body -->
+    <br/>
     <router-view/>
 
     <!-- Footer -->
