@@ -12,10 +12,7 @@
           description="Let us know your name."
           label="Enter your name"
       >
-        <b-form-input v-model.trim="name"></b-form-input>
       </b-form-group>
-
-      <b-alert variant="success" :show="showAlert">Hello {{ name }}</b-alert>
     </b-container>
   </div>
 </template>
