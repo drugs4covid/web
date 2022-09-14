@@ -2,7 +2,7 @@
   <div id="app">
 
     <!-- Header -->
-    <b-navbar toggleable="lg"  fixed="top" sticky style="max-width: fit-content; alignment: center">
+    <b-navbar toggleable="lg" variant="light" fixed="top" sticky style="max-width: fit-content; alignment: center">
       <b-navbar-brand to="/">
         <b-img src="./assets/d4c-logo.svg"
         ></b-img>
@@ -11,6 +11,7 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
+        <v-spacer></v-spacer>
           <b-navbar-nav fill>
             <b-nav-item v-for="(navItem) in navBarItems"
                         :to=navItem.href
@@ -32,7 +33,6 @@
     </b-navbar>
 
     <!-- Body -->
-    <br/>
     <router-view/>
 
     <!-- Footer -->
