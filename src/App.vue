@@ -2,21 +2,25 @@
   <div id="app">
 
     <!-- Header -->
-    <b-navbar toggleable="lg" type="dark" variant="primary" fixed="top" sticky>
-      <b-navbar-brand to="/">Drugs4Covid</b-navbar-brand>
+    <b-navbar toggleable="lg"  fixed="top" sticky style="max-width: fit-content; alignment: center">
+      <b-navbar-brand to="/">
+        <b-img src="./assets/d4c-logo.svg"
+        ></b-img>
+      </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav fill>
-          <b-nav-item v-for="(navItem) in navBarItems"
-                      :to=navItem.href
-                      :key="navItem.text"
-          >
-            {{navItem.text}}
-          </b-nav-item>
-        </b-navbar-nav>
+          <b-navbar-nav fill>
+            <b-nav-item v-for="(navItem) in navBarItems"
+                        :to=navItem.href
+                        :key="navItem.text"
+            >
+              {{navItem.text}}
+            </b-nav-item>
+          </b-navbar-nav>
       </b-collapse>
+
 
       <b-navbar-nav class="ml-auto">
         <b-nav-item-dropdown text="Lang" right>
