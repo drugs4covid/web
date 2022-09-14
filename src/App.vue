@@ -36,7 +36,35 @@
     <router-view/>
 
     <!-- Footer -->
-
+    <template>
+      <v-footer padless>
+        <b-container fluid>
+          <v-divider></v-divider>
+          <b-row no-gutters align-h="between">
+            <b-col>
+              <b-img height="60px" style="vertical-align: middle" src="./assets/d4c-logo.svg"/>
+            </b-col>
+            <b-col>
+              <b-row style="font-size: small">
+                With the financial support of
+              </b-row>
+              <b-row align-h="right">
+                  <b-img height="60px" style="vertical-align: middle" src="./assets/BBVA-logos/JPG/AFF LOGO Fundación 2 colores/USO PRINCIPAL/Fundacion-BBVA_principal.png"></b-img>
+                <b-col cols="4" style="text-align: left; font-size: x-small  ;color: rgb(0,0,0,.65)">
+                  Drugs4Covid++  - AYUDAS FUNDACIÓN BBVA A EQUIPOS DE INVESTIGACIÓN CIENTÍFICA SARS-CoV-2 y COVID-19
+                </b-col>
+              </b-row>
+            </b-col>
+            <b-col>
+              <b-img width="60px" src="./assets/oeg-logo.jpg"/>
+              <b-img width="60px" src="./assets/ETSIINF-logo.png"/>
+              <b-img height="60px" src="./assets/UPM-logo.png"/>
+            </b-col>
+          </b-row>
+          <br/>
+        </b-container>
+      </v-footer>
+    </template>
 
   </div>
 </template>
