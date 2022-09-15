@@ -37,7 +37,7 @@
 
     <!-- Footer -->
     <template>
-      <v-footer padless>
+      <v-footer>
         <b-container fluid>
           <v-divider></v-divider>
           <b-row no-gutters align-h="between">

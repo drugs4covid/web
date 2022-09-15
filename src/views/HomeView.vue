@@ -1,12 +1,11 @@
 <template>
   <div id="home">
     <b-container>
-      <!-- QA Search Header-->
 
-      <b-card class="border-0" overlay
-              bg-variant="transparent"
-              border-variant="light"
+      <!-- QA Search Header-->
+      <b-card class="border-0" bg-variant="transparent" border-variant="light"
               style="height: 375px; min-width: 100%"
+              overlay
       >
         <b-card-body class="d-flex justify-content-center align-items-center h-100">
           <b-container >
@@ -14,7 +13,7 @@
               <h1 class="mb-3">Have a question?</h1>
             </b-row>
             <b-row class="justify-content-center">
-              <h4 class="mb-3">Use our search engine</h4>
+              <h4 class="mb-3">Use our QA engine</h4>
             </b-row>
             <b-row class="justify-content-center">
               <b-form-input style="max-width: 400px"></b-form-input>
@@ -28,18 +27,36 @@
 
       <!-- Tool Cards -->
       <b-card-group deck class="justify-content-center">
-        <b-card v-for="tool in toolItems"
-                :key=tool.title
-                :title=tool.title
-                :img-src=tool.img
-                :img-alt=tool.img_alt
-                style="max-width: 275px"
-                img-top overlay>
-
-          <b-card-text style="text-align: justify">{{tool.description}}</b-card-text>
+        <!-- Search Engine-->
+        <b-card align="center" img-src="@/assets/d4c-icon.png" style="max-width: 300px">
+          <b-card-title>
+            {{ searchEngineCard.title }}
+          </b-card-title>
+          <b-card-text style="text-align: justify" class="mb-2">
+            {{searchEngineCard.description}}
+          </b-card-text>
           <template #footer>
-            <b-button squared variant="primary">
-              {{ tool.button_text }}
+            <b-button type="button" variant="outline-primary"
+                      :href="searchEngineCard.href"
+            >
+              {{ searchEngineCard.buttonText }}
+            </b-button>
+          </template>
+        </b-card>
+
+        <!-- Bio-NLP -->
+        <b-card align="center" img-src="@/assets/bionlp-icon.png" style="max-width: 300px">
+          <b-card-title>
+            {{ bioNLPCard.title }}
+          </b-card-title>
+          <b-card-text style="text-align: justify" class="mb-2">
+            {{searchEngineCard.description}}
+          </b-card-text>
+          <template #footer>
+            <b-button type="button" variant="outline-primary"
+                      :href="bioNLPCard.href"
+            >
+              {{ bioNLPCard.buttonText }}
             </b-button>
           </template>
         </b-card>
@@ -52,29 +69,22 @@
 export default {
   name: 'HomeView',
   data: () => ({
-    toolItems:[
+    searchEngineCard:
       {
         title: 'Search engine',
-        img: 'https://picsum.photos/300/300/?image=40',
-        img_alt: 'Image',
+        img: '@/assets/test.jpg',
         description: 'An open web service to exploit the existing scientific literature about coronavirus (more than 60,000 papers) identifying drugs, diseases and articles and displaying their relations inside the corpus. You can search by ATC code, Generic Name, Disease Name or MESH code.',
-        button_text: 'Start Searching',
+        buttonText: 'Start Searching',
+        href: 'https://search.drugs4covid.oeg-upm.net/',
       },
+    bioNLPCard:
       {
-        title: 'Knowledge Graph Interface',
-        img: 'https://picsum.photos/300/300/?image=41',
-        img_alt: 'Image',
-        description: 'A Knowledge Graph interface to run your own queries or run some examples of questions doctors and researchers might find useful.',
-        button_text: 'Start Searching',
+        title: 'Bio-NLP',
+        img: '@/assets/test.jpg',
+        description: 'BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.',
+        buttonText: 'Start Analyzing',
+        href: 'https://librairy.github.io/bio-ner/',
       },
-      {
-        title: 'Query Builder',
-        img: 'https://picsum.photos/300/300/?image=42',
-        img_alt: 'Image',
-        description: 'A simple interface to learn how to use the D4C Api and start to run your own experiments.',
-        button_text: 'Start Searching',
-      },
-    ],
   }),
 }
 </script>
