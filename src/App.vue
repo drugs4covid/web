@@ -24,7 +24,10 @@
 
 
       <b-navbar-nav class="ml-auto">
-        <b-nav-item-dropdown text="Lang" right>
+        <b-nav-item-dropdown right>
+          <template #button-content>
+            <b-icon icon="globe"></b-icon>
+          </template>
           <b-dropdown-item href="#">EN</b-dropdown-item>
           <b-dropdown-item href="#">ES</b-dropdown-item>
         </b-nav-item-dropdown>
