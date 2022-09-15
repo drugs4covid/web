@@ -1,11 +1,14 @@
 <template>
   <div id="home">
-    <b-container>
+    <b-container fluid>
 
       <!-- QA Search Header-->
       <b-card class="border-0" bg-variant="transparent" border-variant="light"
-              style="height: 375px; min-width: 100%"
+              style="max-height: 375px; min-width: 100%"
               overlay
+              img-src="@/assets/header-background.jpg"
+              img-height="375px"
+              img-width="100%"
       >
         <b-card-body class="d-flex justify-content-center align-items-center h-100">
           <b-container >
@@ -24,7 +27,7 @@
           </b-container>
         </b-card-body>
       </b-card>
-
+      <br/>
       <!-- Tool Cards -->
       <b-card-group deck class="justify-content-center">
         <!-- Search Engine-->
