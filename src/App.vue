@@ -80,9 +80,9 @@ export default {
         href: '/',
       },
       {
-        text: 'About',
+        text: 'Corpus',
         disabled: false,
-        href: '/about',
+        href: '/corpus',
       },
       {
         text: 'Knowledge Graph',
@@ -90,19 +90,14 @@ export default {
         href: '/knowledge-graph',
       },
       {
-        text: 'Services',
-        disabled: false,
-        href: '/services',
-      },
-      {
         text: 'Resources',
         disabled: false,
         href: '/resources',
       },
       {
-        text: 'Corpus',
+        text: 'About',
         disabled: false,
-        href: '/corpus',
+        href: '/about',
       },
     ],
   }),
