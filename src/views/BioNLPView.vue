@@ -9,7 +9,7 @@
           <b-form-textarea
               max-rows="10"
               v-model="sampleTxt"
-              @input="analizeSample()">
+              @input="analyzeSample()">
           </b-form-textarea>
         </b-form>
 
@@ -32,7 +32,7 @@ export default {
     sampleTxt: ""
   }),
   methods:{
-    analizeSample(){
+    analyzeSample(){
       axiosService.bioNLPAnalyze(this.sampleTxt)
           .then(response =>{
             this.entities = response.data.entities
