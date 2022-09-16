@@ -7,8 +7,8 @@ export default {
 function bioNLPAnalyze(text) {
     return Axios({
         method: 'POST',
-        url: 'https://librairy.github.io/bio-ner/drugs',
-        params: {
+        url: 'https://librairy.linkeddata.es/bio-ner/entities',
+        data: {
             text: text,
         },
     });

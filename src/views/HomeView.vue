@@ -53,11 +53,11 @@
             {{ bioNLPCard.title }}
           </b-card-title>
           <b-card-text style="text-align: justify" class="mb-2">
-            {{searchEngineCard.description}}
+            {{bioNLPCard.description}}
           </b-card-text>
           <template #footer>
             <b-button type="button" variant="outline-primary"
-                      :href="bioNLPCard.href"
+                      :to="bioNLPCard.to"
             >
               {{ bioNLPCard.buttonText }}
             </b-button>
@@ -86,7 +86,7 @@ export default {
         img: '@/assets/test.jpg',
         description: 'BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.',
         buttonText: 'Start Analyzing',
-        href: 'https://librairy.github.io/bio-ner/',
+        to: 'services/bio-nlp',
       },
   }),
 }

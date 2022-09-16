@@ -4,6 +4,7 @@ import HomeView from '@/views/HomeView'
 import AboutView from '@/views/AboutView'
 import CorpusView from '@/views/CorpusView'
 import KnowledgeGraphView from "@/views/KnowledgeGraphView";
+import BioNLPView from "@/views/BioNLPView";
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/corpus',
     name: 'corpus',
     component: CorpusView
+  },
+  {
+    path: '/services/bio-nlp',
+    name: 'bio-npl',
+    component: BioNLPView
   },
 ]
 
