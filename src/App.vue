@@ -11,8 +11,7 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
-        <v-spacer></v-spacer>
-        <b-navbar-nav fill>
+        <b-navbar-nav fill class="ml-auto">
           <b-nav-item :to="navHome.to">{{navHome.text}}</b-nav-item>
 
           <b-nav-item-dropdown :text="navKG.text">
@@ -66,9 +65,9 @@
 
     <!-- Footer -->
     <template>
-      <v-footer>
+      <footer>
         <b-container fluid>
-          <v-divider></v-divider>
+          <hr/>
           <b-row no-gutters align-h="between">
             <b-col>
               <b-img height="50px" style="vertical-align: middle" src="./assets/d4c-logo.svg"/>
@@ -92,7 +91,7 @@
           </b-row>
           <br/>
         </b-container>
-      </v-footer>
+      </footer>
     </template>
 
   </div>
