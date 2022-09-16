@@ -2,7 +2,7 @@
   <div id="app">
 
     <!-- Header -->
-    <b-navbar toggleable="lg" variant="light" fixed="top" sticky style="max-width: fit-content; alignment: center">
+    <b-navbar toggleable="lg" variant="light" fixed="top" sticky style="alignment: center">
       <b-navbar-brand to="/">
         <b-img src="./assets/d4c-logo.svg"
         ></b-img>
