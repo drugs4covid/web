@@ -12,16 +12,42 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <v-spacer></v-spacer>
-          <b-navbar-nav fill>
-            <b-nav-item v-for="(navItem) in navBarItems"
-                        :to=navItem.href
-                        :key="navItem.text"
-            >
-              {{navItem.text}}
-            </b-nav-item>
-          </b-navbar-nav>
-      </b-collapse>
+        <b-navbar-nav fill>
+          <b-nav-item :to="navHome.to">{{navHome.text}}</b-nav-item>
 
+          <b-nav-item-dropdown :text="navKG.text">
+            <b-dropdown-item v-for="view in navKG.views"
+                             :href="view.href"
+                             :key="view.name"
+                             :text="view.name"
+            >
+              {{view.name}}
+            </b-dropdown-item>
+          </b-nav-item-dropdown>
+
+          <b-nav-item-dropdown :text="navCorpus.text">
+            <b-dropdown-item v-for="view in navCorpus.views"
+                             :href="view.href"
+                             :key="view.name"
+                             :text="view.name"
+            >
+              {{view.name}}
+            </b-dropdown-item>
+          </b-nav-item-dropdown>
+
+          <b-nav-item-dropdown :text="navResources.text">
+            <b-dropdown-item v-for="view in navResources.views"
+                             :href="view.href"
+                             :key="view.name"
+                             :text="view.name"
+            >
+              {{view.name}}
+            </b-dropdown-item>
+          </b-nav-item-dropdown>
+
+          <b-nav-item :to="navAbout.to">{{navAbout.text}}</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
 
       <b-navbar-nav class="ml-auto">
         <b-nav-item-dropdown right>
@@ -49,12 +75,12 @@
             </b-col>
             <b-col>
               <b-row style="font-size: small">
-                With the financial support of
+                {{ footerText.textA }}
               </b-row>
               <b-row align-h="center">
-                  <b-img height="50px" style="vertical-align: middle" src="./assets/BBVA-logos/JPG/AFF LOGO Fundación 2 colores/USO PRINCIPAL/Fundacion-BBVA_principal.png"></b-img>
+                <b-img height="50px" style="vertical-align: middle" src="./assets/BBVA-logos/JPG/AFF LOGO Fundación 2 colores/USO PRINCIPAL/Fundacion-BBVA_principal.png"></b-img>
                 <b-col cols="5" style="text-align: left; font-size: xx-small  ;color: rgb(0,0,0,.65)">
-                  Drugs4Covid++  - AYUDAS FUNDACIÓN BBVA A EQUIPOS DE INVESTIGACIÓN CIENTÍFICA SARS-CoV-2 y COVID-19
+                  {{footerText.textB}}
                 </b-col>
               </b-row>
             </b-col>
@@ -76,33 +102,72 @@
 export default {
   name: 'App',
   data: () => ({
-    navBarItems:[
-      {
-        text: 'Home',
-        disabled: false,
-        href: '/',
-      },
-      {
-        text: 'Corpus',
-        disabled: false,
-        href: '/corpus',
-      },
-      {
-        text: 'Knowledge Graph',
-        disabled: false,
-        href: '/knowledge-graph',
-      },
-      {
-        text: 'Resources',
-        disabled: false,
-        href: '/resources',
-      },
-      {
-        text: 'About',
-        disabled: false,
-        href: '/about',
-      },
-    ],
+    footerText: {
+      textA: "With the financial support of",
+      textB: "Drugs4Covid++ - AYUDAS FUNDACIÓN BBVA A EQUIPOS DE INVESTIGACIÓN CIENTÍFICA SARS-CoV-2 y COVID-19",
+    },
+    navHome: {
+      text: 'Home',
+      to: '/',
+    },
+    navKG: {
+      text: 'Knowledge Graph',
+      to: '/knowledge-graph',
+      views:[
+        {
+          name: "Graph DB",
+          href: "https://d4c.linkeddata.es/rdf",
+        },
+        {
+          name: "SPARQL",
+          href: "https://d4c.linkeddata.es/sparql",
+        },
+        {
+          name: "Ontology",
+          href: "https://drugs4covid.github.io/EBOCA-portal/index.html",
+        },
+      ]
+    },
+    navCorpus: {
+      text: 'Corpus',
+      to: '/corpus',
+      views:[
+        {
+          name: "D4C Custom Search",
+          href: "https://search.drugs4covid.oeg-upm.net/customsearch",
+        },
+        {
+          name: "Query Builder",
+          href: "http://librairy.linkeddata.es/solr/#/cord19-paragraphs/query",
+        },
+        {
+          name: "KeyQ",
+          href: "https://aiproc.linkeddata.es/",
+        },
+      ]
+    },
+    navResources: {
+      text: 'Resources',
+      to: '/resources',
+      views:[
+        {
+          name: "GitHub",
+          href: "https://github.com/drugs4covid",
+        },
+        {
+          name: "Jupiter Notebooks",
+          href: "https://short.upm.es/54udg",
+        },
+        {
+          name: "Articles",
+          href: "https://arxiv.org/abs/2012.01953",
+        },
+      ]
+    },
+    navAbout: {
+      text: 'About',
+      to: '/about',
+    },
   }),
   beforeCreate() {
     document.title = "Drugs4Covid"
