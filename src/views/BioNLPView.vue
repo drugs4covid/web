@@ -13,10 +13,17 @@
           </b-form-textarea>
         </b-form>
 
-        <b-table>
-        </b-table>
-
         <div v-html="sampleHTML"></div>
+
+        <div v-if="entities">
+          <div v-for="(value, key) in entities"
+               v-show="value.length!==0"
+               :key="key"
+          >
+            <h2>{{ key }}</h2>
+            <b-table :items="value"></b-table>
+          </div>
+        </div>
       </b-card-body>
     </b-card>
   </b-container>
