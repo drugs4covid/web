@@ -120,7 +120,7 @@ export default {
         },
         {
           name: "SPARQL",
-          href: "https://d4c.linkeddata.es/sparql",
+          href: "https://d4c.linkeddata.es/rdf/sparql",
         },
         {
           name: "Ontology",
