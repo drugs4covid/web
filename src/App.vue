@@ -14,7 +14,7 @@
 
 <script>
 import navbarComponent from "@/components/NavbarComponent";
-import footerComponent from "@/components/footerComponent";
+import footerComponent from "@/components/FooterComponent";
 
 export default {
   name: 'App',
