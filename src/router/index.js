@@ -5,6 +5,7 @@ import AboutView from '@/views/AboutView'
 import CorpusView from '@/views/CorpusView'
 import KnowledgeGraphView from "@/views/KnowledgeGraphView";
 import BioNLPView from "@/views/BioNLPView";
+import SearchEngineView from "@/views/SearchEngineView";
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/services/bio-nlp',
     name: 'bio-npl',
     component: BioNLPView
+  },
+  {
+    path: '/services/search-engine',
+    name: 'search-engine',
+    component: SearchEngineView
   },
 ]
 

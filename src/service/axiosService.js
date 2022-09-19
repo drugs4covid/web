@@ -1,7 +1,8 @@
 import Axios from "axios";
 
 export default {
-    bioNLPAnalyze
+    bioNLPAnalyze,
+    solrQueryService,
 }
 
 function bioNLPAnalyze(text) {
@@ -10,6 +11,19 @@ function bioNLPAnalyze(text) {
         url: 'https://librairy.linkeddata.es/bio-ner/entities',
         data: {
             text: text,
+        },
+    });
+}
+
+function solrQueryService(core, fieldList, filterQuery, query, rows) {
+    return Axios({
+        method: 'GET',
+        url: 'https://librairy.linkeddata.es/solr/' + core + '/select',
+        params: {
+            fl: fieldList,
+            fq: filterQuery,
+            q: query,
+            rows: rows,
         },
     });
 }
