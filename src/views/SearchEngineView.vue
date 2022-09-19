@@ -10,7 +10,7 @@
       </b-form-input>
       <b-form-datalist id="input-list-search-engine"
                        :options="resultsList"
-                       :text-field="resultsList"
+                       :text-field="resultsList['name_t'] == null ? resultsList['label_t'] : resultsList['name_t']"
       >
       </b-form-datalist>
     </b-form>
@@ -30,12 +30,20 @@ export default {
   data: () => ({
     inputText: "",
     resultsList: [],
+    optionsList: [],
   }),
   methods:{
     executeSolrQuery(core, fieldList, filterQuery, query, rows) {
       axiosService.solrQueryService(core, fieldList, filterQuery, query, rows)
           .then(response => {
-            this.resultsList.push(response.data)
+            if(response.data.response.numFound !== 0){
+              //TODO: not working
+              this.resultsList = this.resultsList.concat(response.data.response.docs)
+              this.resultsList = this.resultsList.map(({key, value}) => ({
+                'id': key,
+                'name': value,
+              }));
+            }
           })
     }
   },
