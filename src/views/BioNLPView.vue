@@ -13,15 +13,22 @@
           </b-form-textarea>
         </b-form>
 
-        <div v-html="sampleHTML"></div>
-
+        <br/>
         <div v-if="entities">
+          <h2>Results</h2>
+          <div v-html="sampleHTML"></div>
+
+          <br/>
           <div v-for="(value, key) in entities"
                v-show="value.length!==0"
                :key="key"
           >
-            <h2>{{ key }}</h2>
-            <b-table :items="value"></b-table>
+            <h3 class="text-left text-uppercase">{{ key }}</h3>
+            <b-table :items="value"
+                     striped
+                     hover
+            >
+            </b-table><br/>
           </div>
         </div>
       </b-card-body>

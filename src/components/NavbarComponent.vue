@@ -11,6 +11,16 @@
       <b-navbar-nav fill class="ml-auto">
         <b-nav-item :to="navHome.to">{{navHome.text}}</b-nav-item>
 
+        <b-nav-item-dropdown :text="navServices.text">
+          <b-dropdown-item v-for="view in navServices.views"
+                           :to="view.href"
+                           :key="view.name"
+                           :text="view.name"
+          >
+            {{view.name}}
+          </b-dropdown-item>
+        </b-nav-item-dropdown>
+
         <b-nav-item-dropdown :text="navKG.text">
           <b-dropdown-item v-for="view in navKG.views"
                            :href="view.href"
@@ -65,6 +75,24 @@ export default {
     navHome: {
       text: 'Home',
       to: '/',
+    },
+    navServices: {
+      text: 'Services',
+      to: '/services',
+      views:[
+        {
+          name: "Bio-NLP",
+          href: "/services/bio-nlp",
+        },
+        {
+          name: "Search engine",
+          href: "/services/search-engine",
+        },
+        {
+          name: "QA",
+          href: "/services/qa",
+        },
+      ]
     },
     navKG: {
       text: 'Knowledge Graph',
