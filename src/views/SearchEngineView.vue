@@ -2,23 +2,23 @@
   <b-container>
     <b-form>
       <b-form-text>Search Engine</b-form-text>
-      <b-form-input list="input-list-search-engine"
-                    v-model="inputText"
-                    placeholder="Type at least 2 characters to start searching"
-      >
 
-      </b-form-input>
-      <b-form-datalist id="input-list-search-engine"
-                       :options="resultsList"
-                       :text-field="resultsList['name_t'] == null ? resultsList['label_t'] : resultsList['name_t']"
+      <vue-bootstrap-typeahead class="text-left"
+                               :placeholder="placeholder"
+                               :data="resultsList"
+                               v-model="inputText"
+                               :serializer="item => item.name"
+                               size="sm"
       >
-      </b-form-datalist>
+      </vue-bootstrap-typeahead>
+
     </b-form>
   </b-container>
 </template>
 
 <script>
 import axiosService from "@/service/axiosService";
+import VueBootstrapTypeahead from 'vue-bootstrap-typeahead'
 
 const SOLR_CORES = [
     'atc',
@@ -27,34 +27,39 @@ const SOLR_CORES = [
 
 export default {
   name: "SearchEngineView",
+  components:{
+    VueBootstrapTypeahead
+  },
   data: () => ({
     inputText: "",
+    placeholder: "Type at least 2 characters to start searching",
     resultsList: [],
-    optionsList: [],
   }),
   methods:{
-    executeSolrQuery(core, fieldList, filterQuery, query, rows) {
+    fetchSolrData(core, fieldList, filterQuery, query, rows) {
       axiosService.solrQueryService(core, fieldList, filterQuery, query, rows)
           .then(response => {
             if(response.data.response.numFound !== 0){
-              //TODO: not working
-              this.resultsList = this.resultsList.concat(response.data.response.docs)
-              this.resultsList = this.resultsList.map(({key, value}) => ({
-                'id': key,
-                'name': value,
-              }));
+              this.resultsList = response.data.response.docs.map(item => {
+                let obj = {id: null, name: null}
+                for(let key in item){
+                  key === 'id' ? obj.id = item[key] : obj.name = item[key]
+                }
+                return obj
+              }).concat(this.resultsList)
+
             }
           })
-    }
+    },
   },
   watch:{
-    inputText(input){
-      if(input.length >= 2){
+    inputText(newInput){
+      if(newInput.length === 2) {
         this.resultsList = []
-        this.executeSolrQuery(SOLR_CORES[0], "id,id","id:" + input + "*", "*",10)
-        this.executeSolrQuery(SOLR_CORES[0], "id,label_t","label_t:" + input + "*", "*",10)
-        this.executeSolrQuery(SOLR_CORES[1], "id,id","id:" + input + "*", "*",10)
-        this.executeSolrQuery(SOLR_CORES[1], "id,name_t","name_t:" + input + "*", "*",10)
+        this.fetchSolrData(SOLR_CORES[0], "id,id", "id:" + newInput + "*", "*", 10)
+        this.fetchSolrData(SOLR_CORES[0], "id,label_t", "label_t:" + newInput + "*", "*", 10)
+        this.fetchSolrData(SOLR_CORES[1], "id,id", "id:" + newInput + "*", "*", 10)
+        this.fetchSolrData(SOLR_CORES[1], "id,name_t", "name_t:" + newInput + "*", "*", 10)
       }
     }
   }
