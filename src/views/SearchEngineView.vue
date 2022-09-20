@@ -9,6 +9,7 @@
                                v-model="inputText"
                                :serializer="item => item.name"
                                size="sm"
+                               @hit="hitHandler"
       >
       </vue-bootstrap-typeahead>
 
@@ -34,6 +35,7 @@ export default {
     inputText: "",
     placeholder: "Type at least 2 characters to start searching",
     resultsList: [],
+    selectedResult: null
   }),
   methods:{
     fetchSolrData(core, fieldList, filterQuery, query, rows) {
@@ -45,12 +47,22 @@ export default {
                 for(let key in item){
                   key === 'id' ? obj.id = item[key] : obj.name = item[key]
                 }
+                obj.name = obj.name ?? obj.id
                 return obj
               }).concat(this.resultsList)
 
             }
           })
     },
+    hitHandler(item){
+      let type = "drug"
+      let url = "https://search.drugs4covid.oeg-upm.net/search/"
+      if(item.id.charAt(0) === 'D') {
+        type = "disease"
+      }
+
+      window.location.href = url.concat(type,'/',item.id);
+    }
   },
   watch:{
     inputText(newInput){
