@@ -56,13 +56,14 @@
     </b-collapse>
 
     <b-navbar-nav class="ml-auto">
-      <b-nav-item-dropdown right>
-        <template #button-content>
-          <b-icon icon="globe"></b-icon>
-        </template>
-        <b-dropdown-item href="#">EN</b-dropdown-item>
-        <b-dropdown-item href="#">ES</b-dropdown-item>
-      </b-nav-item-dropdown>
+        <b-select v-model="$i18n.locale" right>
+          <b-select-option v-for="(lang, i) in ['es', 'en']"
+                  :key="`Lang${i}`"
+                  :value="lang"
+          >
+            {{ lang }}
+          </b-select-option>
+        </b-select>
     </b-navbar-nav>
 
   </b-navbar>
