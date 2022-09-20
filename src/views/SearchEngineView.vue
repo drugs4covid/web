@@ -4,7 +4,7 @@
       <b-form-text>Search Engine</b-form-text>
 
       <vue-bootstrap-typeahead class="text-left"
-                               :placeholder="placeholder"
+                               :placeholder="$t('searchEngineView.placeholder')"
                                :data="resultsList"
                                v-model="inputText"
                                :serializer="item => item.name"
@@ -33,7 +33,6 @@ export default {
   },
   data: () => ({
     inputText: "",
-    placeholder: "Type at least 2 characters to start searching",
     resultsList: [],
     selectedResult: null
   }),

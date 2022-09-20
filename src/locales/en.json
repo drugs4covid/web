@@ -2,5 +2,53 @@
   "footer": {
     "sponsor": "With the financial support of",
     "caption": "Drugs4Covid++ - AYUDAS FUNDACIÓN BBVA A EQUIPOS DE INVESTIGACIÓN CIENTÍFICA SARS-CoV-2 y COVID-19"
+  },
+
+  "header": {
+    "home": "Home",
+    "services": {
+      "bioNLP": "Bio-NLP",
+      "searchEngine": "Search Engine",
+      "qa": "QA"
+    },
+    "knowledgeGraph": {
+      "graphDB": "Graph DB",
+      "sparql": "SPARQL",
+      "ontology": "Ontology"
+    },
+    "corpus": {
+      "customSearch": "Custom Search",
+      "queryBuilder": "Query Builder",
+      "keyQ": "KeyQ"
+    },
+    "about": "About"
+  },
+
+  "homeView": {
+    "searchEngineCard": {
+      "title": "Search Engine",
+      "description": "An open web service to exploit the existing scientific literature about coronavirus (more than 60,000 papers) identifying drugs, diseases and articles and displaying their relations inside the corpus. You can search by ATC code, Generic Name, Disease Name or MESH code.",
+      "buttonText": "Start Searching"
+    },
+    "bioNLPCard":{
+      "title": "Bio-NLP",
+      "description": "BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.",
+      "buttonText": "Start Analyzing"
+    }
+  },
+
+  "bioNLPView": {
+    "title": "Bio NLP",
+    "subTitle": "Find the biomedical entities hidden in text",
+    "resultsTitle": "Results"
+  },
+
+  "knowledgeGraphView": {
+
+  },
+  "searchEngineView": {
+    "title": "Bio NLP",
+    "subTitle": "",
+    "placeholder": "Type at least 2 characters to start searching"
   }
 }

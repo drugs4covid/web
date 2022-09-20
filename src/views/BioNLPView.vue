@@ -1,8 +1,8 @@
 <template>
   <b-container>
     <b-card class="border-0"
-            title="Bio NLP"
-            sub-title="Find the biomedical entities hidden in text"
+            :title="$t('bioNLPView.title')"
+            :sub-title="$t('bioNLPView.subTitle')"
     >
       <b-card-body>
         <b-form>
@@ -15,7 +15,7 @@
 
         <br/>
         <div v-if="entities">
-          <h2>Results</h2>
+          <h2>{{ $t('bioNLPView.resultsTitle') }}</h2>
           <div v-html="sampleHTML"></div>
 
           <br/>

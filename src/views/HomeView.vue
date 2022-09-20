@@ -33,16 +33,16 @@
         <!-- Search Engine-->
         <b-card align="center" img-src="@/assets/d4c-icon.png" style="max-width: 300px">
           <b-card-title>
-            {{ searchEngineCard.title }}
+            {{ $t('homeView.searchEngineCard.title') }}
           </b-card-title>
           <b-card-text style="text-align: justify" class="mb-2">
-            {{searchEngineCard.description}}
+            {{ $t('homeView.searchEngineCard.description') }}
           </b-card-text>
           <template #footer>
             <b-button type="button" variant="outline-primary"
-                      :href="searchEngineCard.href"
+                      href="https://search.drugs4covid.oeg-upm.net/"
             >
-              {{ searchEngineCard.buttonText }}
+              {{ $t('homeView.searchEngineCard.buttonText') }}
             </b-button>
           </template>
         </b-card>
@@ -50,16 +50,16 @@
         <!-- Bio-NLP -->
         <b-card align="center" img-src="@/assets/bionlp-icon.png" style="max-width: 300px">
           <b-card-title>
-            {{ bioNLPCard.title }}
+            {{ $t('homeView.bioNLPCard.title') }}
           </b-card-title>
           <b-card-text style="text-align: justify" class="mb-2">
-            {{bioNLPCard.description}}
+            {{ $t('homeView.bioNLPCard.description') }}
           </b-card-text>
           <template #footer>
             <b-button type="button" variant="outline-primary"
-                      :to="bioNLPCard.to"
+                      to="services/bio-nlp"
             >
-              {{ bioNLPCard.buttonText }}
+              {{ $t('homeView.bioNLPCard.buttonText') }}
             </b-button>
           </template>
         </b-card>
@@ -71,23 +71,5 @@
 <script>
 export default {
   name: 'HomeView',
-  data: () => ({
-    searchEngineCard:
-      {
-        title: 'Search engine',
-        img: '@/assets/test.jpg',
-        description: 'An open web service to exploit the existing scientific literature about coronavirus (more than 60,000 papers) identifying drugs, diseases and articles and displaying their relations inside the corpus. You can search by ATC code, Generic Name, Disease Name or MESH code.',
-        buttonText: 'Start Searching',
-        href: 'https://search.drugs4covid.oeg-upm.net/',
-      },
-    bioNLPCard:
-      {
-        title: 'Bio-NLP',
-        img: '@/assets/test.jpg',
-        description: 'BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.',
-        buttonText: 'Start Analyzing',
-        to: 'services/bio-nlp',
-      },
-  }),
 }
 </script>
