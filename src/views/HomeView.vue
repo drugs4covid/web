@@ -2,7 +2,7 @@
   <div id="home">
     <b-container fluid>
 
-      <!-- QA Search Header-->
+      <!--Search Header-->
       <b-card class="border-0" bg-variant="transparent" border-variant="light"
               style="max-height: 375px; min-width: 100%"
               overlay
@@ -13,36 +13,45 @@
         <b-card-body class="d-flex justify-content-center align-items-center h-100">
           <b-container >
             <b-row class="justify-content-center">
-              <h1 class="mb-3">Have a question?</h1>
+              <h1 class="mb-3">
+                {{$t('homeView.header.title')}}
+              </h1>
             </b-row>
             <b-row class="justify-content-center">
-              <h4 class="mb-3">Use our QA engine</h4>
+              <h4 class="mb-3">
+                {{$t('homeView.header.subtitle')}}
+              </h4>
             </b-row>
             <b-row class="justify-content-center">
-              <b-form-input style="max-width: 400px"></b-form-input>
-              <b-button type="primary" style="min-width: 38px" >
-                Search
-              </b-button>
+              <search-engine-input style="max-width: 500px"
+                                   @result="searchEngineResultHandler"
+              />
             </b-row>
           </b-container>
         </b-card-body>
       </b-card>
       <br/>
+
       <!-- Tool Cards -->
       <b-card-group deck class="justify-content-center">
-        <!-- Search Engine-->
-        <b-card align="center" img-src="@/assets/d4c-icon.png" style="max-width: 300px">
+
+        <b-card align="center" style="max-width: 300px"
+                v-for="(tool, index) in tools"
+                :key="index"
+                :img-src="tool.img"
+        >
           <b-card-title>
-            {{ $t('homeView.searchEngineCard.title') }}
+            {{ $t(tool.name) }}
           </b-card-title>
           <b-card-text style="text-align: justify" class="mb-2">
-            {{ $t('homeView.searchEngineCard.description') }}
+            {{ $t(tool.description) }}
           </b-card-text>
           <template #footer>
             <b-button type="button" variant="outline-primary"
-                      href="https://search.drugs4covid.oeg-upm.net/"
+                      :to="tool.buttonLink"
+                      :disabled="tool.disabled"
             >
-              {{ $t('homeView.searchEngineCard.buttonText') }}
+              {{ $t(tool.buttonText) }}
             </b-button>
           </template>
         </b-card>
@@ -82,8 +91,38 @@
 import ProblemComponent from "@/components/ProblemCard";
 import ResourcesComponent from "@/components/ResourcesCard";
 import ApproachComponent from "@/components/ApproachCard";
+import SearchEngineInput from "@/components/SearchEngineInput";
 export default {
   name: 'HomeView',
-  components: {ApproachComponent, ResourcesComponent, ProblemComponent},
+  components: {
+    SearchEngineInput,
+    ApproachComponent,
+    ResourcesComponent,
+    ProblemComponent},
+  data:()=>({
+    tools:[
+      {
+        name: "title.bioNLP",
+        description: "homeView.bioNLPCard.description",
+        buttonText: "homeView.bioNLPCard.buttonText",
+        buttonLink: "services/bio-nlp",
+        disabled: false,
+        img: "@/assets/bionlp-icon.png"
+      },
+      {
+        name: "title.qa",
+        description: "homeView.qaCard.description",
+        buttonText: "homeView.qaCard.buttonText",
+        buttonLink: "services/qa",
+        disabled: true,
+        img: "@/assets/d4c-icon.png"
+      }
+    ]
+  }),
+  methods:{
+    searchEngineResultHandler(){
+
+    }
+  }
 }
 </script>

@@ -59,13 +59,17 @@
   },
 
   "homeView": {
-    "searchEngineCard": {
-      "title": "Search Engine",
-      "description": "An open web service to exploit the existing scientific literature about coronavirus (more than 60,000 papers) identifying drugs, diseases and articles and displaying their relations inside the corpus. You can search by ATC code, Generic Name, Disease Name or MESH code.",
-      "buttonText": "Start Searching"
+    "header":{
+      "title": "Have a Question?",
+      "subtitle": "Use our @:title.searchEngine"
+    },
+    "qaCard": {
+      "title": "@:title.qa",
+      "description": "Sample Text",
+      "buttonText": "Start Asking"
     },
     "bioNLPCard":{
-      "title": "Bio-NLP",
+      "title": "@:title.bioNLP",
       "description": "BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.",
       "buttonText": "Start Analyzing"
     }

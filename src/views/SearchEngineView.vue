@@ -1,10 +1,9 @@
 <template>
   <b-container>
-    <b-form>
+    <b-card class="border-0">
       <b-card-title>Search Engine</b-card-title>
       <search-engine-input @select="selectHandler"/>
-
-    </b-form>
+    </b-card>
   </b-container>
 </template>
 

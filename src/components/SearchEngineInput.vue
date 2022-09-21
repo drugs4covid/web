@@ -8,8 +8,7 @@
                              size="sm"
                              @hit="hitHandler"
                              @input="inputHandler"
-    >
-    </vue-typeahead-bootstrap>
+    />
   </b-container>
 </template>
 
