@@ -25,6 +25,39 @@
     "sparql": "SPARQL"
   },
 
+  "problem": {
+    "title": "Problem",
+    "subtitle": "Drugs in hospital pharmacy services are running low",
+    "text": "With the increase in the number of patients affected by COVID-19 and admitted to Intensive Care Units throughout the world, the demand for the medicines necessary for their treatment has increased. Laboratories have increased production. However, Drug Agencies worldwide confirm that there are problems related to the supply of some specific medicines.\\nFor years, a large amount of scientific literature about coronavirus (currently, more than 60,000 scientific papers) has been generated. This is a great help for eveybody fighting against COVID-19, but at the same time such a large corpus is difficult to explore. Furthermore, the same active ingredient may be found in more than one trade name, what makes exploration of this corpus even more difficult for those who have to make quick informed decisions related to medicine use and supplies."
+  },
+
+  "resources": {
+    "title": "So much information becomes problematic",
+    "subtitle": "CORD-19",
+    "text": "Therefore, the large amount of scientific documentation available becomes a problem on itself, especially in situations when decisions have to be made quickly.\nIf a person wants to know the application or use of a drug in the treatment of COVID-19 for a specific group of patients, or identify the relationships between drugs described in a protocol of action, they should navigate this large body of documentation where drugs are often mentioned with different names (active principle, trade name, therapeutic group, etc.). Furthermore, the mention of a medicine in a scientific paper may inform about its possible use, but sometimes it may be also inside a sentence or paragraph that has no relevance to our objective of saving lives."
+  },
+
+  "approach": {
+    "title": "Our Approach",
+    "buttonText": "How does it work?",
+    "step1": {
+      "title": "Process",
+      "text": "Process and index the corpus of scientific papers, and all of its paragraphs."
+    },
+    "step2": {
+      "title": "Classify",
+      "text": "Annotate each article and each sentence with the processed information."
+    },
+    "step3": {
+      "title": "Validate",
+      "text": "Review these notes with the help of citizen scientists."
+    },
+    "step4": {
+      "title": "Process",
+      "text": "Publish a knowledge graph with the valid data."
+    }
+  },
+
   "homeView": {
     "searchEngineCard": {
       "title": "Search Engine",
