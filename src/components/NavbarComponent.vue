@@ -9,55 +9,55 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav fill class="ml-auto">
-        <b-nav-item :to="navHome.to">{{navHome.text}}</b-nav-item>
+        <b-nav-item :to="navHome.to">
+          {{$t(navHome.label)}}
+        </b-nav-item>
 
-        <b-nav-item-dropdown :text="navServices.text">
-          <b-dropdown-item v-for="view in navServices.views"
+        <b-nav-item-dropdown :text="$t(navServices.label)">
+          <b-dropdown-item v-for="(view, index) in navServices.views"
                            :to="view.href"
-                           :key="view.name"
-                           :text="view.name"
+                           :key="index"
           >
-            {{view.name}}
+            {{$t(view.label)}}
           </b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown :text="navKG.text">
-          <b-dropdown-item v-for="view in navKG.views"
+        <b-nav-item-dropdown :text="$t(navKG.label)">
+          <b-dropdown-item v-for="(view, index) in navKG.views"
                            :href="view.href"
-                           :key="view.name"
-                           :text="view.name"
+                           :key="index"
           >
-            {{view.name}}
+            {{$t(view.label)}}
           </b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown :text="navCorpus.text">
-          <b-dropdown-item v-for="view in navCorpus.views"
+        <b-nav-item-dropdown :text="$t(navCorpus.label)">
+          <b-dropdown-item v-for="(view, index) in navCorpus.views"
                            :href="view.href"
-                           :key="view.name"
-                           :text="view.name"
+                           :key="index"
           >
-            {{view.name}}
+            {{$t(view.label)}}
           </b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown :text="navResources.text">
-          <b-dropdown-item v-for="view in navResources.views"
+        <b-nav-item-dropdown :text="$t(navResources.label)">
+          <b-dropdown-item v-for="(view, index) in navResources.views"
                            :href="view.href"
-                           :key="view.name"
-                           :text="view.name"
+                           :key="index"
           >
-            {{view.name}}
+            {{$t(view.label)}}
           </b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item :to="navAbout.to">{{navAbout.text}}</b-nav-item>
+        <b-nav-item :to="navAbout.to">
+          {{$t(navAbout.label)}}
+        </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
 
     <b-navbar-nav class="ml-auto">
         <b-select v-model="$i18n.locale" right>
-          <b-select-option v-for="(lang, i) in ['es', 'en']"
+          <b-select-option v-for="(lang, i) in locales"
                   :key="`Lang${i}`"
                   :value="lang"
           >
@@ -73,85 +73,86 @@
 export default {
   name: "NavbarComponent",
   data: () =>({
+    locales: ["en", "es"],
     navHome: {
-      text: 'Home',
-      to: '/',
+      label: "title.home",
+      to: "/",
     },
     navServices: {
-      text: 'Services',
-      to: '/services',
+      label: "title.services",
+      to: "/services",
       views:[
         {
-          name: "Bio-NLP",
+          label: "title.bioNLP",
           href: "/services/bio-nlp",
         },
         {
-          name: "Search engine",
+          label: "title.searchEngine",
           href: "/services/search-engine",
         },
         {
-          name: "QA",
+          label: "title.qa",
           href: "/services/qa",
         },
       ]
     },
     navKG: {
-      text: 'Knowledge Graph',
-      to: '/knowledge-graph',
+      label: "title.knowledgeGraph",
+      to: "/knowledge-graph",
       views:[
         {
-          name: "Graph DB",
+          label: "title.graphDB",
           href: "https://d4c.linkeddata.es/rdf",
         },
         {
-          name: "SPARQL",
+          label: "title.sparql",
           href: "https://d4c.linkeddata.es/rdf/sparql",
         },
         {
-          name: "Ontology",
+          label: "title.ontology",
           href: "https://drugs4covid.github.io/EBOCA-portal/index.html",
         },
       ]
     },
     navCorpus: {
-      text: 'Corpus',
-      to: '/corpus',
+      label: "title.corpus",
+      to: "/corpus",
       views:[
         {
-          name: "D4C Custom Search",
+          label: "title.customSearch",
           href: "https://search.drugs4covid.oeg-upm.net/customsearch",
         },
         {
-          name: "Query Builder",
+          label: "title.queryBuilder",
           href: "http://librairy.linkeddata.es/solr/#/cord19-paragraphs/query",
         },
         {
-          name: "KeyQ",
+          label: "title.keyQ",
           href: "https://aiproc.linkeddata.es/",
         },
       ]
     },
     navResources: {
-      text: 'Resources',
-      to: '/resources',
+      label: "title.resources",
+      to: "/resources",
       views:[
         {
-          name: "GitHub",
+          label: "title.gitHub",
           href: "https://github.com/drugs4covid",
         },
         {
-          name: "Jupiter Notebooks",
+          label: "title.jupiterNotebooks",
           href: "https://short.upm.es/54udg",
         },
         {
-          name: "Articles",
+          label: "title.articles",
           href: "https://arxiv.org/abs/2012.01953",
         },
       ]
     },
     navAbout: {
-      text: 'About',
-      to: '/about',
+      label: "title.about",
+      to: "/about",
     },
   })
 }

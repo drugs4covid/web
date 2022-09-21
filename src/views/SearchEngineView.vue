@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <b-form>
-      <b-form-text>Search Engine</b-form-text>
+      <b-card-title>Search Engine</b-card-title>
 
       <vue-bootstrap-typeahead class="text-left"
                                :placeholder="$t('searchEngineView.placeholder')"

@@ -4,24 +4,25 @@
     "caption": "Drugs4Covid++ - AYUDAS FUNDACIÓN BBVA A EQUIPOS DE INVESTIGACIÓN CIENTÍFICA SARS-CoV-2 y COVID-19"
   },
 
-  "header": {
+  "title": {
+    "about": "About",
+    "articles": "Articles",
+    "bioNLP": "Bio-NLP",
+    "corpus": "Corpus",
+    "customSearch": "Custom Search",
+    "gitHub": "GitHub",
+    "graphDB": "Graph DB",
     "home": "Home",
-    "services": {
-      "bioNLP": "Bio-NLP",
-      "searchEngine": "Search Engine",
-      "qa": "QA"
-    },
-    "knowledgeGraph": {
-      "graphDB": "Graph DB",
-      "sparql": "SPARQL",
-      "ontology": "Ontology"
-    },
-    "corpus": {
-      "customSearch": "Custom Search",
-      "queryBuilder": "Query Builder",
-      "keyQ": "KeyQ"
-    },
-    "about": "About"
+    "jupiterNotebooks": "Jupiter Notebooks",
+    "keyQ": "KeyQ",
+    "knowledgeGraph": "Knowledge Graph",
+    "ontology": "Ontology",
+    "qa": "QA",
+    "queryBuilder": "Query Builder",
+    "resources": "Resources",
+    "searchEngine": "Search Engine",
+    "services": "Services",
+    "sparql": "SPARQL"
   },
 
   "homeView": {
