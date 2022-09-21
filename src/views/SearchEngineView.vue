@@ -2,58 +2,20 @@
   <b-container>
     <b-form>
       <b-card-title>Search Engine</b-card-title>
-
-      <vue-bootstrap-typeahead class="text-left"
-                               :placeholder="$t('searchEngineView.placeholder')"
-                               :data="resultsList"
-                               v-model="inputText"
-                               :serializer="item => item.name"
-                               size="sm"
-                               @hit="hitHandler"
-      >
-      </vue-bootstrap-typeahead>
+      <search-engine-input @select="selectHandler"/>
 
     </b-form>
   </b-container>
 </template>
 
 <script>
-import axiosService from "@/service/axiosService";
-import VueBootstrapTypeahead from 'vue-bootstrap-typeahead'
-
-const SOLR_CORES = [
-    'atc',
-    'diseases',
-]
-
+import SearchEngineInput from "@/components/SearchEngineInput";
 export default {
   name: "SearchEngineView",
-  components:{
-    VueBootstrapTypeahead
-  },
-  data: () => ({
-    inputText: "",
-    resultsList: [],
-    selectedResult: null
-  }),
-  methods:{
-    fetchSolrData(core, fieldList, filterQuery, query, rows) {
-      axiosService.solrQueryService(core, fieldList, filterQuery, query, rows)
-          .then(response => {
-            if(response.data.response.numFound !== 0){
-              this.resultsList = response.data.response.docs.map(item => {
-                let obj = {id: null, name: null}
-                for(let key in item){
-                  key === 'id' ? obj.id = item[key] : obj.name = item[key]
-                }
-                obj.name = obj.name ?? obj.id
-                return obj
-              }).concat(this.resultsList)
+  components: {SearchEngineInput},
 
-            }
-          })
-    },
-    hitHandler(item){
+  methods:{
+    selectHandler(item){
       let type = "drug"
       let url = "https://search.drugs4covid.oeg-upm.net/search/"
       if(item.id.charAt(0) === 'D') {
@@ -61,17 +23,6 @@ export default {
       }
 
       window.location.href = url.concat(type,'/',item.id);
-    }
-  },
-  watch:{
-    inputText(newInput){
-      if(newInput.length === 2) {
-        this.resultsList = []
-        this.fetchSolrData(SOLR_CORES[0], "id,id", "id:" + newInput + "*", "*", 10)
-        this.fetchSolrData(SOLR_CORES[0], "id,label_t", "label_t:" + newInput + "*", "*", 10)
-        this.fetchSolrData(SOLR_CORES[1], "id,id", "id:" + newInput + "*", "*", 10)
-        this.fetchSolrData(SOLR_CORES[1], "id,name_t", "name_t:" + newInput + "*", "*", 10)
-      }
     }
   }
 }
