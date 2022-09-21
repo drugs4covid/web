@@ -56,14 +56,17 @@
     </b-collapse>
 
     <b-navbar-nav class="ml-auto">
-        <b-select v-model="$i18n.locale" right>
-          <b-select-option v-for="(lang, i) in locales"
-                  :key="`Lang${i}`"
-                  :value="lang"
+        <b-nav-dropdown right>
+          <template #button-content>
+            <b-icon icon="globe"></b-icon>
+          </template>
+          <b-dropdown-item v-for="(lang, i) in locales"
+                           :key="`Lang${i}`"
+                           @click="$i18n.locale=lang"
           >
-            {{ lang }}
-          </b-select-option>
-        </b-select>
+            {{ lang.toUpperCase() }}
+          </b-dropdown-item>
+        </b-nav-dropdown>
     </b-navbar-nav>
 
   </b-navbar>
