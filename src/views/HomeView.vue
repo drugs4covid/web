@@ -56,22 +56,7 @@
           </template>
         </b-card>
 
-        <!-- Bio-NLP -->
-        <b-card align="center" img-src="@/assets/bionlp-icon.png" style="max-width: 300px">
-          <b-card-title>
-            {{ $t('homeView.bioNLPCard.title') }}
-          </b-card-title>
-          <b-card-text style="text-align: justify" class="mb-2">
-            {{ $t('homeView.bioNLPCard.description') }}
-          </b-card-text>
-          <template #footer>
-            <b-button type="button" variant="outline-primary"
-                      to="services/bio-nlp"
-            >
-              {{ $t('homeView.bioNLPCard.buttonText') }}
-            </b-button>
-          </template>
-        </b-card>
+
       </b-card-group>
 
       <br/><hr/><br/><br/>
@@ -92,6 +77,9 @@ import ProblemComponent from "@/components/ProblemCard";
 import ResourcesComponent from "@/components/ResourcesCard";
 import ApproachComponent from "@/components/ApproachCard";
 import SearchEngineInput from "@/components/SearchEngineInput";
+import asset1 from "@/assets/bionlp-icon.png"
+import asset2 from "@/assets/d4c-icon.png"
+
 export default {
   name: 'HomeView',
   components: {
@@ -107,7 +95,7 @@ export default {
         buttonText: "homeView.bioNLPCard.buttonText",
         buttonLink: "services/bio-nlp",
         disabled: false,
-        img: "@/assets/bionlp-icon.png"
+        img: asset1
       },
       {
         name: "title.qa",
@@ -115,7 +103,7 @@ export default {
         buttonText: "homeView.qaCard.buttonText",
         buttonLink: "services/qa",
         disabled: true,
-        img: "@/assets/d4c-icon.png"
+        img: asset2
       }
     ]
   }),
