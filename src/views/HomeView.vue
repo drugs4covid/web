@@ -24,7 +24,7 @@
             </b-row>
             <b-row class="justify-content-center">
               <search-engine-input style="max-width: 500px"
-                                   @result="searchEngineResultHandler"
+                                   @select="searchEngineResultHandler"
               />
             </b-row>
           </b-container>
@@ -120,8 +120,14 @@ export default {
     ]
   }),
   methods:{
-    searchEngineResultHandler(){
+    searchEngineResultHandler(result){
+      let type = "drug"
+      let url = "https://search.drugs4covid.oeg-upm.net/search/"
+      if(result.id.charAt(0) === 'D') {
+        type = "disease"
+      }
 
+      window.location.href = url.concat(type,'/',result.id);
     }
   }
 }
