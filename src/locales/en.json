@@ -6,14 +6,14 @@
 
   "title": {
     "about": "About",
-    "articles": "Articles",
+    "articles": "Papers",
     "bioNLP": "Bio-NLP",
     "corpus": "Corpus",
     "customSearch": "Search",
-    "gitHub": "GitHub",
+    "gitHub": "Code",
     "graphDB": "Graph DB",
     "home": "Home",
-    "jupiterNotebooks": "Jupiter Notebooks",
+    "jupiterNotebooks": "Notebooks",
     "keyQ": "KeyQ",
     "knowledgeGraph": "Knowledge Graph",
     "ontology": "Ontology",
