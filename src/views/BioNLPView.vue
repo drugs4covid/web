@@ -1,17 +1,15 @@
 <template>
-  <b-container>
-    <b-card class="border-0"
-            :title="$t('bioNLPView.title')"
-            :sub-title="$t('bioNLPView.subTitle')"
-    >
-      <b-card-body>
-        <b-form>
-          <b-form-textarea
-              max-rows="10"
+  <v-container>
+    <v-card flat>
+      <v-card-title v-text="$t('bioNLPView.title')"/>
+      <v-card-subtitle v-text="$t('bioNLPView.subTitle')"/>
+
+        <v-form>
+          <v-textarea
               v-model="sampleTxt"
               @input="analyzeSample()">
-          </b-form-textarea>
-        </b-form>
+          </v-textarea>
+        </v-form>
 
         <br/>
         <div v-if="entities">
@@ -19,21 +17,15 @@
           <div v-html="sampleHTML"></div>
 
           <br/>
-          <div v-for="(value, key) in entities"
-               v-show="value.length!==0"
-               :key="key"
+          <v-data-table v-for="(table, index) in table"
+                        :key="index"
+                        :headers="generateHeaders(value)"
+                        :items="generateItems(value)"
           >
-            <h3 class="text-left text-uppercase">{{ key }}</h3>
-            <b-table :items="value"
-                     striped
-                     hover
-            >
-            </b-table><br/>
-          </div>
+          </v-data-table>
         </div>
-      </b-card-body>
-    </b-card>
-  </b-container>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -43,7 +35,8 @@ export default {
   data: () => ({
     entities: null,
     sampleHTML: null,
-    sampleTxt: ""
+    sampleTxt: "In the absence of sufficient medication for COVID patients due to the increased demand, disused drugs have been employed or the doses of those available were modified by hospital pharmacists. Some evidences for the use of alternative drugs can be found in the existing scientific literature that could assist in such decisions. However, exploiting large corpus of documents in an efficient manner is not easy, since drugs may not appear explicitly related in the texts and could be mentioned under different brand names. Drugs4Covid combines word embedding techniques and semantic web technologies to enable a drug-oriented exploration of large medical literature. Drugs and diseases are identified according to the ATC classification and MeSH categories respectively. More than 60K articles and 2M paragraphs have been processed from the CORD-19 corpus with information of COVID-19, SARS, and other related coronaviruses. An open catalogue of drugs has been created and results are publicly available through a drug browser, a keyword-guided text explorer, and a knowledge graph. ",
+    tables: [],
   }),
   methods:{
     analyzeSample(){
@@ -52,8 +45,30 @@ export default {
             this.entities = response.data.entities
             this.sampleHTML = response.data.html
           })
-    }
+    },
+    generateTable(entity){
+      let table = {
+        header: [],
+        items: []
+      }
+
+      for(let item in entity){
+        table.header.push({
+          item
+        })
+      }
+
+      this.tables.push(entity)
+    },
   },
+  watch:{
+    entities(newValue){
+      this.tables = []
+      for(let entity in newValue){
+        this.generateTable(entity)
+      }
+    }
+  }
 
 }
 </script>

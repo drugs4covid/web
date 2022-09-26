@@ -1,28 +1,26 @@
 <template>
-  <b-container>
-    <b-card no-body class="overflow-hidden border-0">
-      <b-card-title>
+  <v-container>
+    <v-card no-body class="overflow-hidden border-0">
+      <v-card-title>
         {{$t('approach.title')}}
-      </b-card-title>
-      <b-card-group deck>
-        <b-card v-for="(step, index) in steps"
+      </v-card-title>
+      <v-item-group light>
+        <v-card v-for="(step, index) in steps"
                 :key="index"
         >
-          <b-card-title>
+          <v-card-title>
             {{ $t(step.title) }}
-          </b-card-title>
-          <b-card-text>
+          </v-card-title>
+          <v-card-text>
             {{ $t(step.text) }}
-          </b-card-text>
-          <template #footer>
-            <b-button>
+          </v-card-text>
+            <v-btn>
               {{ $t('approach.buttonText') }}
-            </b-button>
-          </template>
-        </b-card>
-      </b-card-group>
-    </b-card>
-  </b-container>
+            </v-btn>
+        </v-card>
+      </v-item-group>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
