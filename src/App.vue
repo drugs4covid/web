@@ -1,26 +1,24 @@
 <template>
-  <div id="app">
-    <!-- Header -->
+  <v-app>
+    <!-- Navbar -->
     <navbar-component/>
 
     <!-- Body -->
-    <router-view/>
+    <v-main>
+      <router-view/>
+    </v-main>
 
     <!-- Footer -->
-    <footer-component/>
-
-  </div>
+  </v-app>
 </template>
 
 <script>
-import navbarComponent from "@/components/NavbarComponent";
-import footerComponent from "@/components/FooterComponent";
+import NavbarComponent from "@/components/NavbarComponent";
 
 export default {
   name: 'App',
   components:{
-    navbarComponent,
-    footerComponent
+    NavbarComponent,
   },
 
   beforeCreate() {
@@ -30,23 +28,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  width: 100%;
-  height: 100%;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
 </style>

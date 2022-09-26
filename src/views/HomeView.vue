@@ -1,63 +1,60 @@
 <template>
-  <div id="home">
-    <b-container fluid>
+    <v-container fluid>
 
       <!--Search Header-->
-      <b-card class="border-0" bg-variant="transparent" border-variant="light"
+      <v-card class="border-0" bg-variant="transparent" border-variant="light"
               style="max-height: 375px; min-width: 100%"
               overlay
               img-src="@/assets/header-background.jpg"
               img-height="375px"
               img-width="100%"
       >
-        <b-card-body class="d-flex justify-content-center align-items-center h-100">
-          <b-container >
-            <b-row class="justify-content-center">
+        <v-card class="d-flex justify-content-center align-items-center h-100">
+          <v-container >
+            <v-row class="justify-content-center">
               <h1 class="mb-3">
                 {{$t('homeView.header.title')}}
               </h1>
-            </b-row>
-            <b-row class="justify-content-center">
-              <h4 class="mb-3">
+            </v-row>
+            <v-row class="justify-content-center">
+              <h4 class="mv-3">
                 {{$t('homeView.header.subtitle')}}
               </h4>
-            </b-row>
-            <b-row class="justify-content-center">
+            </v-row>
+            <v-row class="justify-content-center">
               <search-engine-input style="max-width: 500px"
                                    @select="searchEngineResultHandler"
               />
-            </b-row>
-          </b-container>
-        </b-card-body>
-      </b-card>
+            </v-row>
+          </v-container>
+        </v-card>
+      </v-card>
       <br/>
 
       <!-- Tool Cards -->
-      <b-card-group deck class="justify-content-center">
 
-        <b-card align="center" style="max-width: 300px"
+        <v-card align="center" style="max-width: 300px"
                 v-for="(tool, index) in tools"
                 :key="index"
                 :img-src="tool.img"
         >
-          <b-card-title>
+          <v-card-title>
             {{ $t(tool.name) }}
-          </b-card-title>
-          <b-card-text style="text-align: justify" class="mb-2">
+          </v-card-title>
+          <v-card-text style="text-align: justify" class="mb-2">
             {{ $t(tool.description) }}
-          </b-card-text>
-          <template #footer>
-            <b-button type="button" variant="outline-primary"
+          </v-card-text>
+          <template>
+            <v-btn type="button" variant="outline-primary"
                       :to="tool.buttonLink"
                       :disabled="tool.disabled"
             >
               {{ $t(tool.buttonText) }}
-            </b-button>
+            </v-btn>
           </template>
-        </b-card>
+        </v-card>
 
 
-      </b-card-group>
 
       <br/><hr/><br/><br/>
       <problem-component></problem-component>
@@ -68,8 +65,7 @@
       <br/><hr/><br/><br/>
       <approach-component></approach-component>
 
-    </b-container>
-  </div>
+    </v-container>
 </template>
 
 <script>

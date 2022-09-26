@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <v-container>
     <vue-typeahead-bootstrap class="text-left"
                              :placeholder="$t('searchEngineView.placeholder')"
                              :data="resultsList"
@@ -9,7 +9,7 @@
                              @hit="hitHandler"
                              @input="inputHandler"
     />
-  </b-container>
+  </v-container>
 </template>
 
 <script>

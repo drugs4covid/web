@@ -1,10 +1,10 @@
 <template>
-  <b-container>
-    <b-card class="border-0">
-      <b-card-title>Search Engine</b-card-title>
+  <v-container>
+    <v-card class="border-0">
+      <v-card-title>Search Engine</v-card-title>
       <search-engine-input @select="selectHandler"/>
-    </b-card>
-  </b-container>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
