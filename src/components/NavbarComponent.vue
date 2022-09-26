@@ -43,6 +43,7 @@
         <b-nav-item-dropdown :text="$t(navResources.label)">
           <b-dropdown-item v-for="(view, index) in navResources.views"
                            :href="view.href"
+                           :to="view.href"
                            :key="index"
           >
             {{$t(view.label)}}
@@ -140,8 +141,8 @@ export default {
       to: "/resources",
       views:[
         {
-          label: "title.gitHub",
-          href: "https://github.com/drugs4covid",
+          label: "title.code",
+          href: "/resources/code",
         },
         {
           label: "title.jupiterNotebooks",
