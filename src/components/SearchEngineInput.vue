@@ -1,20 +1,25 @@
 <template>
   <v-container>
-    <vue-typeahead-bootstrap class="text-left"
-                             :placeholder="$t('searchEngineView.placeholder')"
-                             :data="resultsList"
-                             :serializer="item => item.name"
-                             v-model="input"
-                             size="sm"
-                             @hit="hitHandler"
-                             @input="inputHandler"
-    />
+    <v-autocomplete
+        v-model="selection"
+        :items="resultsList"
+        :search-input.sync="searchInput"
+        :value="searchInput"
+        hide-no-data
+        hide-selected
+        cache-items
+        auto-select-first
+        :placeholder="$t('searchEngineView.placeholder')"
+        prepend-icon="mdi-database-search"
+        return-object
+        @update:search-input="inputHandler"
+        @input="hitHandler"
+    ></v-autocomplete>
   </v-container>
 </template>
 
 <script>
 import axiosService from "@/service/axiosService";
-import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap';
 
 const SOLR_CORES = [
   'atc',
@@ -23,33 +28,36 @@ const SOLR_CORES = [
 
 export default {
   name: "SearchEngineInput",
-  components:{
-    VueTypeaheadBootstrap
-  },
   data: () => ({
     resultsList: [],
-    input: "",
+    searchInput: "",
+    selection: null,
   }),
   methods:{
     fetchSolrData(core, fieldList, filterQuery, query, rows) {
       axiosService.solrQueryService(core, fieldList, filterQuery, query, rows)
           .then(response => {
             if(response.data.response.numFound !== 0){
-              this.resultsList = response.data.response.docs.map(item => {
-                let obj = {id: null, name: null}
-                for(let key in item){
-                  key === 'id' ? obj.id = item[key] : obj.name = item[key]
+
+              this.resultsList = response.data.response.docs.map(doc => {
+                let item = {text: null, value: null}
+
+                for(let key in doc){
+                  key === 'id' ? item.value = doc[key] : item.text = doc[key]
                 }
-                obj.name = obj.name ?? obj.id
-                return obj
+
+                item.text = item.text ?? item.value
+
+                return item
               }).concat(this.resultsList)
 
             }
           })
     },
     inputHandler(input){
-      if(input.length === 2) {
+      if(input && input.length === 2) {
         this.resultsList = []
+
         this.fetchSolrData(SOLR_CORES[0], "id,id", "id:" + input + "*", "*", 10)
         this.fetchSolrData(SOLR_CORES[0], "id,label_t", "label_t:" + input + "*", "*", 10)
         this.fetchSolrData(SOLR_CORES[1], "id,id", "id:" + input + "*", "*", 10)

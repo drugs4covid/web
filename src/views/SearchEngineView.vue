@@ -17,11 +17,11 @@ export default {
     selectHandler(item){
       let type = "drug"
       let url = "https://search.drugs4covid.oeg-upm.net/search/"
-      if(item.id.charAt(0) === 'D') {
+      if(item.value.charAt(0) === 'D') {
         type = "disease"
       }
 
-      window.location.href = url.concat(type,'/',item.id);
+      window.location.href = url.concat(type,'/',item.value);
     }
   }
 }
