@@ -113,6 +113,9 @@ export default {
             })
             this.sampleHTML = response.data.html
           })
+          .catch(error => {
+            console.log(error)
+          })
     },
   },
 

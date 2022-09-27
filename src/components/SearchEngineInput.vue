@@ -49,6 +49,9 @@ export default {
 
             }
           })
+          .catch(error => {
+            console.log(error)
+          })
     },
     inputHandler(input){
       if(input && input.length === 2) {
