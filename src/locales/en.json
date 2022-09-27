@@ -78,7 +78,35 @@
   "bioNLPView": {
     "title": "Bio NLP",
     "subTitle": "Find the biomedical entities hidden in text",
-    "resultsTitle": "Results"
+    "resultsTitle": "Results",
+    "tableTitles": {
+      "disease": "Diseases",
+      "chemicals": "Drugs/Chemicals",
+      "genetics": "Genetics",
+      "covid": "COVID-19"
+    },
+    "tableHeaders": {
+      "term": "Term",
+      "foundTerm": "Found Term",
+      "meshId": "Mesh ID",
+      "cui": "CUI",
+      "icd10": "ICD10",
+      "crossReferences": "Other IDs",
+      "semanticType": "Semantic Type",
+      "chebiId": "CHEBI ID",
+      "atc": "ATC",
+      "atcLevel": "ATC Level",
+      "cid": "CID",
+      "ncbiGeneId": "NCBIgene ID",
+      "uniprotId": "UniProt ID",
+      "ncbiTaxonId": "NCBItaxon ID",
+      "ebiReference": "EBI Reference",
+      "evidence": "Evidence",
+      "target": "Target",
+      "associationScore": "COVID-19 Association Score",
+      "prId": "PR ID"
+
+    }
   },
 
   "knowledgeGraphView": {

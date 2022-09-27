@@ -5,7 +5,7 @@
       <v-card-subtitle v-text="$t('bioNLPView.subTitle')"/>
 
         <v-form>
-          <v-textarea
+          <v-textarea class="elevation-1"
               v-model="sampleTxt"
               @input="analyzeSample()">
           </v-textarea>
@@ -27,7 +27,7 @@
                         disable-sort hide-default-footer
           >
             <template #top>
-              <v-card-title v-text="table.title"></v-card-title>
+              <v-card-title v-text="$t(table.title)"></v-card-title>
             </template>
           </v-data-table>
         </div>
@@ -42,10 +42,10 @@ export default {
   data: () => ({
     entities: null,
     sampleHTML: null,
-    sampleTxt: "In the absence of sufficient medication for COVID patients due to the increased demand, disused drugs have been employed or the doses of those available were modified by hospital pharmacists. Some evidences for the use of alternative drugs can be found in the existing scientific literature that could assist in such decisions. However, exploiting large corpus of documents in an efficient manner is not easy, since drugs may not appear explicitly related in the texts and could be mentioned under different brand names. Drugs4Covid combines word embedding techniques and semantic web technologies to enable a drug-oriented exploration of large medical literature. Drugs and diseases are identified according to the ATC classification and MeSH categories respectively. More than 60K articles and 2M paragraphs have been processed from the CORD-19 corpus with information of COVID-19, SARS, and other related coronaviruses. An open catalogue of drugs has been created and results are publicly available through a drug browser, a keyword-guided text explorer, and a knowledge graph. ",
+    sampleTxt: "",
     tableList: [
       {
-        title: "Diseases",
+        title: "bioNLPView.tableTitles.disease",
         entityName: "diseases",
         items: [],
         headers: [
@@ -59,7 +59,7 @@ export default {
         ],
       },
       {
-        title: "Drugs/Chemicals",
+        title: "bioNLPView.tableTitles.chemicals",
         entityName: "chemicals",
         items: [],
         headers: [
@@ -74,7 +74,7 @@ export default {
         ],
       },
       {
-        title: "Genetics",
+        title: "bioNLPView.tableTitles.genetics",
         entityName: "genetics",
         items: [],
         headers: [
@@ -87,7 +87,7 @@ export default {
         ],
       },
       {
-        title: "COVID-19",
+        title: "bioNLPView.tableTitles.covid",
         entityName: "covid",
         items: [],
         headers: [
@@ -97,7 +97,7 @@ export default {
           { text: "Evidence", value: "evidence_url" },
           { text: "Target", value: "target_url" },
           { text: "COVID-19 Association Score", value: "association_score" },
-          { text: "PR id", value: "PR_id" },
+          { text: "PR ID", value: "PR_id" },
         ],
       },
     ],
