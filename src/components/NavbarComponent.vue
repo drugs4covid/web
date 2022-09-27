@@ -41,6 +41,7 @@
                   v-for="(view, index) in navItem.views"
                   :key="index"
                   :href="view.href"
+                  :to="view.to"
               >
                 <v-list-item-title v-text="$t(view.label)"/>
 
@@ -70,6 +71,7 @@
               v-for="(view, index) in navItem.views"
               :key="index"
               :href="view.href"
+              :to="view.to"
           >
             <v-list-item-content>
               <v-list-item-title v-text="$t(view.label)"></v-list-item-title>
@@ -110,15 +112,15 @@ export default {
         views:[
           {
             label: "title.bioNLP",
-            href: "/services/bio-nlp",
+            to: "/services/bio-nlp",
           },
           {
             label: "title.searchEngine",
-            href: "/services/search-engine",
+            to: "/services/search-engine",
           },
           {
             label: "title.qa",
-            href: "/services/qa",
+            to: "/services/qa",
           },
         ]
       },
@@ -167,7 +169,7 @@ export default {
         views:[
           {
             label: "title.code",
-            href: "/resources/code",
+            to: "/resources/code",
           },
           {
             label: "title.jupiterNotebooks",
