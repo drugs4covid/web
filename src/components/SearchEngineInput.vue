@@ -1,19 +1,15 @@
 <template>
   <v-container>
-    <v-autocomplete
-        v-model="selection"
-        :items="resultsList"
-        :search-input.sync="searchInput"
-        :value="searchInput"
-        hide-no-data
-        hide-selected
-        cache-items
-        auto-select-first
-        :placeholder="$t('searchEngineView.placeholder')"
-        prepend-icon="mdi-database-search"
-        return-object
-        @update:search-input="inputHandler"
-        @input="hitHandler"
+    <v-autocomplete v-model="selection"
+                    :items="resultsList"
+                    :search-input.sync="searchInput"
+                    :value="searchInput"
+                    :placeholder="$t('searchEngineView.placeholder', {numChar:2})"
+                    prepend-inner-icon="mdi-magnify"
+                    hide-no-data hide-selected cache-items
+                    auto-select-first return-object outlined
+                    @update:search-input="inputHandler"
+                    @input="hitHandler"
     ></v-autocomplete>
   </v-container>
 </template>

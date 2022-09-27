@@ -4,12 +4,13 @@
       <v-card-title v-text="$t('bioNLPView.title')"/>
       <v-card-subtitle v-text="$t('bioNLPView.subTitle')"/>
 
-        <v-form>
-          <v-textarea class="elevation-1"
-              v-model="sampleTxt"
-              @input="analyzeSample()">
-          </v-textarea>
-        </v-form>
+      <v-form>
+        <v-textarea v-model="sampleTxt"
+                    @input="analyzeSample()"
+                    :placeholder="$t('bioNLPView.placeholder')"
+                    outlined
+        />
+      </v-form>
 
         <br/>
         <div v-show="entities">

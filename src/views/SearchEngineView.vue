@@ -1,7 +1,8 @@
 <template>
   <v-container>
-    <v-card class="border-0">
-      <v-card-title>Search Engine</v-card-title>
+    <v-card flat>
+      <v-card-title v-text="$t('searchEngineView.title')"/>
+      <v-card-subtitle v-text="$t('searchEngineView.subtitle')"/>
       <search-engine-input @select="selectHandler"/>
     </v-card>
   </v-container>

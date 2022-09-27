@@ -76,8 +76,9 @@
   },
 
   "bioNLPView": {
-    "title": "Bio NLP",
+    "title": "@:title.bioNLP",
     "subTitle": "Find the biomedical entities hidden in text",
+    "placeholder": "Place some text to start analyzing",
     "resultsTitle": "Results",
     "tableTitles": {
       "disease": "Diseases",
@@ -112,9 +113,10 @@
   "knowledgeGraphView": {
 
   },
+
   "searchEngineView": {
-    "title": "Bio NLP",
-    "subTitle": "",
-    "placeholder": "Type at least 2 characters to start searching"
+    "title": "@:title.searchEngine",
+    "subtitle": "An open web service to exploit the existing scientific literature about coronavirus (more than 60,000 papers) identifying drugs, diseases and articles and displaying their relations inside the corpus. You can search by ATC code, Generic Name, Disease Name or MESH code.",
+    "placeholder": "Type at least {numChar} characters to start searching"
   }
 }
