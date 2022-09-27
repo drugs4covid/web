@@ -3,6 +3,7 @@ import Axios from "axios";
 export default {
     bioNLPAnalyze,
     solrQueryService,
+    qaAnswers,
 }
 
 function bioNLPAnalyze(text) {
@@ -27,3 +28,18 @@ function solrQueryService(core, fieldList, filterQuery, query, rows) {
         },
     });
 }
+
+function qaAnswers(question, maxAnswers, useWiki, useDBPedia, useD4C) {
+    return Axios({
+        method: 'GET',
+        url: 'https://d4c.linkeddata.es/qa/answers',
+        params: {
+            q: question,
+            max: maxAnswers,
+            wiki: useWiki,
+            dbpedia: useDBPedia,
+            d4c: useD4C
+        },
+    });
+}
+

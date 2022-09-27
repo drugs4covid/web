@@ -7,6 +7,7 @@ import KnowledgeGraphView from "@/views/KnowledgeGraphView";
 import BioNLPView from "@/views/BioNLPView";
 import SearchEngineView from "@/views/SearchEngineView";
 import CodeView from "@/views/CodeView";
+import QAView from "@/views/QAView";
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,11 @@ const routes = [
     path: '/services/search-engine',
     name: 'search-engine',
     component: SearchEngineView
+  },
+  {
+    path: '/services/qa',
+    name: 'qa',
+    component: QAView
   },
   {
     path: '/resources/code',
