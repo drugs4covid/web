@@ -17,7 +17,7 @@
     "keyQ": "KeyQ",
     "knowledgeGraph": "Knowledge Graph",
     "ontology": "Ontology",
-    "qa": "QA",
+    "qa": "BioQA",
     "queryBuilder": "Repository",
     "resources": "Resources",
     "searchEngine": "Search Engine",
