@@ -1,24 +1,24 @@
 <template>
   <v-container fluid>
     <v-app-bar app>
+
+      <!-- Lang switch -->
+      <v-btn icon>
+        <v-icon>mdi-earth</v-icon>
+      </v-btn>
+
+      <!-- Navigation Drawer Icon -->
       <v-app-bar-nav-icon @click="drawer = true"
                           class="d-flex d-sm-none"
       >
       </v-app-bar-nav-icon>
 
-      <!-- Navbar title-->
+      <!-- Navbar title -->
       <router-link to="/">
         <v-img src="@/assets/d4c-logo.svg" contain max-width="250px"></v-img>
       </router-link>
 
-      <v-spacer></v-spacer>
-
-      <!-- Lang switch-->
-      <v-btn icon>
-        <v-icon>mdi-earth</v-icon>
-      </v-btn>
-
-      <!-- Navigation tabs-->
+      <!-- Navigation tabs -->
       <template #extension>
         <v-tabs v-model="tab" align-with-title class="d-none d-sm-flex">
           <v-menu
