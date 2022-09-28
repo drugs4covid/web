@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-app-bar app>
+    <v-app-bar app dark>
 
       <!-- Lang switch -->
       <v-btn icon>
@@ -9,9 +9,8 @@
 
       <!-- Navigation Drawer Icon -->
       <v-app-bar-nav-icon @click="drawer = true"
-                          class="d-flex d-sm-none"
-      >
-      </v-app-bar-nav-icon>
+                          class="d-flex d-md-none"
+      />
 
       <!-- Navbar title -->
       <router-link to="/">
@@ -19,38 +18,42 @@
       </router-link>
 
       <!-- Navigation tabs -->
-      <template #extension>
-        <v-tabs v-model="tab" align-with-title class="d-none d-sm-flex">
-          <v-menu
-              v-for="(navItem, index) in navItems"
-              :key="index"
-              offset-y
-              bottom
-          >
-            <template #activator="{ on, attrs }">
-              <v-tab
-                  v-bind="attrs"
-                  v-on="on"
-              >
-                {{$t(navItem.label)}}
-              </v-tab>
-            </template>
+      <v-tabs id="tab" v-model="tab" class="d-none d-md-flex">
+        <v-menu
+            v-for="(navItem, index) in navItems"
+            :key="index"
+            offset-y
+            bottom
+        >
+          <template #activator="{ on, attrs }">
+            <v-tab
+                v-bind="attrs"
+                v-on="on"
+            >
+              {{$t(navItem.label)}}
+            </v-tab>
+          </template>
 
-            <v-list v-if="navItem.views">
-              <v-list-item
-                  v-for="(view, index) in navItem.views"
-                  :key="index"
-                  :href="view.href"
-                  :to="view.to"
-              >
-                <v-list-item-title v-text="$t(view.label)"/>
+          <v-list v-if="navItem.views">
+            <v-list-item
+                v-for="(view, index) in navItem.views"
+                :key="index"
+                :href="view.href"
+                :to="view.to"
+            >
+              <v-list-item-title v-text="$t(view.label)"/>
 
-              </v-list-item>
-            </v-list>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </v-tabs>
 
-          </v-menu>
-        </v-tabs>
-      </template>
+      <!-- Search Engine Icon -->
+      <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
     </v-app-bar>
 
     <!-- Navigation Drawer-->
@@ -81,8 +84,6 @@
         </v-list-group>
       </v-list>
     </v-navigation-drawer>
-
-    <template ></template>
 
   </v-container>
 </template>
@@ -188,5 +189,7 @@ export default {
 </script>
 
 <style scoped>
-
+#tab{
+  justify-content: right;
+}
 </style>
