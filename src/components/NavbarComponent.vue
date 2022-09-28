@@ -50,9 +50,21 @@
 
       <!-- Search Engine Icon -->
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+      <v-menu offset-y bottom
+              :close-on-content-click="false"
+      >
+        <template #activator="{ on, attrs }">
+          <v-btn v-bind="attrs"
+                 v-on="on"
+                 icon
+          >
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+        </template>
+
+        <search-engine-input id="search-engine-input"/>
+
+      </v-menu>
 
     </v-app-bar>
 
@@ -89,8 +101,13 @@
 </template>
 
 <script>
+import SearchEngineInput from "@/components/SearchEngineInput";
 export default {
   name: "NavbarComponent",
+  components: {
+    SearchEngineInput
+  },
+
   data: () =>({
     drawer: false,
     tab: null,
@@ -191,5 +208,9 @@ export default {
 <style scoped>
 #tab{
   justify-content: right;
+}
+#search-engine-input{
+  background-color: #272727;
+  right: 0;
 }
 </style>

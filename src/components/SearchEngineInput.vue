@@ -1,16 +1,19 @@
 <template>
   <v-container>
-    <v-autocomplete v-model="selection"
-                    :items="resultsList"
-                    :search-input.sync="searchInput"
-                    :value="searchInput"
-                    :placeholder="$t('searchEngineView.placeholder', {numChar:2})"
-                    prepend-inner-icon="mdi-magnify"
-                    hide-no-data hide-selected cache-items
-                    auto-select-first return-object outlined
-                    @update:search-input="inputHandler"
-                    @input="hitHandler"
-    ></v-autocomplete>
+    <v-card min-width="325px">
+      <v-autocomplete v-model="selection"
+                      :items="resultsList"
+                      :search-input.sync="searchInput"
+                      :value="searchInput"
+                      :placeholder="$t('searchEngineView.placeholder', {numChar:2})"
+                      prepend-inner-icon="mdi-magnify"
+                      hide-no-data hide-selected cache-items
+                      auto-select-first return-object outlined
+                      hide-details hide-spin-buttons
+                      @update:search-input="inputHandler"
+                      @input="hitHandler"
+      ></v-autocomplete>
+    </v-card>
   </v-container>
 </template>
 
