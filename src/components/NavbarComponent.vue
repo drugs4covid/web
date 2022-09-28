@@ -101,11 +101,6 @@ export default {
     locales: ["en", "es"],
     navItems:[
       {
-        name: "Home",
-        label: "title.home",
-        to: "/",
-      },
-      {
         name: "Services",
         label: "title.services",
         to: "/services",
