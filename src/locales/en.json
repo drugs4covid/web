@@ -20,7 +20,7 @@
     "qa": "BioQA",
     "queryBuilder": "Repository",
     "resources": "Resources",
-    "searchEngine": "Search Engine",
+    "searchEngine": "BioSearch",
     "services": "Services",
     "sparql": "SPARQL"
   },
