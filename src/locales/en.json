@@ -62,16 +62,6 @@
     "header":{
       "title": "Have a Question?",
       "subtitle": "Use our @:title.searchEngine"
-    },
-    "qaCard": {
-      "title": "@:title.qa",
-      "description": "Sample Text",
-      "buttonText": "Start Asking"
-    },
-    "bioNLPCard":{
-      "title": "@:title.bioNLP",
-      "description": "BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.",
-      "buttonText": "Start Analyzing"
     }
   },
 
@@ -79,6 +69,7 @@
     "title": "@:title.bioNLP",
     "subTitle": "Find the biomedical entities hidden in text",
     "placeholder": "Place some text to start analyzing",
+    "description": "BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.",
     "resultsTitle": "Results",
     "tableTitles": {
       "disease": "Diseases",

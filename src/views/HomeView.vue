@@ -31,31 +31,6 @@
       </v-card>
       <br/>
 
-      <!-- Tool Cards -->
-
-        <v-card align="center" style="max-width: 300px"
-                v-for="(tool, index) in tools"
-                :key="index"
-                :img-src="tool.img"
-        >
-          <v-card-title>
-            {{ $t(tool.name) }}
-          </v-card-title>
-          <v-card-text style="text-align: justify" class="mb-2">
-            {{ $t(tool.description) }}
-          </v-card-text>
-          <template>
-            <v-btn type="button" variant="outline-primary"
-                      :to="tool.buttonLink"
-                      :disabled="tool.disabled"
-            >
-              {{ $t(tool.buttonText) }}
-            </v-btn>
-          </template>
-        </v-card>
-
-
-
       <br/><hr/><br/><br/>
       <problem-component></problem-component>
 
@@ -73,8 +48,6 @@ import ProblemComponent from "@/components/ProblemCard";
 import ResourcesComponent from "@/components/ResourcesCard";
 import ApproachComponent from "@/components/ApproachCard";
 import SearchEngineInput from "@/components/SearchEngineInput";
-import asset1 from "@/assets/bionlp-icon.png"
-import asset2 from "@/assets/d4c-icon.png"
 
 export default {
   name: 'HomeView',
@@ -83,27 +56,7 @@ export default {
     ApproachComponent,
     ResourcesComponent,
     ProblemComponent},
-  data:()=>({
-    tools:[
-      {
-        name: "title.bioNLP",
-        description: "homeView.bioNLPCard.description",
-        buttonText: "homeView.bioNLPCard.buttonText",
-        buttonLink: "services/bio-nlp",
-        disabled: false,
-        img: asset1
-      },
-      {
-        name: "title.qa",
-        description: "homeView.qaCard.description",
-        buttonText: "homeView.qaCard.buttonText",
-        buttonLink: "services/qa",
-        disabled: true,
-        img: asset2
-      }
-    ]
-  }),
-  methods:{
+  methods: {
     searchEngineResultHandler(result){
       let type = "drug"
       let url = "https://search.drugs4covid.oeg-upm.net/search/"
