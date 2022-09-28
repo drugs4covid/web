@@ -9,7 +9,7 @@
                       prepend-inner-icon="mdi-magnify"
                       hide-no-data hide-selected cache-items
                       auto-select-first return-object outlined
-                      hide-details hide-spin-buttons
+                      hide-details hide-spin-buttons autofocus
                       @update:search-input="inputHandler"
                       @input="hitHandler"
       ></v-autocomplete>

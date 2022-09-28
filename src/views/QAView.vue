@@ -4,25 +4,65 @@
       <v-card-title v-text="$t('qaView.title')"/>
       <v-card-subtitle v-text="$t('qaView.subtitle')"/>
 
-      <v-row>
-        <v-col>
-          <v-text-field v-model="question"
-                        :placeholder="$t('qaView.placeholder')"
-                        outlined
-          />
-        </v-col>
-        <v-col>
-          <v-subheader v-text="$t('qaView.maxAnswers')"/>
-          <v-slider
-              v-model="maxAnswers"
-              thumb-label
-              min="1"
-              max="10"
-          />
-        </v-col>
-      </v-row>
+      <v-container>
+        <v-row justify="center" align-content="center">
 
-      <v-btn @click="askQuestion(question,maxAnswers)">TEST</v-btn>
+          <v-col cols="11">
+            <v-text-field v-model="question"
+                          :placeholder="$t('qaView.placeholder')"
+                          outlined hide-details
+            >
+            </v-text-field>
+          </v-col>
+
+          <v-col cols="1">
+            <v-btn @click="askQuestion(question,maxAnswers)"
+                   outlined
+                   height="56px"
+            >
+              <v-icon size="xx-large">mdi-chat-question-outline</v-icon>
+            </v-btn>
+          </v-col>
+
+          <v-col cols="12">
+            <v-slider
+                v-model="maxAnswers"
+                class="align-center"
+                max="25"
+                min="1"
+                hide-details
+                :label="$t('qaView.maxAnswers')"
+            >
+              <template v-slot:append>
+                <v-text-field
+                    v-model="maxAnswers"
+                    class="mt-0 pt-0"
+                    hide-details
+                    single-line
+                    type="number"
+                    style="width: 60px"
+                ></v-text-field>
+              </template>
+            </v-slider>
+          </v-col>
+
+          <v-col>
+            <v-row justify="center" align-content="center">
+              <v-checkbox v-model="useD4C" label="D4c"
+                          hide-details
+              />
+              <v-checkbox v-model="useDBPedia" label="DB Pedia"
+                          hide-details hide-spin-buttons
+              />
+              <v-checkbox v-model="useWiki" label="Wikidata"
+                          hide-details hide-spin-buttons
+              />
+            </v-row>
+          </v-col>
+
+        </v-row>
+      </v-container>
+
 
       <div v-for="(answer, index) in answerList"
            :key="index"
@@ -52,10 +92,13 @@ export default {
     answerList: [],
     question: "What symptoms are associated with coronavirus?",
     maxAnswers: 1,
+    useWiki: false,
+    useDBPedia: false,
+    useD4C: true,
   }),
   methods:{
-    askQuestion(question, maxAnswer){
-      axiosService.qaAnswers(question, maxAnswer, false, false, true)
+    askQuestion(){
+      axiosService.qaAnswers(this.question, this.maxAnswers, this.useWiki, this.useDBPedia, this.useD4C)
           .then(response => {
             this.answerList = response.data
           })

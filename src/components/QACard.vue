@@ -1,10 +1,13 @@
 <template>
   <v-container>
     <v-card>
+
       <v-card-title v-text="question"/>
-      <v-card-subtitle v-text="answer"/>
-        Type: {{type}}
-        Confidence {{confidence}}
+      <v-card-subtitle>
+        <h2 id="answer" v-text="answer"/>
+        <v-subheader v-text="$t('label.type') + ': ' + type"/>
+        <v-subheader v-text="$t('label.confidence') + ': ' + confidence"/>
+      </v-card-subtitle>
       <v-card-text v-text="evidence"/>
 
     </v-card>
@@ -38,5 +41,8 @@ export default {
 </script>
 
 <style scoped>
+#answer{
+  color: olivedrab;
 
+}
 </style>
