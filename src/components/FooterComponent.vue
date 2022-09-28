@@ -1,5 +1,5 @@
 <template>
-  <v-footer padless absolute height="100px">
+  <v-footer app padless absolute dark height="100px">
     <v-card tile flat min-width="100%" color="transparent">
       <v-row align-content="center" justify="center">
 
@@ -46,8 +46,8 @@ export default {
 }
 #footer-caption{
   vertical-align: middle;
-  text-align: left;
+  text-align: center;
   font-size: xx-small;
-  color: rgb(0,0,0,.65);
+  color: rgb(255,255,255,.65);
 }
 </style>
