@@ -211,6 +211,5 @@ export default {
 }
 #search-engine-input{
   background-color: #272727;
-  right: 0;
 }
 </style>

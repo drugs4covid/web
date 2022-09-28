@@ -1,15 +1,21 @@
 <template>
-    <v-container fluid>
+  <v-container fluid>
 
-      <problem-component></problem-component>
+    <v-card flat max-width="500px" >
+      <v-card-text v-text="$t('homeView.header')"
+      />
+    </v-card>
 
-      <br/><hr/><br/><br/>
-      <resources-component></resources-component>
+    <br/><v-divider/><br/><br/>
+    <problem-component></problem-component>
 
-      <br/><hr/><br/><br/>
-      <approach-component></approach-component>
+    <br/><v-divider/><br/><br/>
+    <resources-component></resources-component>
 
-    </v-container>
+    <br/><v-divider/><br/><br/>
+    <approach-component></approach-component>
+
+  </v-container>
 </template>
 
 <script>

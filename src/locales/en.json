@@ -59,10 +59,7 @@
   },
 
   "homeView": {
-    "header":{
-      "title": "Have a Question?",
-      "subtitle": "Use our @:title.searchEngine"
-    }
+    "header": "A catalogue of medicines used to combat COVID-19 created using Artificial Intelligence techniques. We exploit the existing scientific literature about coronavirus to build a knowledge graph where technical information and evidences are provided."
   },
 
   "bioNLPView": {
