@@ -7,6 +7,7 @@
       <v-row>
         <v-col>
           <v-text-field v-model="question"
+                        :placeholder="$t('qaView.placeholder')"
                         outlined
           />
         </v-col>

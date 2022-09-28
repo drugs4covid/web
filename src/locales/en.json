@@ -110,8 +110,11 @@
     }
   },
 
-  "knowledgeGraphView": {
-
+  "qaView": {
+    "title": "@:title.qa",
+    "subtitle": "Make any question to our engine and select the number of answers",
+    "placeholder": "Write a question",
+    "maxAnswers": "Max Answers"
   },
 
   "searchEngineView": {
