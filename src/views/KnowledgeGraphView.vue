@@ -1,59 +1,76 @@
 <template>
-  <div id="knowledge-graph">
-    <b-container>
-      <b-card-group deck>
-        <b-card class="border-0" align="left">
-          <b-card-title> {{ graphDBCard.title }}</b-card-title>
-          <b-card-sub-title style="text-align: justify" class="mb-2">
-            {{graphDBCard.text}}
-          </b-card-sub-title>
-          <b-button type="button" variant="outline-primary" :href="graphDBCard.href">
-            {{ graphDBCard.buttonText }}
-          </b-button>
-        </b-card>
+  <v-container>
+    <v-card flat class="text-center">
+      <h1 class="text-center" v-text="$t('knowledgeGraph.title')"/>
+      <span v-text="$t('knowledgeGraph.header')"/>
 
-        <b-card class="border-0" align="left">
-          <b-card-title>{{ sparqlCard.title }}</b-card-title>
-          <b-button type="button" variant="outline-primary" :href="sparqlCard.href">
-            {{ sparqlCard.buttonText }}
-          </b-button>
-        </b-card>
-      </b-card-group>
+      <v-container>
+        <v-row>
 
-      <b-card class="border-0" align="left">
-        <b-card-title>{{ ontologyCard.title }}</b-card-title>
-        <b-embed type="iframe" :src="ontologyCard.href"></b-embed>
-      </b-card>
-    </b-container>
-  </div>
+          <v-col v-for="(card, index) in cardItems"
+                 :key="index"
+          >
+            <v-card>
+              <v-card-title v-text="$t(card.title)"/>
+              <v-card-subtitle v-text="$t(card.subtitle)"/>
+              <v-card-text v-text="$t(card.text)"/>
+              <v-card-actions>
+                <v-btn v-text="$t(card.btnText)"
+                       :href="card.href"
+                />
+              </v-card-actions>
+            </v-card>
+          </v-col>
+
+          <v-col cols="12">
+            <div class="h_iframe">
+              <iframe allowfullscreen id="iframe" src="https://drugs4covid.github.io/EBOCA-portal/index.html"/>
+            </div>
+          </v-col>
+
+        </v-row>
+      </v-container>
+
+    </v-card>
+  </v-container>
 </template>
 
 <script>
 export default {
-  name: "CorpusView",
-  data: () => ({
-    graphDBCard:{
-      title: "Graph DB",
-      text: "Ontotext GraphDB is a highly efficient and robust graph database with RDF and SPARQL support. This documentation is a comprehensive guide that explains every feature of GraphDB, as well as topics such as setting up a repository, loading and working with data, tuning its performance, scaling, etc.",
-      buttonText: "Logging",
-      href: "https://d4c.linkeddata.es/rdf",
-    },
-    sparqlCard:{
-      title: "SPARQL",
-      text: "",
-      buttonText: "Go There",
-      href: "https://d4c.linkeddata.es/rdf",
-    },
-    ontologyCard:{
-      title: "Ontology",
-      text: "",
-      buttonText: "",
-      href: "https://drugs4covid.github.io/EBOCA-portal/index.html",
-    },
-  }),
+  name: "KnowledgeGraphView",
+  data: () =>({
+    cardItems: [
+      {
+        title: "knowledgeGraph.rdf.title",
+        subtitle: "knowledgeGraph.rdf.subtitle",
+        text: "knowledgeGraph.rdf.text",
+        btnText: "knowledgeGraph.rdf.btnText",
+        href: "https://d4c.linkeddata.es/rdf"
+      },
+      {
+        title: "knowledgeGraph.sparql.title",
+        subtitle: "knowledgeGraph.sparql.subtitle",
+        text: "knowledgeGraph.sparql.text",
+        btnText: "knowledgeGraph.sparql.btnText",
+        href: "https://d4c.linkeddata.es/sparql"
+      },
+    ],
+
+  })
+
 }
 </script>
 
 <style scoped>
-
+#iframe{
+  height: 1650px;
+}
+.h_iframe iframe {
+  width: 100%;
+  height: 100%;
+}
+.h_iframe {
+  height: 100%;
+  width: 100%;
+}
 </style>

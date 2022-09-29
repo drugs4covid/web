@@ -7,16 +7,16 @@
       <v-container>
         <v-row>
 
-          <v-col v-for="(service, index) in services"
+          <v-col v-for="(card, index) in cardItems"
                  :key="index"
           >
             <v-card>
-              <v-card-title v-text="$t(service.title)"/>
-              <v-card-subtitle v-text="$t(service.subtitle)"/>
-              <v-card-text v-text="$t(service.text)"/>
+              <v-card-title v-text="$t(card.title)"/>
+              <v-card-subtitle v-text="$t(card.subtitle)"/>
+              <v-card-text v-text="$t(card.text)"/>
               <v-card-actions>
-                <v-btn v-text="$t(service.btnText)"
-                       :to="service.to"
+                <v-btn v-text="$t(card.btnText)"
+                       :to="card.to"
                 />
               </v-card-actions>
             </v-card>
@@ -33,7 +33,7 @@
 export default {
   name: "ServicesView",
   data: () =>({
-    services: [
+    cardItems: [
       {
         title: "services.bioNER.title",
         subtitle: "services.bioNER.subtitle",

@@ -19,21 +19,6 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    component: AboutView
-  },
-  {
-    path: '/knowledge-graph',
-    name: 'knowledge-graph',
-    component: KnowledgeGraphView
-  },
-  {
-    path: '/corpus',
-    name: 'corpus',
-    component: CorpusView
-  },
-  {
     path: '/services/',
     name: 'services',
     component: ServicesView
@@ -54,9 +39,24 @@ const routes = [
     component: QAView
   },
   {
+    path: '/knowledge-graph',
+    name: 'knowledge-graph',
+    component: KnowledgeGraphView
+  },
+  {
+    path: '/corpus',
+    name: 'corpus',
+    component: CorpusView
+  },
+  {
     path: '/resources/code',
     name: 'code',
     component: CodeView
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: AboutView
   },
 ]
 
