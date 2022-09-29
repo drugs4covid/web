@@ -24,11 +24,13 @@
             :key="index"
             offset-y
             bottom
+            open-on-hover
         >
           <template #activator="{ on, attrs }">
             <v-tab
                 v-bind="attrs"
                 v-on="on"
+                :to="navItem.to"
             >
               {{$t(navItem.label)}}
             </v-tab>

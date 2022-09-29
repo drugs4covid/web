@@ -8,6 +8,7 @@ import BioNLPView from "@/views/BioNLPView";
 import SearchEngineView from "@/views/SearchEngineView";
 import CodeView from "@/views/CodeView";
 import QAView from "@/views/QAView";
+import ServicesView from "@/views/ServicesView";
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,11 @@ const routes = [
     path: '/corpus',
     name: 'corpus',
     component: CorpusView
+  },
+  {
+    path: '/services/',
+    name: 'services',
+    component: ServicesView
   },
   {
     path: '/services/bio-nlp',

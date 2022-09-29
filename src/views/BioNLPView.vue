@@ -2,7 +2,7 @@
   <v-container>
     <v-card flat>
       <v-card-title v-text="$t('bioNLPView.title')"/>
-      <v-card-subtitle v-text="$t('bioNLPView.subTitle')"/>
+      <v-card-subtitle v-text="$t('bioNLPView.subtitle')"/>
 
       <v-form>
         <v-textarea v-model="sampleTxt"

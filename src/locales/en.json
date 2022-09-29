@@ -67,9 +67,32 @@
     "header": "A catalogue of medicines used to combat COVID-19 created using Artificial Intelligence techniques. We exploit the existing scientific literature about coronavirus to build a knowledge graph where technical information and evidences are provided."
   },
 
+  "services": {
+    "title": "@:title.services",
+    "header": "This is a list of services available in our webpage",
+    "bioNER": {
+      "title": "@:title.bioNLP",
+      "subtitle": "@:bioNLPView.subtitle",
+      "text": "@:bioNLPView.description",
+      "btnText": "Start Analyzing"
+    },
+    "bioSearch": {
+      "title": "@:title.searchEngine",
+      "subtitle": "@:searchEngineView.subtitle",
+      "text": "@:searchEngineView.description",
+      "btnText": "Start Searching"
+    },
+    "bioQA": {
+      "title": "@:title.qa",
+      "subtitle": "@:qaView.subtitle",
+      "text": "Question/Answer for covid related searches",
+      "btnText": "Start Asking"
+    }
+
+  },
   "bioNLPView": {
     "title": "@:title.bioNLP",
-    "subTitle": "Find the biomedical entities hidden in text",
+    "subtitle": "Find the biomedical entities hidden in text",
     "placeholder": "Place some text to start analyzing",
     "description": "BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.",
     "resultsTitle": "Results",
