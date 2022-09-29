@@ -3,9 +3,7 @@
     <v-app-bar app dark>
 
       <!-- Lang switch -->
-      <v-btn icon>
-        <v-icon>mdi-earth</v-icon>
-      </v-btn>
+      <locale-switch/>
 
       <!-- Navigation Drawer Icon -->
       <v-app-bar-nav-icon @click="drawer = true"
@@ -104,9 +102,11 @@
 
 <script>
 import SearchEngineInput from "@/components/SearchEngineInput";
+import LocaleSwitch from "@/components/LocaleSwitch";
 export default {
   name: "NavbarComponent",
   components: {
+    LocaleSwitch,
     SearchEngineInput
   },
 
@@ -118,7 +118,6 @@ export default {
     ],
     titleImgSrc: "@/assets/d4c-logo.svg",
 
-    locales: ["en", "es"],
     navItems:[
       {
         name: "Services",
