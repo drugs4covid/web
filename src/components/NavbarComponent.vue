@@ -164,7 +164,7 @@ export default {
         views:[
           {
             label: "title.customSearch",
-            href: "https://search.drugs4covid.oeg-upm.net/customsearch",
+            to: "/corpus/text-search"
           },
           {
             label: "title.queryBuilder",

@@ -17,6 +17,7 @@
               <v-card-actions>
                 <v-btn v-text="$t(card.btnText)"
                        :href="card.href"
+                       :to="card.to"
                 />
               </v-card-actions>
             </v-card>
@@ -39,7 +40,7 @@ export default {
         subtitle: "corpus.textSearch.subtitle",
         text: "corpus.textSearch.text",
         btnText: "corpus.textSearch.btnText",
-        href:"https://search.drugs4covid.oeg-upm.net/customsearch"
+        to: "/corpus/text-search"
       },
       {
         title: "corpus.repository.title",

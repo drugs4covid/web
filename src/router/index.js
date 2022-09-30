@@ -9,6 +9,7 @@ import SearchEngineView from "@/views/SearchEngineView";
 import CodeView from "@/views/CodeView";
 import QAView from "@/views/QAView";
 import ServicesView from "@/views/ServicesView";
+import TextSearchView from "@/views/TextSearchView";
 
 Vue.use(VueRouter)
 
@@ -47,6 +48,11 @@ const routes = [
     path: '/corpus',
     name: 'corpus',
     component: CorpusView
+  },
+  {
+    path: '/corpus/text-search',
+    name: 'text-search',
+    component: TextSearchView
   },
   {
     path: '/resources/code',
