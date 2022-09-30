@@ -4,6 +4,7 @@ export default {
     bioNLPAnalyze,
     solrQueryService,
     qaAnswers,
+    bioAPISearch,
 }
 
 function bioNLPAnalyze(text) {
@@ -39,6 +40,21 @@ function qaAnswers(question, maxAnswers, useWiki, useDBPedia, useD4C) {
             wiki: useWiki,
             dbpedia: useDBPedia,
             d4c: useD4C
+        },
+    });
+}
+
+function bioAPISearch(type, size, keywords, level) {
+    return Axios({
+        method: 'GET',
+        url: 'https://librairy.linkeddata.es/bio-api/' + type,
+        params: {
+            size: size,
+            keywords: keywords,
+            ...((type!=='texts' && level) && {
+                level:level
+            })
+
         },
     });
 }

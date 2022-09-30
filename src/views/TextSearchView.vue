@@ -11,7 +11,7 @@
             <v-col cols="11">
               <v-text-field v-model="inputText"
                             :placeholder="$t('textSearch.placeholder')"
-                            outlined required
+                            outlined required hide-details
               >
               </v-text-field>
             </v-col>
@@ -52,17 +52,17 @@
             <v-subheader class="subheader" v-text="$t('textSearch.subheader')+':'"/>
 
               <v-checkbox class="filter-checkbox"
-                          v-model="searchDiseases"
+                          v-model="diseases.isActive"
                           :label="$t('textSearch.diseases')"
                           hide-spin-buttons dense
               />
               <v-checkbox class="filter-checkbox"
-                          v-model="searchDrugs"
+                          v-model="drugs.isActive"
                           :label="$t('textSearch.drugs')"
                           hide-spin-buttons dense
               />
               <v-checkbox class="filter-checkbox"
-                          v-model="searchTexts"
+                          v-model="texts.isActive"
                           :label="$t('textSearch.Texts')"
                           hide-spin-buttons dense
               />
@@ -72,31 +72,35 @@
             <v-subheader class="subheader" v-text="$t('textSearch.subheader')+':'"/>
             <v-col>
               <v-text-field class="filter-text-field"
-                            v-model="atcLevelFilter"
+                            v-model="drugs.levelFilter"
                             :label="$t('textSearch.atcFilter')"
-                            :disabled="!searchDrugs || disableATCFilter"
+                            :disabled="!drugs.isActive || !drugs.enableLevelFiler"
                             type="number"
-                            outlined dense hide-details hide-spin-buttons
+                            max="5"
+                            min="1"
+                            outlined dense
               >
                 <template #append-outer>
                   <v-switch class="filter-switch"
-                            v-model="disableATCFilter"
+                            v-model="drugs.enableLevelFiler"
                             :disabled="!searchDrugs"
-                            dense inset/>
+                            dense/>
                 </template>
               </v-text-field>
               <v-text-field class="filter-text-field"
-                            v-model="meshLevelFilter"
+                            v-model="this.diseases.levelFilter"
                             :label="$t('textSearch.meshFilter')"
-                            :disabled="!searchDiseases || disableMeshFilter"
+                            :disabled="!diseases.isActive || !this.diseases.enableLevelFiler"
                             type="number"
-                            outlined dense hide-details hide-spin-buttons
+                            max="20"
+                            min="1"
+                            outlined dense
               >
                 <template #append-outer>
                   <v-switch class="filter-switch"
-                            v-model="disableMeshFilter"
+                            v-model="texts.isActive"
                             :disabled="!searchDiseases"
-                            dense inset/>
+                            dense/>
                 </template>
               </v-text-field>
             </v-col>
@@ -117,14 +121,23 @@ export default {
 
   data: () => ({
     inputText: "",
-    searchDrugs: false,
-    searchDiseases: false,
-    searchTexts: false,
+    drugs:{
+      isActive: false,
+      enableLevelFiler: false,
+      levelFilter: 1,
+      results: []
+    },
+    diseases:{
+      isActive: false,
+      enableLevelFiler: false,
+      levelFilter: 1,
+      results: []
+    },
+    texts:{
+      isActive: false,
+      results: []
+    },
     maxResults: 1,
-    atcLevelFilter: 1,
-    meshLevelFilter: 1,
-    disableATCFilter: false,
-    disableMeshFilter: false,
     resultList: [],
 
   }),
@@ -134,18 +147,47 @@ export default {
         setTimeout(() => {this.$refs.form.resetValidation();}, 5000);
       }
       else{
-        this.searchBioApi()
+        this.resultList = []
+
+        if(this.drugs.isActive){
+          this.searchDrugs(this.maxResults, this.inputText, this.drugs.levelFilter)
+        }
+        if(this.diseases.isActive){
+          this.searchDiseases(this.maxResults, this.inputText, this.diseases.levelFilter)
+        }
+        if(this.texts.isActive){
+          this.searchText(this.maxResults, this.inputText)
+        }
+
       }
     },
-    searchBioApi(){
-      axiosService.qaAnswers(this.question, this.maxAnswers, this.useWiki, this.useDBPedia, this.useD4C)
+    searchDrugs(size, keywords, level){
+      axiosService.bioAPISearch("drugs", size, keywords, level)
           .then(response => {
-            this.answerList = response.data
+            this.drugs.results = response.data
           })
           .catch(error => {
             console.log(error)
           })
-    }
+    },
+    searchDiseases(size, keywords, level){
+      axiosService.bioAPISearch("diseases", size, keywords, level)
+          .then(response => {
+            this.diseases.results = response.data
+          })
+          .catch(error => {
+            console.log(error)
+          })
+    },
+    searchText(size, keywords) {
+      axiosService.bioAPISearch("texts", size, keywords)
+          .then(response => {
+            this.diseases.results = response.data
+          })
+          .catch(error => {
+            console.log(error)
+          })
+    },
   },
 }
 </script>
