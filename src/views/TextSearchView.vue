@@ -73,7 +73,7 @@
             <v-col>
               <v-text-field class="filter-text-field"
                             v-model="drugs.levelFilter"
-                            :label="$t('textSearch.atcFilter')"
+                            :label="$t('textSearch.drugsFilter')"
                             :disabled="!drugs.isActive || !drugs.enableLevelFiler"
                             type="number"
                             max="5"
@@ -83,14 +83,14 @@
                 <template #append-outer>
                   <v-switch class="filter-switch"
                             v-model="drugs.enableLevelFiler"
-                            :disabled="!searchDrugs"
+                            :disabled="!drugs.isActive"
                             dense/>
                 </template>
               </v-text-field>
               <v-text-field class="filter-text-field"
-                            v-model="this.diseases.levelFilter"
-                            :label="$t('textSearch.meshFilter')"
-                            :disabled="!diseases.isActive || !this.diseases.enableLevelFiler"
+                            v-model="diseases.levelFilter"
+                            :label="$t('textSearch.diseasesFilter')"
+                            :disabled="!diseases.isActive || !diseases.enableLevelFiler"
                             type="number"
                             max="20"
                             min="1"
@@ -98,8 +98,8 @@
               >
                 <template #append-outer>
                   <v-switch class="filter-switch"
-                            v-model="texts.isActive"
-                            :disabled="!searchDiseases"
+                            v-model="diseases.enableLevelFiler"
+                            :disabled="!diseases.isActive"
                             dense/>
                 </template>
               </v-text-field>
@@ -107,8 +107,46 @@
 
           </v-row>
         </v-form>
-      </v-container>
 
+        <!-- Drugs results -->
+        <v-data-table :headers="headers"
+                      :items="drugs.results"
+                      v-show="drugs.results.length !== 0"
+                      dense disable-filtering disable-pagination
+                      disable-sort hide-default-footer
+        >
+          <template #top>
+            <v-card-title v-text="drugs.tableTitle"></v-card-title>
+          </template>
+        </v-data-table>
+
+        <!-- Diseases results -->
+        <v-data-table :headers="headers"
+                      :items="diseases.results"
+                      v-show="diseases.results.length !== 0"
+                      dense disable-filtering disable-pagination
+                      disable-sort hide-default-footer
+        >
+          <template #top>
+            <v-card-title v-text="diseases.tableTitle"></v-card-title>
+          </template>
+        </v-data-table>
+
+        <!-- Article results -->
+        <v-row>
+          <v-col v-for="(text, index) in texts.results"
+                 :key="index"
+                 cols="12"
+          >
+            <v-card>
+              <v-card-title v-text="text.article.title"/>
+              <v-card-subtitle v-text="text.section"/>
+              <v-card-text v-text="text.text"/>
+            </v-card>
+          </v-col>
+        </v-row>
+
+      </v-container>
     </v-card>
   </v-container>
 </template>
@@ -122,23 +160,31 @@ export default {
   data: () => ({
     inputText: "",
     drugs:{
+      tableTitle: "textSearch.tableTitles.drugs",
       isActive: false,
       enableLevelFiler: false,
       levelFilter: 1,
       results: []
     },
     diseases:{
+      tableTitle: "textSearch.tableTitles.diseases",
       isActive: false,
       enableLevelFiler: false,
       levelFilter: 1,
       results: []
     },
     texts:{
+      tableTitle: "textSearch.tableTitles.texts",
       isActive: false,
       results: []
     },
     maxResults: 1,
-    resultList: [],
+    headers: [
+      { text: "Name", value: "name", align: "start", sortable: false,},
+      { text: "Code", value: "code"},
+      { text: "Level", value: "level" },
+      { text: "Frequency", value: "freq" },
+    ],
 
   }),
   methods:{
@@ -147,13 +193,15 @@ export default {
         setTimeout(() => {this.$refs.form.resetValidation();}, 5000);
       }
       else{
-        this.resultList = []
+        let level
 
         if(this.drugs.isActive){
-          this.searchDrugs(this.maxResults, this.inputText, this.drugs.levelFilter)
+          level = this.drugs.enableLevelFiler ? this.drugs.levelFilter : null
+          this.searchDrugs(this.maxResults, this.inputText, level)
         }
         if(this.diseases.isActive){
-          this.searchDiseases(this.maxResults, this.inputText, this.diseases.levelFilter)
+          level = this.diseases.enableLevelFiler ? this.diseases.levelFilter : null
+          this.searchDiseases(this.maxResults, this.inputText, level)
         }
         if(this.texts.isActive){
           this.searchText(this.maxResults, this.inputText)
@@ -182,7 +230,7 @@ export default {
     searchText(size, keywords) {
       axiosService.bioAPISearch("texts", size, keywords)
           .then(response => {
-            this.diseases.results = response.data
+            this.texts.results = response.data
           })
           .catch(error => {
             console.log(error)
