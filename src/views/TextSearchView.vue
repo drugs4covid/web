@@ -119,6 +119,8 @@
             <v-card-title v-text="drugs.tableTitle"></v-card-title>
           </template>
         </v-data-table>
+        <br/>
+        <br/>
 
         <!-- Diseases results -->
         <v-data-table :headers="headers"
@@ -131,17 +133,30 @@
             <v-card-title v-text="diseases.tableTitle"></v-card-title>
           </template>
         </v-data-table>
+        <br/>
+        <br/>
 
         <!-- Article results -->
         <v-row>
+          <v-card-title v-text="texts.tableTitle"></v-card-title>
+
           <v-col v-for="(text, index) in texts.results"
                  :key="index"
                  cols="12"
           >
             <v-card>
               <v-card-title v-text="text.article.title"/>
+
               <v-card-subtitle v-text="text.section"/>
               <v-card-text v-text="text.text"/>
+              <v-card-actions>
+                <v-spacer/>
+                <v-btn v-text="$t('textSearch.button.source')"
+                       :href="text.article.url"
+                       outlined color="primary"
+                />
+                <v-spacer/>
+              </v-card-actions>
             </v-card>
           </v-col>
         </v-row>
