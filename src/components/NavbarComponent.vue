@@ -149,7 +149,7 @@ export default {
           },
           {
             label: "title.sparql",
-            href: "https://d4c.linkeddata.es/rdf/sparql",
+            href: "https://d4c.linkeddata.es/sparql",
           },
           {
             label: "title.ontology",
