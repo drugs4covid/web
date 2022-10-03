@@ -2,7 +2,7 @@
   <v-container>
     <v-card>
 
-      <v-card-title v-text="question"/>
+      <v-card-title v-text="title"/>
       <v-card-subtitle>
         <h2 id="answer" v-text="answer"/>
         <v-subheader v-text="$t('label.type') + ': ' + type"/>
@@ -42,9 +42,12 @@ export default {
     end: Number,
   },
   data: () => ({
-    body: null
+    body: null,
+    title: "",
   }),
   created() {
+    this.title = this.question
+
     if(this.type === EVIDENCE_TYPE_LITERAL){
       this.body = this.evidence.substring(0, this.start) + '<mark>' +
           this.evidence.substring(this.start, this.end) + '</mark>' +
