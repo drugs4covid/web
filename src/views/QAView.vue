@@ -16,9 +16,10 @@
           </v-col>
 
           <v-col cols="1">
-            <v-btn @click="askQuestion(question,maxAnswers)"
+            <v-btn height="56px"
+                   :loading="loading"
                    outlined
-                   height="56px"
+                   @click="askQuestion(question,maxAnswers)"
             >
               <v-icon size="xx-large">mdi-chat-question-outline</v-icon>
             </v-btn>
@@ -95,15 +96,20 @@ export default {
     useWiki: false,
     useDBPedia: false,
     useD4C: true,
+    loading: false
   }),
   methods:{
     askQuestion(){
+      this.loading = true
       axiosService.qaAnswers(this.question, this.maxAnswers, this.useWiki, this.useDBPedia, this.useD4C)
           .then(response => {
             this.answerList = response.data
           })
           .catch(error => {
             console.log(error)
+          })
+          .finally(() => {
+            this.loading = false
           })
     }
   },

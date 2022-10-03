@@ -17,8 +17,8 @@
             </v-col>
 
             <v-col>
-              <v-btn height="56px"
-                     width="56px"
+              <v-btn height="56px" width="56px"
+                     :loading="loadingDiseases || loadingDrugs || loadingTexts"
                      outlined
                      @click="clickSearchHandler"
               >
@@ -137,8 +137,8 @@
         <br/>
 
         <!-- Article results -->
-        <v-row>
-          <v-card-title v-text="texts.tableTitle"></v-card-title>
+        <v-row v-show="texts.results.length !== 0">
+          <v-card-title v-text="$t('texts.tableTitle')"></v-card-title>
 
           <v-col v-for="(text, index) in texts.results"
                  :key="index"
@@ -174,6 +174,9 @@ export default {
 
   data: () => ({
     inputText: "",
+    loadingDrugs: false,
+    loadingDiseases: false,
+    loadingTexts: false,
     drugs:{
       tableTitle: "textSearch.tableTitles.drugs",
       isActive: false,
@@ -208,6 +211,7 @@ export default {
         setTimeout(() => {this.$refs.form.resetValidation();}, 5000);
       }
       else{
+        this.loadingDrugs = this.loadingDiseases = this.loadingTexts = true
         let level
 
         if(this.drugs.isActive){
@@ -232,6 +236,9 @@ export default {
           .catch(error => {
             console.log(error)
           })
+          .finally(() => {
+            this.loadingDrugs = false
+          })
     },
     searchDiseases(size, keywords, level){
       axiosService.bioAPISearch("diseases", size, keywords, level)
@@ -241,6 +248,9 @@ export default {
           .catch(error => {
             console.log(error)
           })
+          .finally(() => {
+            this.loadingDiseases = false
+          })
     },
     searchText(size, keywords) {
       axiosService.bioAPISearch("texts", size, keywords)
@@ -249,6 +259,9 @@ export default {
           })
           .catch(error => {
             console.log(error)
+          })
+          .finally(() => {
+            this.loadingTexts = false
           })
     },
   },
