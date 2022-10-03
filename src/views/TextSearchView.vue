@@ -18,7 +18,7 @@
 
             <v-col>
               <v-btn height="56px" width="56px"
-                     :loading="loadingDiseases || loadingDrugs || loadingTexts"
+                     :loading="loading"
                      outlined
                      @click="clickSearchHandler"
               >
@@ -174,9 +174,7 @@ export default {
 
   data: () => ({
     inputText: "",
-    loadingDrugs: false,
-    loadingDiseases: false,
-    loadingTexts: false,
+    loading: false,
     drugs:{
       tableTitle: "textSearch.tableTitles.drugs",
       isActive: false,
@@ -211,7 +209,10 @@ export default {
         setTimeout(() => {this.$refs.form.resetValidation();}, 5000);
       }
       else{
-        this.loadingDrugs = this.loadingDiseases = this.loadingTexts = true
+        this.loading = true
+        this.drugs.results = []
+        this.diseases.results = []
+        this.texts.results = []
         let level
 
         if(this.drugs.isActive){
@@ -237,7 +238,7 @@ export default {
             console.log(error)
           })
           .finally(() => {
-            this.loadingDrugs = false
+            this.loading = false
           })
     },
     searchDiseases(size, keywords, level){
@@ -249,7 +250,7 @@ export default {
             console.log(error)
           })
           .finally(() => {
-            this.loadingDiseases = false
+            this.loading = false
           })
     },
     searchText(size, keywords) {
@@ -261,7 +262,7 @@ export default {
             console.log(error)
           })
           .finally(() => {
-            this.loadingTexts = false
+            this.loading = false
           })
     },
   },
