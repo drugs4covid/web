@@ -34,8 +34,8 @@ export default {
     selection: null,
   }),
   methods:{
-    fetchSolrData(core, fieldList, filterQuery, query, rows) {
-      axiosService.solrQueryService(core, fieldList, filterQuery, query, rows)
+    fetchSolrData(core, query, fieldList, filterQuery, rows) {
+      axiosService.solrQueryService(core, query, fieldList, filterQuery, rows)
           .then(response => {
             if(response.data.response.numFound !== 0){
 
@@ -68,10 +68,10 @@ export default {
       if(input && input.length === 2) {
         this.resultsList = []
 
-        this.fetchSolrData(SOLR_CORE_ATC, "id,id", "id:" + input + "*", "*", 10)
-        this.fetchSolrData(SOLR_CORE_ATC, "id,label_t", "label_t:" + input + "*", "*", 10)
-        this.fetchSolrData(SOLR_CORE_DISEASES, "id,id", "id:" + input + "*", "*", 10)
-        this.fetchSolrData(SOLR_CORE_DISEASES, "id,name_t", "name_t:" + input + "*", "*", 10)
+        this.fetchSolrData(SOLR_CORE_ATC, "*", "id,id", "id:" + input + "*", 10)
+        this.fetchSolrData(SOLR_CORE_ATC, "*", "id,label_t", "label_t:" + input + "*", 10)
+        this.fetchSolrData(SOLR_CORE_DISEASES, "*", "id,id", "id:" + input + "*", 10)
+        this.fetchSolrData(SOLR_CORE_DISEASES, "*", "id,name_t", "name_t:" + input + "*", 10)
       }
     },
     hitHandler(item){

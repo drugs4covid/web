@@ -17,15 +17,15 @@ function bioNLPAnalyze(text) {
     });
 }
 
-function solrQueryService(core, fieldList, filterQuery, query, rows) {
+function solrQueryService(core, query, fieldList, filterQuery, rows) {
     return Axios({
         method: 'GET',
         url: 'https://librairy.linkeddata.es/solr/' + core + '/select',
         params: {
-            fl: fieldList,
-            fq: filterQuery,
             q: query,
-            rows: rows,
+            ...((fieldList) && {fl: fieldList}),
+            ...((filterQuery) && {fq: filterQuery}),
+            ...((rows) && {rows: rows}),
         },
     });
 }
