@@ -16,13 +16,9 @@ export default {
 
   methods:{
     selectHandler(item){
-      let type = "drug"
-      let url = "https://search.drugs4covid.oeg-upm.net/search/"
-      if(item.value.charAt(0) === 'D') {
-        type = "disease"
-      }
-
-      window.location.href = url.concat(type,'/',item.value);
+      this.$router.push({
+        name: "search-" + item.type,
+        params: {id: item.value}})
     }
   }
 }

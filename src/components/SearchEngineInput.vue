@@ -20,10 +20,11 @@
 <script>
 import axiosService from "@/service/axiosService";
 
-const SOLR_CORES = [
-  'atc',
-  'diseases',
-]
+const SOLR_CORE_ATC = "atc"
+const SOLR_CORE_DISEASES = "diseases"
+
+const TYPE_DRUG = "drug"
+const TYPE_DISEASE = "disease"
 
 export default {
   name: "SearchEngineInput",
@@ -39,7 +40,14 @@ export default {
             if(response.data.response.numFound !== 0){
 
               this.resultsList = response.data.response.docs.map(doc => {
-                let item = {text: null, value: null}
+                let item = {
+                  text: null,
+                  value: null,
+                  type: null,
+                }
+
+                if(core === SOLR_CORE_DISEASES) item.type = TYPE_DISEASE
+                if(core === SOLR_CORE_ATC) item.type = TYPE_DRUG
 
                 for(let key in doc){
                   key === 'id' ? item.value = doc[key] : item.text = doc[key]
@@ -60,10 +68,10 @@ export default {
       if(input && input.length === 2) {
         this.resultsList = []
 
-        this.fetchSolrData(SOLR_CORES[0], "id,id", "id:" + input + "*", "*", 10)
-        this.fetchSolrData(SOLR_CORES[0], "id,label_t", "label_t:" + input + "*", "*", 10)
-        this.fetchSolrData(SOLR_CORES[1], "id,id", "id:" + input + "*", "*", 10)
-        this.fetchSolrData(SOLR_CORES[1], "id,name_t", "name_t:" + input + "*", "*", 10)
+        this.fetchSolrData(SOLR_CORE_ATC, "id,id", "id:" + input + "*", "*", 10)
+        this.fetchSolrData(SOLR_CORE_ATC, "id,label_t", "label_t:" + input + "*", "*", 10)
+        this.fetchSolrData(SOLR_CORE_DISEASES, "id,id", "id:" + input + "*", "*", 10)
+        this.fetchSolrData(SOLR_CORE_DISEASES, "id,name_t", "name_t:" + input + "*", "*", 10)
       }
     },
     hitHandler(item){

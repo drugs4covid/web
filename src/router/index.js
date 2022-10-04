@@ -10,6 +10,8 @@ import CodeView from "@/views/CodeView";
 import QAView from "@/views/QAView";
 import ServicesView from "@/views/ServicesView";
 import TextSearchView from "@/views/TextSearchView";
+import DrugView from "@/views/DrugView";
+import DiseaseView from "@/views/DiseaseView";
 
 Vue.use(VueRouter)
 
@@ -21,47 +23,48 @@ const routes = [
   },
   {
     path: '/services/',
-    name: 'services',
     component: ServicesView
   },
   {
     path: '/services/bio-nlp',
-    name: 'bio-npl',
     component: BioNLPView
   },
   {
     path: '/services/search-engine',
-    name: 'search-engine',
     component: SearchEngineView
   },
   {
+    path: '/services/search/drug/:id',
+    name: 'search-drug',
+    component: DrugView
+  },
+  {
+    path: '/services/search/disease/:id',
+    name: 'search-disease',
+    component: DiseaseView
+  },
+  {
     path: '/services/qa',
-    name: 'qa',
     component: QAView
   },
   {
     path: '/knowledge-graph',
-    name: 'knowledge-graph',
     component: KnowledgeGraphView
   },
   {
     path: '/corpus',
-    name: 'corpus',
     component: CorpusView
   },
   {
     path: '/corpus/text-search',
-    name: 'text-search',
     component: TextSearchView
   },
   {
     path: '/resources/code',
-    name: 'code',
     component: CodeView
   },
   {
     path: '/about',
-    name: 'about',
     component: AboutView
   },
 ]
