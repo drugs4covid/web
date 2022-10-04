@@ -62,7 +62,7 @@
           </v-btn>
         </template>
 
-        <search-engine-input id="search-engine-input"/>
+        <search-engine-input id="search-engine-input" redirect/>
 
       </v-menu>
 

@@ -3,7 +3,7 @@
     <v-card flat>
       <v-card-title v-text="$t('searchEngineView.title')"/>
       <v-card-subtitle v-text="$t('searchEngineView.subtitle')"/>
-      <search-engine-input @select="selectHandler"/>
+      <search-engine-input @select="selectHandler" redirect/>
     </v-card>
   </v-container>
 </template>

@@ -28,6 +28,12 @@ const TYPE_DISEASE = "disease"
 
 export default {
   name: "SearchEngineInput",
+  props: {
+    redirect: {
+      type: Boolean,
+      default: false,
+    }
+  },
   data: () => ({
     resultsList: [],
     searchInput: "",
@@ -75,7 +81,14 @@ export default {
       }
     },
     hitHandler(item){
-      this.$emit("select", item)
+      if(!this.redirect){
+        this.$emit("select", item)
+      }
+      else{
+        let url = "https://search.drugs4covid.oeg-upm.net/search/"
+        window.location.href = url.concat(item.type,'/',item.value);
+      }
+
     }
   },
 }
