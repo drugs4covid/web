@@ -8,7 +8,7 @@
         <v-row justify="center" align-content="center">
 
           <v-col cols="11">
-            <v-text-field v-model="question"
+            <v-text-field v-model="input"
                           :placeholder="$t('qaView.placeholder')"
                           outlined hide-details
             >
@@ -19,7 +19,7 @@
             <v-btn height="56px"
                    :loading="loading"
                    outlined
-                   @click="askQuestion(question,maxAnswers)"
+                   @click="askQuestion(input, maxAnswers)"
             >
               <v-icon size="xx-large">mdi-chat-question-outline</v-icon>
             </v-btn>
@@ -64,17 +64,15 @@
         </v-row>
       </v-container>
 
-
-      <div v-for="(answer, index) in answerList"
-           :key="index"
-      >
-        <q-a-card :question="question"
-                  :answer="answer.answer"
-                  :type="answer.type"
-                  :confidence="answer.confidence"
-                  :evidence="answer.evidence"
-        />
-      </div>
+      <q-a-card v-for="(answer, index) in answerList"
+                v-show="!loading"
+                :key="index"
+                :question="question"
+                :answer="answer.answer"
+                :type="answer.type"
+                :confidence="answer.confidence"
+                :evidence="answer.evidence"
+      />
 
     </v-card>
   </v-container>
@@ -91,7 +89,8 @@ export default {
   },
   data: () => ({
     answerList: [],
-    question: "What symptoms are associated with coronavirus?",
+    input: "What medication is used to treat schizophrenia?",
+    question: "",
     maxAnswers: 1,
     useWiki: false,
     useDBPedia: false,
@@ -101,6 +100,8 @@ export default {
   methods:{
     askQuestion(){
       this.loading = true
+      this.question = this.input
+
       axiosService.qaAnswers(this.question, this.maxAnswers, this.useWiki, this.useDBPedia, this.useD4C)
           .then(response => {
             this.answerList = response.data
