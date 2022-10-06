@@ -48,7 +48,6 @@
                 <v-btn icon :href=member.email>
                   <v-icon color="#4285F4">mdi-email</v-icon>
                 </v-btn>
-
               </v-row>
             </v-card>
           </v-col>

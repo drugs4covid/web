@@ -78,7 +78,11 @@
         >
           <template #activator>
             <v-list-item-content>
-              <v-list-item-title v-text="$t(navItem.label)"/>
+              <router-link :to="navItem.to"
+                           style="text-decoration: none; color: inherit;"
+              >
+                <v-list-item-title v-text="$t(navItem.label)"/>
+              </router-link>
             </v-list-item-content>
           </template>
 
