@@ -11,6 +11,7 @@
     "jupiterNotebooks": "Notebooks",
     "keyQ": "KeyQ",
     "knowledgeGraph": "Knowledge Graph",
+    "oeg": "Ontology Engineering Group (OEG)",
     "ontology": "Ontology",
     "qa": "BioQA",
     "queryBuilder": "Repository",
@@ -153,5 +154,14 @@
     "title": "@:title.searchEngine",
     "subtitle": "An open web service to exploit the existing scientific literature about coronavirus (more than 60,000 papers) identifying drugs, diseases and articles and displaying their relations inside the corpus. You can search by ATC code, Generic Name, Disease Name or MESH code.",
     "placeholder": "Type at least {numChar} characters to start searching"
+  },
+  "about": {
+    "title": "@:title.oeg",
+    "team": "Our Team",
+    "subtitle": "@:about.lab <br> @:about.faculty <br> @:about.university <br> @:about.address",
+    "lab": "Laboratory 3206",
+    "faculty": "Escuela Técnica Superior de Ingenieros Informáticos (ETSIINF)",
+    "university": "Polytechnic University of Madrid",
+    "address": "Avda. Montepríncipe, s/n, Boadilla del Monte, 28660, Spain"
   }
 }
