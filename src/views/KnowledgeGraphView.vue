@@ -24,7 +24,9 @@
 
           <v-col cols="12">
             <div class="h_iframe">
-              <iframe allowfullscreen id="iframe" src="https://drugs4covid.github.io/EBOCA-portal/index.html"/>
+              <iframe src="https://drugs4covid.github.io/EBOCA-portal/index.html"
+                      allowfullscreen id="iframe" loading="lazy"
+              />
             </div>
           </v-col>
 
