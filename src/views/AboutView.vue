@@ -36,16 +36,16 @@
                 </v-chip-group>
               </v-row>
               <v-row justify="center">
-                <v-btn icon :href="member.twitter">
+                <v-btn icon plain :href="member.twitter">
                   <v-icon color="#1DA1F2">mdi-twitter</v-icon>
                 </v-btn>
-                <v-btn icon :href="member.linkedin">
+                <v-btn icon plain :href="member.linkedin">
                   <v-icon color="#0077b5">mdi-linkedin</v-icon>
                 </v-btn>
-                <v-btn icon :href="member.github">
+                <v-btn icon plain :href="member.github">
                   <v-icon color="#c9510c">mdi-github</v-icon>
                 </v-btn>
-                <v-btn icon :href=member.email>
+                <v-btn icon plain :href=member.email>
                   <v-icon color="#4285F4">mdi-email</v-icon>
                 </v-btn>
               </v-row>

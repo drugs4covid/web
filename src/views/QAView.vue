@@ -72,6 +72,8 @@
                 :type="answer.type"
                 :confidence="answer.confidence"
                 :evidence="answer.evidence"
+                :start="answer.start"
+                :end="answer.end"
       />
 
     </v-card>
