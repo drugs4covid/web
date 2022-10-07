@@ -20,7 +20,10 @@
           <span v-for="(author, index) in cite.author"
                 :key="index"
           >
-            {{author.given}} {{author.family}},
+            {{author.given}} {{author.family}}
+            <span v-if="index === cite.author.length-2" v-text="$t('label.and')"/>
+            <span v-else-if="index === cite.author.length-1">.</span>
+            <span v-else>, </span>
           </span>
         </h3>
         <v-card-text v-text="cite.abstract"/>
@@ -66,14 +69,20 @@ import Cite from 'citation-js';
 
 // More info about Cite input formats in:
 // https://citation.js.org/api/0.3/tutorial-input_formats.html
+// References made with plain bibtex should be refactored
 const CITE_INPUT=[
+  /*ID 2*/"https://oa.upm.es/cgi/export/eprint/67933/BibTeX/upm-eprint-67933.bib",
+  /*ID 3*/"@article{PLN6437,author = {Carlos Badenes-Olmedo y Álvaro Alonso y Oscar Corcho},title = {An Overview of Drugs, Diseases, Genes and Proteins in the CORD-19 Corpus},journal = {Procesamiento del Lenguaje Natural},volume = {69},number = {0},year = {2022},keywords = {},abstract = {Several initiatives have emerged during the COVID-19 pandemic to gather scientific publications related to coronaviruses. Among them, the COVID-19 Open Research Dataset (CORD-19) has proven to be a valuable resource that provides full-text articles from the PubMed Central, bioRxiv and medRxiv repositories. Such a large amount of biomedical literature needs to be properly managed to facilitate and promote its use by health professionals, for example by tagging documents with the biomedical entities that appear on them. We created a biomedical named entity recognizer (NER) that normalizes (NEN) the drugs, diseases, genes and proteins mentioned in texts with the codes of the main standardization systems such as MeSH, ICD-10, ATC, SNOMED, ChEBI, GARD and NCBI. It is based on fine-tuning the BioBERT language model independently for each entity type using domain-specific datasets and an inverse index search to normalize the references. We have used the resultant BioNER+BioNEN system to process the CORD-19 corpus and offer an overview of the drugs, diseases, genes and proteins related to coronaviruses in the last fifty years.},issn = {1989-7553},url = {http://journal.sepln.org/sepln/ojs/ojs/index.php/pln/article/view/6437},pages = {165--176}}",
+  /*ID 4: Cannot be cited, is an event programme*/
+  /*ID 5*/"https://oa.upm.es/cgi/export/eprint/71455/BibTeX/upm-eprint-71455.bib",
+  /*ID 6*/"https://oa.upm.es/cgi/export/eprint/71427/BibTeX/upm-eprint-71427.bib",
+  /*ID 9*/"https://oa.upm.es/cgi/export/eprint/70949/BibTeX/upm-eprint-70949.bib",
+  /*ID 10*/"https://oa.upm.es/cgi/export/eprint/67901/BibTeX/upm-eprint-67901.bib",
+  /*ID 13: Need more info about what to cite*/"",
+  /*ID 14*/"10.1007/978-3-031-17105-5_11",
   "https://doi.org/10.48550/arXiv.2012.01953",
-  "10.48550/arXiv.2012.01953",
-  "https://doi.org/10.48550/arXiv.2208.01093",
   "10.48550/arXiv.2208.01093",
-  "@ARTICLE{smit54,AUTHOR = {J. G. Smith and H. K. Weston},TITLE = {Nothing Particular in this Year's History},YEAR = {1954},JOURNAL = {J. Geophys. Res.},VOLUME = {2},PAGES = {14-15}}",
-  "@book{ANTLR,author = {Terence Parr},edition = {First},interhash = {d9ef4ed82183b86b6a3004161de5ea44},intrahash = {1688029f4c14bd3b234933a48e902c03},publisher = {Pragmatic Bookshelf},series = {Pragmatic Programmers},title = {The Definitive ANTLR Reference: Building Domain-Specific Languages},url = {http://www.amazon.com/Definitive-ANTLR-Reference-Domain-Specific-Programmers/dp/0978739256%3FSubscriptionId%3D13CT5CVB80YFWJEPWS02%26tag%3Dws%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0978739256},year = 2007,ean = {9780978739256},keywords = {Me:MastersThesis antlr compilers languages lexers parsers programming},asin = {0978739256},description = {Amazon.com: The Definitive ANTLR Reference: Building Domain-Specific Languages (Pragmatic Programmers): Terence Parr: Books},isbn = {0978739256},biburl = {http://www.bibsonomy.org/bibtex/21688029f4c14bd3b234933a48e902c03/gron},dewey = {005.45},month = May}",
-]
+ ]
 
 export default {
   name: "CodeView",
@@ -81,14 +90,6 @@ export default {
     citationsData() {
       return new Cite(CITE_INPUT).data
     },
-    citationsFormated() {
-      return CITE_INPUT.map(item => {
-        return new Cite(item).format('bibliography', {
-          format: 'html',
-          template: 'apa'
-        })
-      })
-    }
   }
 }
 </script>

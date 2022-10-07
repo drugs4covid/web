@@ -24,7 +24,8 @@
   "label": {
     "type": "Type",
     "confidence": "Confidence",
-    "version": "Version"
+    "version": "Version",
+    "and": "and"
   },
 
   "month": {
