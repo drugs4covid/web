@@ -195,7 +195,7 @@ export default {
           },
           {
             label: "title.articles",
-            href: "https://arxiv.org/abs/2012.01953",
+            to: "/resources/papers",
           },
         ]
       },
