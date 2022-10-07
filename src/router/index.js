@@ -13,6 +13,7 @@ import TextSearchView from "@/views/TextSearchView";
 import DrugView from "@/views/DrugView";
 import DiseaseView from "@/views/DiseaseView";
 import ResourcesView from "@/views/ResourcesView";
+import PapersView from "@/views/PapersView";
 
 Vue.use(VueRouter)
 
@@ -67,6 +68,10 @@ const routes = [
   {
     path: '/resources/code',
     component: CodeView
+  },
+  {
+    path: '/resources/papers',
+    component: PapersView
   },
   {
     path: '/about',
