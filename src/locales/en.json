@@ -48,41 +48,44 @@
     "caption": "Drugs4Covid++ - AYUDAS FUNDACIÓN BBVA A EQUIPOS DE INVESTIGACIÓN CIENTÍFICA SARS-CoV-2 y COVID-19"
   },
 
-  "problem": {
-    "title": "Problem",
-    "subtitle": "Drugs in hospital pharmacy services are running low",
-    "text": "With the increase in the number of patients affected by COVID-19 and admitted to Intensive Care Units throughout the world, the demand for the medicines necessary for their treatment has increased. Laboratories have increased production. However, Drug Agencies worldwide confirm that there are problems related to the supply of some specific medicines.\\nFor years, a large amount of scientific literature about coronavirus (currently, more than 60,000 scientific papers) has been generated. This is a great help for eveybody fighting against COVID-19, but at the same time such a large corpus is difficult to explore. Furthermore, the same active ingredient may be found in more than one trade name, what makes exploration of this corpus even more difficult for those who have to make quick informed decisions related to medicine use and supplies."
-  },
-
-  "resources": {
-    "title": "So much information becomes problematic",
-    "subtitle": "CORD-19",
-    "text": "Therefore, the large amount of scientific documentation available becomes a problem on itself, especially in situations when decisions have to be made quickly.\nIf a person wants to know the application or use of a drug in the treatment of COVID-19 for a specific group of patients, or identify the relationships between drugs described in a protocol of action, they should navigate this large body of documentation where drugs are often mentioned with different names (active principle, trade name, therapeutic group, etc.). Furthermore, the mention of a medicine in a scientific paper may inform about its possible use, but sometimes it may be also inside a sentence or paragraph that has no relevance to our objective of saving lives."
-  },
-
-  "approach": {
-    "title": "Our Approach",
-    "buttonText": "How does it work?",
-    "step1": {
-      "title": "Process",
-      "text": "Process and index the corpus of scientific papers, and all of its paragraphs."
+  "home": {
+    "header": "We created a knowledge graph with evidence from scientific publications on coronaviruses. Drugs, diseases, genes and proteins are identified and normalised to enable complex searches on the articles.",
+    "subheader": "Drugs4Covid extracts and structures evidence from scientific papers in five steps: Harvest, Parse, Extract, Integrate, and Publish. Try out our public tools.",
+    "section1": {
+      "title": "Harvest",
+      "text": "Data are collected at this stage. We use reliable information sources to retrieve scientific articles on coronaviruses. <strong>The CORD-19 corpus</strong> has been the main database used in this study. The latest indexed update is the January 2022 edition, with 334,572 scientific articles and more than 7 million paragraphs.",
+      "btnText": "Go to Corpus"
     },
-    "step2": {
-      "title": "Classify",
-      "text": "Annotate each article and each sentence with the processed information."
+    "section2": {
+      "title": "Parse",
+      "text": "One of the most fundamental text mining tasks in information retrieval in medical domain is the recognition of biomedical entities, such as <strong>diseases, chemicals or genes</strong>, commonly known as BioNER. As a complement to this recognition, we have linked the detected entities to <strong>curated databases</strong> in a process called BioNEN entity linking or normalisation.",
+      "btnText": "Go to BioNER"
     },
-    "step3": {
-      "title": "Validate",
-      "text": "Review these notes with the help of citizen scientists."
+    "section3": {
+      "title": "Extract",
+      "text": "The combined use of natural language processing tasks with word representation techniques and knowledge extraction technologies provides practitioners and clinical researchers with tools that facilitate their work in structuring the information contained in the articles. In particular, to establish relationships between drugs or diseases, and in order to improve corpus searches, we have created representation models based on <strong>probabilistic topics</strong> capable of abstracting entities from their textual forms and relating them to each other.",
+      "btnText": "Go to BioSearch"
     },
-    "step4": {
-      "title": "Process",
-      "text": "Publish a knowledge graph with the valid data."
+    "section4": {
+      "title": "Integrate",
+      "text": "In order to address the challenge of integrating biomedical knowledge into a single representation space that also provides traceability, we have created the <strong>EBOCA ontology</strong> where the Evidence for BiOmedical Concept Association is modelled.  The ontology describes and associates concepts from the biomedical domain, as well as the evidence that supports these associations. With this ontology we define the conceptual model on which the Drugs4Covid knowledge graph is built.",
+      "btnText": "Go to EBOCA"
+    },
+    "section5": {
+      "title": "Publish",
+      "text": "We have created a <strong>hybrid question-answer (QA)</strong> system based on natural language that provides answers by combining information from knowledge graphs and text documents. It is a novel KGQA algorithm that works without prior training and without the need to translate the question into a formal query language.",
+      "btnText": "Go to BioQA"
+    },
+    "section6": {
+      "title": "",
+      "text": "",
+      "btnText": "Go to "
+    },
+    "section7": {
+      "title": "",
+      "text": "",
+      "btnText": "Go to "
     }
-  },
-
-  "homeView": {
-    "header": "A catalogue of medicines used to combat COVID-19 created using Artificial Intelligence techniques. We exploit the existing scientific literature about coronavirus to build a knowledge graph where technical information and evidences are provided."
   },
 
   "services": {
@@ -91,19 +94,19 @@
     "bioNER": {
       "title": "@:title.bioNLP",
       "subtitle": "@:bioNLPView.subtitle",
-      "text": "@:bioNLPView.description",
+      "text": "A biomedical named entity recognizer (NER) that normalizes (NEN) the drugs, diseases, genes and proteins mentioned in texts with the codes of the main standardization systems such as MeSH, ICD-10, ATC, SNOMED, ChEBI, GARD and NCBI. It is based on fine-tuning the BioBERT language model independently for each entity type using domain-specific datasets and an inverse index search to normalize the references.",
       "btnText": "Start Analyzing"
     },
     "bioSearch": {
       "title": "@:title.searchEngine",
       "subtitle": "@:searchEngineView.subtitle",
-      "text": "@:searchEngineView.description",
+      "text": "An open web service to exploit the existing scientific literature about coronavirus identifying drugs, diseases and articles and displaying their relations inside the corpus. You can search by ATC code, Generic Name, Disease Name or MESH code.",
       "btnText": "Start Searching"
     },
     "bioQA": {
       "title": "@:title.qa",
       "subtitle": "@:qaView.subtitle",
-      "text": "Question/Answer for covid related searches",
+      "text": "A novel <strong>Question-Answering (QA) system</strong> based on natural language questions that is domain-independent and enables the combination of knowledge graphs with unstructured information sources to build the answer. It combines <strong>DBPedia</strong> and <strong>Wikidata</strong> with the Drugs4Covid database to provide natural language answers.",
       "btnText": "Start Asking"
     }
 
@@ -153,7 +156,7 @@
 
   "searchEngineView": {
     "title": "@:title.searchEngine",
-    "subtitle": "An open web service to exploit the existing scientific literature about coronavirus (more than 60,000 papers) identifying drugs, diseases and articles and displaying their relations inside the corpus. You can search by ATC code, Generic Name, Disease Name or MESH code.",
+    "subtitle": "Search among all scientific literature about coronavirus",
     "placeholder": "Type at least {numChar} characters to start searching"
   },
   "about": {

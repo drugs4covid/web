@@ -9,7 +9,7 @@ module.exports = defineConfig({
       locale: 'en',
       fallbackLocale: 'en',
       localeDir: 'locales',
-      enableInSFC: false,
+      enableInSFC: true,
       enableBridge: false
     }
   }

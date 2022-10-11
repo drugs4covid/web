@@ -13,7 +13,7 @@
             <v-card>
               <v-card-title v-text="$t(card.title)"/>
               <v-card-subtitle v-text="$t(card.subtitle)"/>
-              <v-card-text v-text="$t(card.text)"/>
+              <v-card-text v-html="$t(card.text)"/>
               <v-card-actions>
                 <v-btn v-text="$t(card.btnText)"
                        :to="card.to"
