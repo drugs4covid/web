@@ -28,7 +28,7 @@
           </v-row>
 
           <v-row>
-            <v-subheader class="subheader" v-text="$t('textSearch.maxResults')+':'"/>
+            <v-subheader class="subheader" v-text="$t('textSearch.subheader1')+':'"/>
             <v-text-field id="max-result-field"
                           v-model="maxResults"
                           class="mt-0 pt-0 align-center"
@@ -49,7 +49,7 @@
           </v-row>
 
           <v-row>
-            <v-subheader class="subheader" v-text="$t('textSearch.subheader')+':'"/>
+            <v-subheader class="subheader" v-text="$t('textSearch.subheader2')+':'"/>
 
               <v-checkbox class="filter-checkbox"
                           v-model="diseases.isActive"
@@ -63,13 +63,13 @@
               />
               <v-checkbox class="filter-checkbox"
                           v-model="texts.isActive"
-                          :label="$t('textSearch.Texts')"
+                          :label="$t('textSearch.texts')"
                           hide-spin-buttons dense
               />
           </v-row>
 
           <v-row>
-            <v-subheader class="subheader" v-text="$t('textSearch.subheader')+':'"/>
+            <v-subheader class="subheader" v-text="$t('textSearch.subheader3')+':'"/>
             <v-col>
               <v-text-field class="filter-text-field"
                             v-model="drugs.levelFilter"

@@ -25,7 +25,8 @@
     "type": "Type",
     "confidence": "Confidence",
     "version": "Version",
-    "and": "and"
+    "and": "and",
+    "filterBy": "Filter by"
   },
 
   "month": {
@@ -99,8 +100,22 @@
       "text": "A novel <strong>Question-Answering (QA) system</strong> based on natural language questions that is domain-independent and enables the combination of knowledge graphs with unstructured information sources to build the answer. It combines <strong>DBPedia</strong> and <strong>Wikidata</strong> with the Drugs4Covid database to provide natural language answers.",
       "btnText": "Start Asking"
     }
-
   },
+
+  "textSearch": {
+    "title": "Keyword-guided Resource Finder",
+    "subtitle": "Type one or more keywords and select the resource to retrieve: text, medicine or disease.",
+    "placeholder": "Remdesivir",
+    "subheader1": "Max Results",
+    "subheader2": "Resources",
+    "subheader3": "Filters",
+    "diseases": "Diseases",
+    "drugs": "Drugs",
+    "texts": "Texts",
+    "drugsFilter": "@:label.filterBy ATC level",
+    "diseasesFilter": "@:label.filterBy MESH level"
+  },
+
   "bioNLPView": {
     "title": "@:title.bioNLP",
     "subtitle": "Find the biomedical entities hidden in text",
