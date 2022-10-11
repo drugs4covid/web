@@ -91,9 +91,9 @@ export default {
   },
   data: () => ({
     answerList: [],
-    input: "What medication is used to treat schizophrenia?",
+    input: "What traditional medicine has been used to treat Covid-19?",
     question: "",
-    maxAnswers: 1,
+    maxAnswers: 3,
     useWiki: false,
     useDBPedia: false,
     useD4C: true,
