@@ -16,7 +16,7 @@
               <v-card-text v-html="$t(card.text)"/>
               <v-card-actions>
                 <v-btn v-text="$t(card.btnText)"
-                       :to="card.to"
+                       :to="{name: card.to}"
                 />
               </v-card-actions>
             </v-card>
@@ -39,21 +39,21 @@ export default {
         subtitle: "services.bioNER.subtitle",
         text: "services.bioNER.text",
         btnText: "services.bioNER.btnText",
-        to: "/services/bio-nlp",
+        to: "bio-ner",
       },
       {
         title: "services.bioSearch.title",
         subtitle: "services.bioSearch.subtitle",
         text: "services.bioSearch.text",
         btnText: "services.bioSearch.btnText",
-        to: "/services/search-engine",
+        to: "bio-search",
       },
       {
         title: "services.bioQA.title",
         subtitle: "services.bioQA.subtitle",
         text: "services.bioQA.text",
         btnText: "services.bioQA.btnText",
-        to: "/services/qa",
+        to: "bio-qa",
       },
     ],
 

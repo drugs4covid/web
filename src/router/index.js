@@ -25,56 +25,67 @@ const routes = [
   },
   {
     path: '/services/',
+    name: 'services',
     component: ServicesView
   },
   {
     path: '/services/bio-nlp',
+    name: 'bio-ner',
     component: BioNLPView
   },
   {
     path: '/services/search-engine',
+    name: 'bio-search',
     component: SearchEngineView
   },
   {
     path: '/services/search/drug/:id',
-    name: 'search-drug',
+    name: 'bio-search-drug',
     component: DrugView
   },
   {
     path: '/services/search/disease/:id',
-    name: 'search-disease',
+    name: 'bio-search-disease',
     component: DiseaseView
   },
   {
     path: '/services/qa',
+    name: 'bio-qa',
     component: QAView
   },
   {
     path: '/knowledge-graph',
+    name: 'kg',
     component: KnowledgeGraphView
   },
   {
     path: '/corpus',
+    name: 'corpus',
     component: CorpusView
   },
   {
     path: '/corpus/text-search',
+    name: 'text-search',
     component: TextSearchView
   },
   {
     path: '/resources',
+    name: 'resources',
     component: ResourcesView
   },
   {
     path: '/resources/code',
+    name: 'code',
     component: CodeView
   },
   {
     path: '/resources/papers',
+    name: 'papers',
     component: PapersView
   },
   {
     path: '/about',
+    name: 'about',
     component: AboutView
   },
 ]

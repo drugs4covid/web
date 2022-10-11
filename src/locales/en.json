@@ -75,16 +75,6 @@
       "title": "Publish",
       "text": "We have created a <strong>hybrid question-answer (QA)</strong> system based on natural language that provides answers by combining information from knowledge graphs and text documents. It is a novel KGQA algorithm that works without prior training and without the need to translate the question into a formal query language.",
       "btnText": "Go to BioQA"
-    },
-    "section6": {
-      "title": "",
-      "text": "",
-      "btnText": "Go to "
-    },
-    "section7": {
-      "title": "",
-      "text": "",
-      "btnText": "Go to "
     }
   },
 
