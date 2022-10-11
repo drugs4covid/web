@@ -177,21 +177,21 @@ export default {
     loading: false,
     drugs:{
       tableTitle: "textSearch.tableTitles.drugs",
-      isActive: false,
+      isActive: true,
       enableLevelFiler: false,
       levelFilter: 1,
       results: []
     },
     diseases:{
       tableTitle: "textSearch.tableTitles.diseases",
-      isActive: false,
+      isActive: true,
       enableLevelFiler: false,
       levelFilter: 1,
       results: []
     },
     texts:{
       tableTitle: "textSearch.tableTitles.texts",
-      isActive: false,
+      isActive: true,
       results: []
     },
     maxResults: 1,
