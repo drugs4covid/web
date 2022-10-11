@@ -85,8 +85,8 @@ export default {
         this.$emit("select", item)
       }
       else{
-        let url = "https://search.drugs4covid.oeg-upm.net/search/"
-        window.location.href = url.concat(item.type,'/',item.value);
+        window.location.href = this.$store.state.externalLink.search
+            .concat(item.type,'/',item.value);
       }
 
     }

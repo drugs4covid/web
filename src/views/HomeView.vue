@@ -31,8 +31,7 @@
             <v-card-text v-html="$t(section.text)"/>
             <v-card-actions>
               <v-btn v-text="$t(section.btnText)"
-                     :to="section.to"
-                     :href="section.href"
+                     :to="{name: section.to}"
               />
             </v-card-actions>
           </v-col>
@@ -68,7 +67,7 @@ export default {
         title: "home.section1.title",
         text: "home.section1.text",
         btnText: "home.section1.btnText",
-        to: "/corpus",
+        to: "corpus",
         img: Section1Img,
         imgPosition: "left",
       },
@@ -77,7 +76,7 @@ export default {
         title: "home.section2.title",
         text: "home.section2.text",
         btnText: "home.section2.btnText",
-        to: "/services/bio-nlp",
+        to: "bio-ner",
         img: Section2Img,
         imgPosition: "left",
       },
@@ -86,7 +85,7 @@ export default {
         title: "home.section3.title",
         text: "home.section3.text",
         btnText: "home.section3.btnText",
-        to: "/services/search-engine  ",
+        to: "bio-search",
         img: Section3Img,
         imgPosition: "left",
       },
@@ -95,7 +94,7 @@ export default {
         title: "home.section4.title",
         text: "home.section4.text",
         btnText: "home.section4.btnText",
-        href: "https://drugs4covid.github.io/EBOCA-portal/index.html",
+        to: "ontology",
         img: Section4Img,
         imgPosition: "left",
       },
@@ -104,7 +103,7 @@ export default {
         title: "home.section5.title",
         text: "home.section5.text",
         btnText: "home.section5.btnText",
-        to: "/services/qa",
+        to: "bio-qa",
         img: Section5Img,
         imgPosition: "left",
       },

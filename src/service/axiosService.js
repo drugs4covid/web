@@ -1,4 +1,5 @@
 import Axios from "axios";
+import store from "@/store/index.js"
 
 export default {
     bioNLPAnalyze,
@@ -10,7 +11,7 @@ export default {
 function bioNLPAnalyze(text) {
     return Axios({
         method: 'POST',
-        url: 'https://librairy.linkeddata.es/bio-ner/entities',
+        url: store.state.api.bioNerEntities,
         data: {
             text: text,
         },
@@ -20,7 +21,7 @@ function bioNLPAnalyze(text) {
 function solrQueryService(core, query, fieldList, filterQuery, rows) {
     return Axios({
         method: 'GET',
-        url: 'https://librairy.linkeddata.es/solr/' + core + '/select',
+        url: store.state.api.solr + core + '/select',
         params: {
             q: query,
             ...((fieldList) && {fl: fieldList}),
@@ -33,7 +34,7 @@ function solrQueryService(core, query, fieldList, filterQuery, rows) {
 function qaAnswers(question, maxAnswers, useWiki, useDBPedia, useD4C) {
     return Axios({
         method: 'GET',
-        url: 'https://d4c.linkeddata.es/qa/answers',
+        url: store.state.api.qa,
         params: {
             q: question,
             max: maxAnswers,
@@ -47,7 +48,7 @@ function qaAnswers(question, maxAnswers, useWiki, useDBPedia, useD4C) {
 function bioAPISearch(type, size, keywords, level) {
     return Axios({
         method: 'GET',
-        url: 'https://librairy.linkeddata.es/bio-api/' + type,
+        url: store.state.api.bioApi + type,
         params: {
             size: size,
             keywords: keywords,

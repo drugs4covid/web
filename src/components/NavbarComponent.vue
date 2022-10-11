@@ -12,7 +12,7 @@
 
       <!-- Navbar title -->
       <router-link to="/">
-        <v-img src="@/assets/d4c-logo.svg" contain max-width="250px"></v-img>
+        <v-img :src="pageLogo" contain max-width="250px"></v-img>
       </router-link>
 
       <!-- Navigation tabs -->
@@ -38,8 +38,7 @@
             <v-list-item
                 v-for="(view, index) in navItem.views"
                 :key="index"
-                :href="view.href"
-                :to="view.to"
+                :to="{name: view.to}"
             >
               <v-list-item-title v-text="$t(view.label)"/>
 
@@ -89,8 +88,7 @@
           <v-list-item
               v-for="(view, index) in navItem.views"
               :key="index"
-              :href="view.href"
-              :to="view.to"
+              :to="{name: view.to}"
           >
             <v-list-item-content>
               <v-list-item-title v-text="$t(view.label)"></v-list-item-title>
@@ -107,6 +105,9 @@
 <script>
 import SearchEngineInput from "@/components/SearchEngineInput";
 import LocaleSwitch from "@/components/LocaleSwitch";
+
+import NavbarLogo from "@/assets/d4c-logo.svg";
+
 export default {
   name: "NavbarComponent",
   components: {
@@ -117,11 +118,7 @@ export default {
   data: () =>({
     drawer: false,
     tab: null,
-    items: [
-      'web', 'shopping', 'videos', 'images', 'news',
-    ],
-    titleImgSrc: "@/assets/d4c-logo.svg",
-
+    pageLogo: NavbarLogo,
     navItems:[
       {
         name: "Services",
@@ -130,15 +127,15 @@ export default {
         views:[
           {
             label: "title.bioNLP",
-            to: "/services/bio-nlp",
+            to: "bio-ner",
           },
           {
             label: "title.searchEngine",
-            to: "/services/search-engine",
+            to: "bio-search",
           },
           {
             label: "title.qa",
-            to: "/services/qa",
+            to: "bio-qa",
           },
         ]
       },
@@ -149,15 +146,15 @@ export default {
         views:[
           {
             label: "title.graphDB",
-            href: "https://d4c.linkeddata.es/rdf",
+            to: "rdf",
           },
           {
             label: "title.sparql",
-            href: "https://d4c.linkeddata.es/sparql",
+            to: "sparql",
           },
           {
             label: "title.ontology",
-            href: "https://drugs4covid.github.io/EBOCA-portal/index.html",
+            to: "ontology",
           },
         ]
       },
@@ -168,15 +165,15 @@ export default {
         views:[
           {
             label: "title.customSearch",
-            to: "/corpus/text-search"
+            to: "text-search"
           },
           {
             label: "title.queryBuilder",
-            href: "http://librairy.linkeddata.es/solr/#/cord19-paragraphs/query",
+            to: "repository",
           },
           {
             label: "title.keyQ",
-            href: "https://aiproc.linkeddata.es/",
+            to: "keyQ",
           },
         ]
       },
@@ -187,15 +184,15 @@ export default {
         views:[
           {
             label: "title.code",
-            to: "/resources/code",
+            to: "code",
           },
           {
             label: "title.jupiterNotebooks",
-            href: "https://short.upm.es/54udg",
+            href: "notebooks",
           },
           {
             label: "title.articles",
-            to: "/resources/papers",
+            to: "papers",
           },
         ]
       },

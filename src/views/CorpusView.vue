@@ -16,8 +16,7 @@
               <v-card-text v-text="$t(card.text)"/>
               <v-card-actions>
                 <v-btn v-text="$t(card.btnText)"
-                       :href="card.href"
-                       :to="card.to"
+                       :to="{name: card.to}"
                 />
               </v-card-actions>
             </v-card>
@@ -40,21 +39,21 @@ export default {
         subtitle: "corpus.textSearch.subtitle",
         text: "corpus.textSearch.text",
         btnText: "corpus.textSearch.btnText",
-        to: "/corpus/text-search"
+        to: "text-search"
       },
       {
         title: "corpus.repository.title",
         subtitle: "corpus.repository.subtitle",
         text: "corpus.repository.text",
         btnText: "corpus.repository.btnText",
-        href: "http://librairy.linkeddata.es/solr/#/cord19-paragraphs/query"
+        to: "repository"
       },
       {
         title: "corpus.keyQ.title",
         subtitle: "corpus.keyQ.subtitle",
         text: "corpus.keyQ.text",
         btnText: "corpus.keyQ.btnText",
-        href: "https://aiproc.linkeddata.es/"
+        to: "keyQ"
       },
     ],
 

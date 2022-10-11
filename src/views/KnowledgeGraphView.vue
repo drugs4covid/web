@@ -16,7 +16,7 @@
               <v-card-text v-text="$t(card.text)"/>
               <v-card-actions>
                 <v-btn v-text="$t(card.btnText)"
-                       :href="card.href"
+                       :to="{name: card.to}"
                 />
               </v-card-actions>
             </v-card>
@@ -24,7 +24,7 @@
 
           <v-col cols="12">
             <div class="h_iframe">
-              <iframe src="https://drugs4covid.github.io/EBOCA-portal/index.html"
+              <iframe :src=$store.state.externalLink.ontology
                       allowfullscreen id="iframe" loading="lazy"
               />
             </div>
@@ -47,14 +47,14 @@ export default {
         subtitle: "knowledgeGraph.rdf.subtitle",
         text: "knowledgeGraph.rdf.text",
         btnText: "knowledgeGraph.rdf.btnText",
-        href: "https://d4c.linkeddata.es/rdf"
+        to: "rdf"
       },
       {
         title: "knowledgeGraph.sparql.title",
         subtitle: "knowledgeGraph.sparql.subtitle",
         text: "knowledgeGraph.sparql.text",
         btnText: "knowledgeGraph.sparql.btnText",
-        href: "https://d4c.linkeddata.es/sparql"
+        to: "sparql"
       },
     ],
 

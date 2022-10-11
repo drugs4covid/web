@@ -14,6 +14,7 @@ import DrugView from "@/views/DrugView";
 import DiseaseView from "@/views/DiseaseView";
 import ResourcesView from "@/views/ResourcesView";
 import PapersView from "@/views/PapersView";
+import ExternalLinkView from "@/views/ExternalLinkView";
 
 Vue.use(VueRouter)
 
@@ -24,7 +25,7 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/services/',
+    path: '/services',
     name: 'services',
     component: ServicesView
   },
@@ -59,6 +60,21 @@ const routes = [
     component: KnowledgeGraphView
   },
   {
+    path: '/knowledge-grap/rdf',
+    name: 'rdf',
+    component: ExternalLinkView
+  },
+  {
+    path: '/knowledge-graph/sparql',
+    name: 'sparql',
+    component: ExternalLinkView
+  },
+  {
+    path: '/knowledge-graph/ontology',
+    name: 'ontology',
+    component: ExternalLinkView
+  },
+  {
     path: '/corpus',
     name: 'corpus',
     component: CorpusView
@@ -69,6 +85,16 @@ const routes = [
     component: TextSearchView
   },
   {
+    path: '/corpus/repository',
+    name: 'repository',
+    component: ExternalLinkView
+  },
+  {
+    path: '/corpus/keyQ',
+    name: 'keyQ',
+    component: ExternalLinkView
+  },
+  {
     path: '/resources',
     name: 'resources',
     component: ResourcesView
@@ -77,6 +103,11 @@ const routes = [
     path: '/resources/code',
     name: 'code',
     component: CodeView
+  },
+  {
+    path: '/resources/notebooks',
+    name: 'notebooks',
+    component: ExternalLinkView
   },
   {
     path: '/resources/papers',
