@@ -56,7 +56,7 @@ export default {
         twitter: "ocorcho",
         github: "ocorcho",
         linkedin: "ocorcho",
-        email: "ocorcho@fi.upm.es"
+        email: "oscar.corcho@upm.es"
       },
       {
         source: AIPic,
@@ -78,7 +78,7 @@ export default {
         twitter: "carbadol",
         github: "cbadenes",
         linkedin: "cbadenes",
-        email: "cbadenes@fi.upm.es"
+        email: "carlos.badenes@upm.es"
       },
     ]
   }),
