@@ -11,13 +11,24 @@
                  :key="index"
           >
             <v-card>
-              <v-card-title v-text="$t(card.title)"/>
-              <v-card-subtitle v-text="$t(card.subtitle)"/>
-              <v-card-text v-html="$t(card.text)"/>
+              <v-card-title>
+                {{$t(card.title)}}
+                <v-spacer/>
+                <v-btn icon plain v-show="card.code" :href="card.code">
+                  <v-icon color="#c9510c">mdi-github</v-icon>
+                </v-btn>
+                <v-btn icon plain v-show="card.huggingFace" :href="card.huggingFace">
+                  <v-icon color="#FFD21E">mdi-emoticon-excited</v-icon>
+                </v-btn>
+              </v-card-title>
+              <v-card-text class="text-justify" v-html="$t(card.text)"/>
               <v-card-actions>
+                <v-spacer/>
                 <v-btn v-text="$t(card.btnText)"
                        :to="{name: card.to}"
+                       color="primary" outlined
                 />
+                <v-spacer/>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -30,6 +41,9 @@
 </template>
 
 <script>
+
+import store from "@/store/index.js"
+
 export default {
   name: "ServicesView",
   data: () =>({
@@ -40,6 +54,8 @@ export default {
         text: "services.bioNER.text",
         btnText: "services.bioNER.btnText",
         to: "bio-ner",
+        code: store.state.bioNer.github,
+        huggingFace: store.state.bioNer.huggingFace
       },
       {
         title: "services.bioSearch.title",
@@ -47,6 +63,7 @@ export default {
         text: "services.bioSearch.text",
         btnText: "services.bioSearch.btnText",
         to: "bio-search",
+        code: store.state.bioSearch.github
       },
       {
         title: "services.bioQA.title",
@@ -54,11 +71,10 @@ export default {
         text: "services.bioQA.text",
         btnText: "services.bioQA.btnText",
         to: "bio-qa",
+        code: store.state.bioQa.github
       },
     ],
-
   })
-
 }
 </script>
 
