@@ -6,6 +6,7 @@ Vue.use(Vuex)
 const GITHUB_BASE_URL = "https://github.com/"
 const LIBRAIRY_BASE_URL = "https://librairy.linkeddata.es/"
 const HUGGINGFACE_BASE_URL = "https://huggingface.co/"
+const D4C_BASE_URL = "https://drugs4covid.oeg.fi.upm.es/"
 
 export default new Vuex.Store({
   state: {
@@ -19,8 +20,17 @@ export default new Vuex.Store({
     },
     bioQa: {
       github: GITHUB_BASE_URL.concat("drugs4covid/KGQA"),
+      api: "https://d4c.linkeddata.es/qa/answers"
     },
-    externalLink:{
+    rdf: {
+      github: GITHUB_BASE_URL.concat("drugs4covid/EBOCA-Resources"),
+      url: D4C_BASE_URL.concat("rdf")
+    },
+    sparql: {
+      github: GITHUB_BASE_URL.concat("drugs4covid/KG"),
+      url: D4C_BASE_URL.concat("sparql")
+    },
+    externalLink: { // For externalLink view. Must be refactored to use the other states
       sparql: "https://drugs4covid.oeg.fi.upm.es/sparql",
       rdf: "https://drugs4covid.oeg.fi.upm.es/rdf/",
       ontology  : "https://drugs4covid.github.io/EBOCA-portal/index.html",
@@ -29,9 +39,7 @@ export default new Vuex.Store({
       search: "https://search.drugs4covid.oeg-upm.net/search/",
     },
     api: {
-      bioNerEntities: "https://librairy.linkeddata.es/bio-ner/entities",
       solr: "https://librairy.linkeddata.es/solr/",
-      qa: "https://d4c.linkeddata.es/qa/answers",
       bioApi: "https://librairy.linkeddata.es/bio-api/"
     },
   },

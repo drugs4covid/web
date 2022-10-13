@@ -26,7 +26,8 @@
     "confidence": "Confidence",
     "version": "Version",
     "and": "and",
-    "filterBy": "Filter by"
+    "filterBy": "Filter by",
+    "goTo": "Go to"
   },
 
   "month": {
@@ -99,6 +100,21 @@
       "subtitle": "@:qaView.subtitle",
       "text": "A novel <strong>Question-Answering (QA) system</strong> based on natural language questions that is domain-independent and enables the combination of knowledge graphs with unstructured information sources to build the answer. It combines <strong>DBPedia</strong> and <strong>Wikidata</strong> with the Drugs4Covid database to provide natural language answers.",
       "btnText": "Start Asking"
+    }
+  },
+
+  "knowledgeGraph": {
+    "title": "Knowledge Graph",
+    "header": "header",
+    "rdf": {
+      "title": "RDF",
+      "text": "The Drugs4Covid Knowledge Graph uses two declarative mapping languages to transform input data into RDF: the W3C Recommendation R2RML for EBOCA SEM-DISNET, and RML for EBOCA Evidences. Both mappings have been created using Mapeathor ans were materialized using the mapping engine Morph-KGC.",
+      "btnText": "@:label.goTo Repository"
+    },
+    "sparql": {
+      "title": "SPARQL",
+      "text": "A web interface based on the <strong>HELIO framework</strong> has been created to access the Drugs4Covid knowledge graph. It enables queries in SPARQL format and manages access to resources through its URIs.",
+      "btnText": "@:label.goTo SPARQL Endpoint"
     }
   },
 

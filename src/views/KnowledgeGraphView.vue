@@ -11,13 +11,24 @@
                  :key="index"
           >
             <v-card>
-              <v-card-title v-text="$t(card.title)"/>
-              <v-card-subtitle v-text="$t(card.subtitle)"/>
-              <v-card-text v-text="$t(card.text)"/>
+              <v-card-title>
+                {{$t(card.title)}}
+                <v-spacer/>
+                <v-btn icon plain v-show="card.code" :href="card.code">
+                  <v-icon color="#c9510c">mdi-github</v-icon>
+                </v-btn>
+                <v-btn icon plain v-show="card.huggingFace" :href="card.huggingFace">
+                  <v-icon color="#FFD21E">mdi-emoticon-excited</v-icon>
+                </v-btn>
+              </v-card-title>
+              <v-card-text class="text-justify" v-html="$t(card.text)"/>
               <v-card-actions>
+                <v-spacer/>
                 <v-btn v-text="$t(card.btnText)"
                        :to="{name: card.to}"
+                       color="primary" outlined
                 />
+                <v-spacer/>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -38,6 +49,8 @@
 </template>
 
 <script>
+import store from "@/store/index.js"
+
 export default {
   name: "KnowledgeGraphView",
   data: () =>({
@@ -47,14 +60,16 @@ export default {
         subtitle: "knowledgeGraph.rdf.subtitle",
         text: "knowledgeGraph.rdf.text",
         btnText: "knowledgeGraph.rdf.btnText",
-        to: "rdf"
+        to: "rdf",
+        code: store.state.rdf.github
       },
       {
         title: "knowledgeGraph.sparql.title",
         subtitle: "knowledgeGraph.sparql.subtitle",
         text: "knowledgeGraph.sparql.text",
         btnText: "knowledgeGraph.sparql.btnText",
-        to: "sparql"
+        to: "sparql",
+        code: store.state.sparql.github
       },
     ],
 

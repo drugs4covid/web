@@ -11,7 +11,7 @@ export default {
 function bioNLPAnalyze(text) {
     return Axios({
         method: 'POST',
-        url: store.state.api.bioNerEntities,
+        url: store.state.bioNer.api,
         data: {
             text: text,
         },
@@ -34,7 +34,7 @@ function solrQueryService(core, query, fieldList, filterQuery, rows) {
 function qaAnswers(question, maxAnswers, useWiki, useDBPedia, useD4C) {
     return Axios({
         method: 'GET',
-        url: store.state.api.qa,
+        url: store.state.bioQa.api,
         params: {
             q: question,
             max: maxAnswers,
