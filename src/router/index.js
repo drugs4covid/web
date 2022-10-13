@@ -110,7 +110,12 @@ const routes = [
     component: ExternalLinkView
   },
   {
-    path: '/resources/papers',
+    path: '/resources/annotated-corpus',
+    name: 'annotated-corpus',
+    component: ExternalLinkView
+  },
+  {
+    path: '/papers',
     name: 'papers',
     component: PapersView
   },

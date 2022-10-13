@@ -1,6 +1,7 @@
 {
   "title": {
     "about": "About",
+    "annotatedCorpus": "Annotated Corpus",
     "articles": "Papers",
     "bioNLP": "BioNER",
     "corpus": "Corpus",
@@ -117,6 +118,7 @@
       "btnText": "@:label.goTo SPARQL Endpoint"
     }
   },
+
   "corpus": {
     "title": "",
     "header": "",
@@ -138,6 +140,26 @@
       "title": "Key",
       "text": "",
       "btnText": "@:label.goTo KeyQ"
+    }
+  },
+
+  "resources": {
+    "title": "Resources",
+    "header": "header",
+    "code": {
+      "title": "Code",
+      "text": "All resources created on Drugs4Covid are open source and publicly available. We have created an organisation on Github to centralise them. Feel free to use them and leave us feedback to help us keep improving.",
+      "btnText": ""
+    },
+    "notebooks": {
+      "title": "Notebooks",
+      "text": "To facilitate the use of our resources and speed up proof-of-concept testing, we have also created <strong>Jupyter notebooks</strong> that are openly available",
+      "btnText": ""
+    },
+    "annotatedCorpus": {
+      "title": "Annotated Corpus",
+      "text": "We have created a biomedical corpus in Spanish with twelve <strong>biomedical</strong> entities (Disease/Syndrome, Gene, Body Part/Organ, Glucid, Diagnostic Procedure, Protein, Therapeutic Procedure, Symptom/Sign, Pharmacological Substance, Lipid, Organism and Organic Chemical), one <strong>linguistic</strong> entity (Abbreviation/Sigla/Alias) and seven <strong>semantic relations</strong> (analyzes, alters, causes, diagnoses, manifestation_of, produces, refers_to, and treats). In total, 200 clinical reports were annotated, and 6636 biomedical entities and 4864 semantic relations were manually identified",
+      "btnText": "@:label.goTo Zenodo"
     }
   },
 

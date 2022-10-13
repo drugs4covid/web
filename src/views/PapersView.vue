@@ -106,10 +106,11 @@ const CITE_INPUT=[
 
 export default {
   name: "PapersView",
-  computed: {
-    citationsData() {
-      return new Cite(CITE_INPUT).data
-    },
+  data: () => ({
+    citationsData: null
+  }),
+  mounted() {
+    this.citationsData = new Cite(CITE_INPUT).data
   }
 }
 </script>

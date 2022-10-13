@@ -11,13 +11,24 @@
                  :key="index"
           >
             <v-card>
-              <v-card-title v-text="$t(card.title)"/>
-              <v-card-subtitle v-text="$t(card.subtitle)"/>
-              <v-card-text v-text="$t(card.text)"/>
+              <v-card-title>
+                {{$t(card.title)}}
+                <v-spacer/>
+                <v-btn icon plain v-show="card.code" :href="card.code">
+                  <v-icon color="#c9510c">mdi-github</v-icon>
+                </v-btn>
+                <v-btn icon plain v-show="card.huggingFace" :href="card.huggingFace">
+                  <v-icon color="#FFD21E">mdi-emoticon-excited</v-icon>
+                </v-btn>
+              </v-card-title>
+              <v-card-text class="text-justify" v-html="$t(card.text)"/>
               <v-card-actions>
+                <v-spacer/>
                 <v-btn v-text="$t(card.btnText)"
-                       :to="card.to"
+                       :to="{name: card.to}"
+                       color="primary" outlined
                 />
+                <v-spacer/>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -30,30 +41,29 @@
 </template>
 
 <script>
+//import store from "@/store/index.js"
+
 export default {
   name: "ResourcesView",
   data: () =>({
     cardItems: [
       {
         title: "resources.code.title",
-        subtitle: "resources.code.subtitle",
         text: "resources.code.text",
         btnText: "resources.code.btnText",
-        to: "/resources/code",
+        to: "code",
       },
       {
         title: "resources.notebooks.title",
-        subtitle: "resources.notebooks.subtitle",
         text: "resources.notebooks.text",
         btnText: "resources.notebooks.btnText",
-        to: "/resources/notebooks",
+        to: "notebooks",
       },
       {
-        title: "resources.papers.title",
-        subtitle: "resources.papers.subtitle",
-        text: "resources.papers.text",
-        btnText: "resources.papers.btnText",
-        to: "/resources/papers",
+        title: "resources.annotatedCorpus.title",
+        text: "resources.annotatedCorpus.text",
+        btnText: "resources.annotatedCorpus.btnText",
+        to: "annotatedCorpus",
       },
     ],
 

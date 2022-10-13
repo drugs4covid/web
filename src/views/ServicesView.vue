@@ -41,7 +41,6 @@
 </template>
 
 <script>
-
 import store from "@/store/index.js"
 
 export default {
@@ -50,7 +49,6 @@ export default {
     cardItems: [
       {
         title: "services.bioNER.title",
-        subtitle: "services.bioNER.subtitle",
         text: "services.bioNER.text",
         btnText: "services.bioNER.btnText",
         to: "bio-ner",
@@ -59,7 +57,6 @@ export default {
       },
       {
         title: "services.bioSearch.title",
-        subtitle: "services.bioSearch.subtitle",
         text: "services.bioSearch.text",
         btnText: "services.bioSearch.btnText",
         to: "bio-search",
@@ -67,7 +64,6 @@ export default {
       },
       {
         title: "services.bioQA.title",
-        subtitle: "services.bioQA.subtitle",
         text: "services.bioQA.text",
         btnText: "services.bioQA.btnText",
         to: "bio-qa",

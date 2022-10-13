@@ -42,6 +42,9 @@ export default new Vuex.Store({
       solrPapers: SOLR_BASE_URL.concat("cord19-papers/select?q=*%3A*"),
       solrParagraphs: SOLR_BASE_URL.concat("cord19-paragraphs/select?q=*%3A*"),
     },
+    d4c: {
+
+    },
     externalLink: { // For externalLink view. Must be refactored to use the other states
       sparql: "https://drugs4covid.oeg.fi.upm.es/sparql",
       rdf: "https://drugs4covid.oeg.fi.upm.es/rdf/",

@@ -191,13 +191,18 @@ export default {
             href: "notebooks",
           },
           {
-            label: "title.articles",
-            to: "papers",
+            label: "title.annotatedCorpus",
+            to: "annotatedCorpus",
           },
         ]
       },
       {
-        name:"about",
+        name: "papers",
+        label: "title.articles",
+        to: "/papers",
+      },
+      {
+        name: "about",
         label: "title.about",
         to: "/about",
       },
