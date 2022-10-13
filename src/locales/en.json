@@ -117,6 +117,29 @@
       "btnText": "@:label.goTo SPARQL Endpoint"
     }
   },
+  "corpus": {
+    "title": "",
+    "header": "",
+    "textSearch": {
+      "title": "Text Search",
+      "text": "We exploit the entity recognition models and the probabilistic topic representations of Drugs4Covid to provide a <strong>search engine</strong> based on biomedical entities. Additional databases have been used to extend the drug information and relate it to other terms. \n",
+      "btnText": "Start Searching"
+    },
+    "repository": {
+      "title": "Repository",
+      "text": "Supported by Solr, we have created indexes for each of the biomedical entities that can provide evidence",
+      "btnDiseases": "Diseases",
+      "btnDrugs": "Drugs",
+      "btnGenes": "Genes and Proteins",
+      "btnPapers": "Papers",
+      "btnParagraphs": "Paragraphs"
+    },
+    "keyQ": {
+      "title": "Key",
+      "text": "",
+      "btnText": "@:label.goTo KeyQ"
+    }
+  },
 
   "textSearch": {
     "title": "Keyword-guided Resource Finder",
