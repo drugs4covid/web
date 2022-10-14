@@ -6,7 +6,6 @@ import CorpusView from '@/views/CorpusView'
 import KnowledgeGraphView from "@/views/KnowledgeGraphView";
 import BioNLPView from "@/views/BioNLPView";
 import SearchEngineView from "@/views/SearchEngineView";
-import CodeView from "@/views/CodeView";
 import QAView from "@/views/QAView";
 import ServicesView from "@/views/ServicesView";
 import TextSearchView from "@/views/TextSearchView";
@@ -102,7 +101,7 @@ const routes = [
   {
     path: '/resources/code',
     name: 'code',
-    component: CodeView
+    component: ExternalLinkView
   },
   {
     path: '/resources/notebooks',

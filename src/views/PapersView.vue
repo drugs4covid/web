@@ -1,9 +1,6 @@
 <template>
   <v-container>
     <v-card flat>
-      <v-card-title v-text="$t('papers.title')"/>
-      <v-card-subtitle v-text="$t('papers.subtitle')"/>
-
       <v-col v-for="(cite, index) in citationsData"
              :key="index"
              cols="12"
@@ -75,7 +72,7 @@ export default {
     citationsData: null
   }),
   mounted() {
-    this.citationsData = new Cite(this.$store.state.papers).data
+    this.citationsData = new Cite(this.$store.state.citedDocuments).data
   }
 }
 </script>
