@@ -52,22 +52,22 @@ export default {
         text: "services.bioNER.text",
         btnText: "services.bioNER.btnText",
         to: "bio-ner",
-        code: store.state.bioNer.github,
-        huggingFace: store.state.bioNer.huggingFace
+        code: store.state.links.github.bioNer,
+        huggingFace: store.state.links.huggingFace.bioBert
       },
       {
         title: "services.bioSearch.title",
         text: "services.bioSearch.text",
         btnText: "services.bioSearch.btnText",
         to: "bio-search",
-        code: store.state.bioSearch.github
+        code: store.state.links.github.bioNlp
       },
       {
         title: "services.bioQA.title",
         text: "services.bioQA.text",
         btnText: "services.bioQA.btnText",
         to: "bio-qa",
-        code: store.state.bioQa.github
+        code: store.state.links.github.bioQa
       },
     ],
   })

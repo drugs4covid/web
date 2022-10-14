@@ -154,7 +154,20 @@
     "notebooks": {
       "title": "Notebooks",
       "text": "To facilitate the use of our resources and speed up proof-of-concept testing, we have also created <strong>Jupyter notebooks</strong> that are openly available",
-      "btnText": ""
+      "sources": {
+        "cord19Indexing": {
+          "title": "CORD-19 Indexing",
+          "description": "Clean-up and text preparation tasks for indexing CORD-19 articles in Solr"
+        },
+        "atcProcessing": {
+          "title": "ATC Processing",
+          "description": "Retrieve drug information from the ATC system in Solr"
+        },
+        "meshProcessing": {
+          "title": "MeSH Processing",
+          "description": "Retrieve drug and disease information from the MeSH system in Solr"
+        }
+      }
     },
     "annotatedCorpus": {
       "title": "Annotated Corpus",

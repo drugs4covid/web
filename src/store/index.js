@@ -19,9 +19,9 @@ export default new Vuex.Store({
         rdf: GITHUB_BASE_URL.concat("drugs4covid/EBOCA-Resources"),
         sparql: GITHUB_BASE_URL.concat("drugs4covid/KG"),
         notebooks: {
-          cord19_indexing: GITHUB_BASE_URL.concat("drugs4covid/bio-nlp/blob/master/notebooks/documents/cord19_indexing.ipynb"),
-          atc_processing: GITHUB_BASE_URL.concat("drugs4covid/bio-nlp/blob/master/notebooks/drugs/atc_processing.ipynb"),
-          mesh_processing: GITHUB_BASE_URL.concat("drugs4covid/bio-nlp/blob/master/notebooks/diseases/mesh_processing.ipynb")
+          cord19Indexing: GITHUB_BASE_URL.concat("drugs4covid/bio-nlp/blob/master/notebooks/documents/cord19_indexing.ipynb"),
+          atcProcessing: GITHUB_BASE_URL.concat("drugs4covid/bio-nlp/blob/master/notebooks/drugs/atc_processing.ipynb"),
+          meshProcessing: GITHUB_BASE_URL.concat("drugs4covid/bio-nlp/blob/master/notebooks/diseases/mesh_processing.ipynb")
         }
       },
       librairy: {
@@ -30,7 +30,7 @@ export default new Vuex.Store({
         bioApi: LIBRAIRY_BASE_URL.concat("bio-api"),
         solrApi: LIBRAIRY_BASE_URL.concat("solr/"),
         solr: {
-          disease: LIBRAIRY_BASE_URL.concat("solr/bioner-diseases/select?q=*%3A*"),
+          diseases: LIBRAIRY_BASE_URL.concat("solr/bioner-diseases/select?q=*%3A*"),
           drugs: LIBRAIRY_BASE_URL.concat("solr/bioner-drugs/select?q=*%3A*"),
           genes: LIBRAIRY_BASE_URL.concat("solr/bioner-genetic/select?q=*%3A*"),
           papers: LIBRAIRY_BASE_URL.concat("solr/cord19-papers/select?q=*%3A*"),

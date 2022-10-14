@@ -22,7 +22,29 @@
                 </v-btn>
               </v-card-title>
               <v-card-text class="text-justify" v-html="$t(card.text)"/>
-              <v-card-actions v-if="card.btnText">
+
+              <v-card-actions v-if="card.to==='repository'">
+                <v-col>
+                  <v-btn v-for="(btn, index) in card.btnList"
+                         :key="index"
+                         v-text="$t(btn.text)"
+                         :href="btn.href"
+                         color="primary" outlined label
+                         style="margin: 5px"
+                  />
+                </v-col>
+              </v-card-actions>
+
+              <v-card-actions v-else-if="card.to==='keyQ'">
+                <v-spacer/>
+                <v-btn v-text="$t(card.btnText)"
+                       :href="card.href"
+                       color="primary" outlined
+                />
+                <v-spacer/>
+              </v-card-actions>
+
+              <v-card-actions v-else>
                 <v-spacer/>
                 <v-btn v-text="$t(card.btnText)"
                        :to="{name: card.to}"
@@ -30,17 +52,7 @@
                 />
                 <v-spacer/>
               </v-card-actions>
-              <v-card-actions v-else-if="card.btnTextList">
-                <v-col>
-                  <v-btn v-for="(btn, index) in card.btnTextList"
-                         :key="index"
-                         v-text="$t(btn.text)"
-                         :to="{name: card.to, params:{solrCore: btn.to}}"
-                         color="primary" outlined label
-                         style="margin: 5px"
-                  />
-                </v-col>
-              </v-card-actions>
+
             </v-card>
           </v-col>
 
@@ -64,34 +76,34 @@ export default {
         text: "corpus.textSearch.text",
         btnText: "corpus.textSearch.btnText",
         to: "text-search",
-        code: store.state.textSearch.github,
-        librairy: store.state.textSearch.librairy
+        code: store.state.links.github.bioNlp,
+        librairy: store.state.links.librairy.covid19Model
       },
       {
         title: "corpus.repository.title",
         subtitle: "corpus.repository.subtitle",
         text: "corpus.repository.text",
         to: "repository",
-        btnTextList: [
+        btnList: [
           {
             text: "corpus.repository.btnDiseases",
-            to: store.state.repository.solrDrugs
+            href: store.state.links.librairy.solr.diseases
           },
           {
             text: "corpus.repository.btnDrugs",
-            to: store.state.repository.solrDrugs
+            href: store.state.links.librairy.solr.drugs
           },
           {
             text: "corpus.repository.btnGenes",
-            to: store.state.repository.solrGenes
+            href: store.state.links.librairy.solr.genes
           },
           {
             text: "corpus.repository.btnPapers",
-            to: store.state.repository.solrPapers
+            href: store.state.links.librairy.solr.papers
           },
           {
             text: "corpus.repository.btnParagraphs",
-            to: store.state.repository.solrParagraphs
+            href: store.state.links.librairy.solr.paragraphs
           },
         ],
       },
@@ -100,7 +112,8 @@ export default {
         subtitle: "corpus.keyQ.subtitle",
         text: "corpus.keyQ.text",
         btnText: "corpus.keyQ.btnText",
-        to: "keyQ"
+        to: "keyQ",
+        href: store.state.links.d4c.keyQ
       },
     ],
 

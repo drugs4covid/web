@@ -35,7 +35,7 @@
 
           <v-col cols="12">
             <div class="h_iframe">
-              <iframe :src=$store.state.externalLink.ontology
+              <iframe :src=$store.state.links.d4c.ontology
                       allowfullscreen id="iframe" loading="lazy"
               />
             </div>
@@ -61,7 +61,7 @@ export default {
         text: "knowledgeGraph.rdf.text",
         btnText: "knowledgeGraph.rdf.btnText",
         to: "rdf",
-        code: store.state.rdf.github
+        code: store.state.links.github.rdf
       },
       {
         title: "knowledgeGraph.sparql.title",
@@ -69,7 +69,7 @@ export default {
         text: "knowledgeGraph.sparql.text",
         btnText: "knowledgeGraph.sparql.btnText",
         to: "sparql",
-        code: store.state.sparql.github
+        code: store.state.links.github.sparql
       },
     ],
 
