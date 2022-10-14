@@ -188,11 +188,11 @@ export default {
           },
           {
             label: "title.jupiterNotebooks",
-            href: "notebooks",
+            to: "notebooks",
           },
           {
             label: "title.annotatedCorpus",
-            to: "annotatedCorpus",
+            to: "annotated-corpus",
           },
         ]
       },
