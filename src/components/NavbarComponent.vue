@@ -30,12 +30,17 @@
           </template>
 
           <v-list v-if="navItem.views">
-            <v-list-item v-for="(view, index) in navItem.views"
-                         :key="index"
-                         :to="{name: view.to}"
+            <div v-for="(view, index) in navItem.views"
+                 :key="index"
             >
-              <v-list-item-title v-text="$t(view.label)"/>
-            </v-list-item>
+              <v-list-item v-if="view.href" :href="view.href">
+                <v-list-item-title v-text="$t(view.label)"/>
+              </v-list-item>
+
+              <v-list-item v-else :to="{name: view.to}">
+                <v-list-item-title v-text="$t(view.label)"/>
+              </v-list-item>
+            </div>
           </v-list>
 
         </v-menu>
@@ -69,21 +74,25 @@
         >
           <template #activator>
             <v-list-item-content>
-              <router-link :to="{name: navItem.to}"
-                           style="text-decoration: none; color: inherit;"
-              >
+              <router-link id="router-link" :to="{name: navItem.to}">
                 <v-list-item-title v-text="$t(navItem.label)"/>
               </router-link>
             </v-list-item-content>
           </template>
 
-          <v-list-item
-              v-for="(view, index) in navItem.views"
-              :key="index"
-              :to="{name: view.to}"
+          <v-list-item v-for="(view, index) in navItem.views"
+                       :key="index"
           >
-            <v-list-item-content>
-              <v-list-item-title v-text="$t(view.label)"/>
+            <v-list-item-content v-if="view.href">
+              <a id="router-link" :href="view.href">
+                <v-list-item-title v-text="$t(view.label)"/>
+              </a>
+            </v-list-item-content>
+
+            <v-list-item-content v-else>
+              <router-link id="router-link" :to="{name: view.to}">
+                <v-list-item-title v-text="$t(view.label)"/>
+              </router-link>
             </v-list-item-content>
           </v-list-item>
 
@@ -97,7 +106,7 @@
 <script>
 import SearchEngineInput from "@/components/SearchEngineInput";
 import LocaleSwitch from "@/components/LocaleSwitch";
-//import store from "@/store";
+import store from "@/store";
 import NavbarLogo from "@/assets/d4c-logo.svg";
 
 export default {
@@ -137,14 +146,17 @@ export default {
           {
             label: "title.graphDB",
             to: "rdf",
+            href: store.state.links.d4c.rdf
           },
           {
             label: "title.sparql",
             to: "sparql",
+            href: store.state.links.d4c.sparql
           },
           {
             label: "title.ontology",
             to: "ontology",
+            href: store.state.links.d4c.ontology
           },
         ]
       },
@@ -163,6 +175,7 @@ export default {
           {
             label: "title.keyQ",
             to: "keyQ",
+            href: store.state.links.d4c.keyQ
           },
         ]
       },
@@ -204,5 +217,9 @@ export default {
 }
 #search-engine-input{
   background-color: #272727;
+}
+#router-link{
+  text-decoration: none;
+  color: inherit;
 }
 </style>
