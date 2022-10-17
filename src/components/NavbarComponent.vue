@@ -66,7 +66,7 @@
     </v-app-bar>
 
     <!-- Navigation Drawer-->
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+    <v-navigation-drawer v-model="drawer" temporary app>
       <v-list nav dense>
         <v-list-group v-for="(navItem, index) in navItems"
                       :key="index"
