@@ -5,14 +5,18 @@
              :key="index"
              cols="12"
       >
-        <a :href="cite.URL">
-          <h2 class="title" v-text="cite.title">
-            {{cite.title}}
-          </h2>
-          <span v-show="cite.version">
-            ({{ $t('label.version') }} {{cite.version}})
-          </span>
-        </a>
+        <div>
+          <a :href="cite.URL">
+            <h2 class="title" v-text="cite.title"/>
+            <span v-show="cite.version">
+              ({{ $t('label.version') }} {{cite.version}})
+            </span>
+          </a>
+          <v-btn v-show="cite.pdf" :href="cite.pdf" icon plain>
+            <v-icon color="#B0321F">mdi-file-download</v-icon>
+          </v-btn>
+        </div>
+
         <h3 class="subtitle-2">
           <span v-for="(author, index) in cite.author"
                 :key="index"
@@ -23,6 +27,7 @@
             <span v-else>, </span>
           </span>
         </h3>
+
         <v-card-text v-text="cite.abstract"/>
 
         <v-card-actions>
@@ -69,10 +74,15 @@ import Cite from 'citation-js';
 export default {
   name: "PapersView",
   data: () => ({
-    citationsData: null
   }),
-  mounted() {
-    this.citationsData = new Cite(this.$store.state.citedDocuments).data
+  computed: {
+    citationsData() {
+      return this.$store.state.citedDocuments.map(([cite,pdf]) => {
+        let citeData = new Cite(cite).data[0]
+        citeData.pdf = pdf
+        return citeData
+      })
+    }
   }
 }
 </script>
