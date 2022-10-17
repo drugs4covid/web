@@ -24,7 +24,11 @@
               <v-card-text class="text-justify" v-html="$t(card.text)"/>
               <v-card-actions>
                 <v-spacer/>
-                <v-btn v-text="$t(card.btnText)"
+                <v-btn v-if="card.href" v-text="$t(card.btnText)"
+                       :href="card.href"
+                       color="primary" outlined
+                />
+                <v-btn v-else v-text="$t(card.btnText)"
                        :to="{name: card.to}"
                        color="primary" outlined
                 />
@@ -61,6 +65,7 @@ export default {
         text: "knowledgeGraph.rdf.text",
         btnText: "knowledgeGraph.rdf.btnText",
         to: "rdf",
+        href: store.state.links.d4c.rdf,
         code: store.state.links.github.rdf
       },
       {
@@ -69,6 +74,7 @@ export default {
         text: "knowledgeGraph.sparql.text",
         btnText: "knowledgeGraph.sparql.btnText",
         to: "sparql",
+        href: store.state.links.d4c.sparql,
         code: store.state.links.github.sparql
       },
     ],
