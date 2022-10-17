@@ -186,6 +186,7 @@ export default {
           {
             label: "title.code",
             to: "code",
+            href: store.state.links.github.d4c
           },
           {
             label: "title.jupiterNotebooks",
