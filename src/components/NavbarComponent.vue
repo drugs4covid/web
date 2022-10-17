@@ -17,38 +17,32 @@
 
       <!-- Navigation tabs -->
       <v-tabs id="tab" v-model="tab" class="d-none d-md-flex">
-        <v-menu
-            v-for="(navItem, index) in navItems"
-            :key="index"
-            offset-y
-            bottom
-            open-on-hover
+        <v-menu v-for="(navItem, index) in navItems"
+                :key="index"
+                offset-y bottom open-on-hover
         >
           <template #activator="{ on, attrs }">
-            <v-tab
-                v-bind="attrs"
-                v-on="on"
-                :to="navItem.to"
-            >
-              {{$t(navItem.label)}}
-            </v-tab>
+            <v-tab v-bind="attrs"
+                   v-on="on"
+                   v-text="$t(navItem.label)"
+                   :to="{name: navItem.to}"
+            />
           </template>
 
           <v-list v-if="navItem.views">
-            <v-list-item
-                v-for="(view, index) in navItem.views"
-                :key="index"
-                :to="{name: view.to}"
+            <v-list-item v-for="(view, index) in navItem.views"
+                         :key="index"
+                         :to="{name: view.to}"
             >
               <v-list-item-title v-text="$t(view.label)"/>
-
             </v-list-item>
           </v-list>
+
         </v-menu>
       </v-tabs>
 
       <!-- Search Engine Icon -->
-      <v-spacer></v-spacer>
+      <v-spacer/>
       <v-menu offset-y bottom
               :close-on-content-click="false"
       >
@@ -62,7 +56,6 @@
         </template>
 
         <search-engine-input id="search-engine-input" redirect/>
-
       </v-menu>
 
     </v-app-bar>
@@ -70,14 +63,13 @@
     <!-- Navigation Drawer-->
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>
-        <v-list-group
-            v-for="navItem in navItems"
-            :key="navItem.name"
-            no-action
+        <v-list-group v-for="(navItem, index) in navItems"
+                      :key="index"
+                      no-action
         >
           <template #activator>
             <v-list-item-content>
-              <router-link :to="navItem.to"
+              <router-link :to="{name: navItem.to}"
                            style="text-decoration: none; color: inherit;"
               >
                 <v-list-item-title v-text="$t(navItem.label)"/>
@@ -91,7 +83,7 @@
               :to="{name: view.to}"
           >
             <v-list-item-content>
-              <v-list-item-title v-text="$t(view.label)"></v-list-item-title>
+              <v-list-item-title v-text="$t(view.label)"/>
             </v-list-item-content>
           </v-list-item>
 
@@ -105,7 +97,7 @@
 <script>
 import SearchEngineInput from "@/components/SearchEngineInput";
 import LocaleSwitch from "@/components/LocaleSwitch";
-
+//import store from "@/store";
 import NavbarLogo from "@/assets/d4c-logo.svg";
 
 export default {
@@ -121,9 +113,8 @@ export default {
     pageLogo: NavbarLogo,
     navItems:[
       {
-        name: "Services",
         label: "title.services",
-        to: "/services",
+        to: "services",
         views:[
           {
             label: "title.bioNLP",
@@ -140,9 +131,8 @@ export default {
         ]
       },
       {
-        name: "kg",
         label: "title.knowledgeGraph",
-        to: "/knowledge-graph",
+        to: "knowledge-graph",
         views:[
           {
             label: "title.graphDB",
@@ -159,9 +149,8 @@ export default {
         ]
       },
       {
-        name: "corpus",
         label: "title.corpus",
-        to: "/corpus",
+        to: "corpus",
         views:[
           {
             label: "title.customSearch",
@@ -178,9 +167,8 @@ export default {
         ]
       },
       {
-        name: "resources",
         label: "title.resources",
-        to: "/resources",
+        to: "resources",
         views:[
           {
             label: "title.code",
@@ -197,14 +185,12 @@ export default {
         ]
       },
       {
-        name: "papers",
         label: "title.articles",
-        to: "/papers",
+        to: "papers",
       },
       {
-        name: "about",
         label: "title.about",
-        to: "/about",
+        to: "about",
       },
     ],
 

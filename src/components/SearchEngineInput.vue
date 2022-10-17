@@ -29,6 +29,10 @@ const TYPE_DISEASE = "disease"
 export default {
   name: "SearchEngineInput",
   props: {
+    /** Redirect(): Tells the component how it should handle the input:
+     * True: Redirects to default external search website
+     * False: Emits input to be handled manually by parent component
+     */
     redirect: {
       type: Boolean,
       default: false,
@@ -85,7 +89,7 @@ export default {
         this.$emit("select", item)
       }
       else{
-        window.location.href = this.$store.state.externalLink.search
+        window.location.href = this.$store.state.links.d4c.search
             .concat(item.type,'/',item.value);
       }
 

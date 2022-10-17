@@ -12,9 +12,10 @@ export default {
       return this.$route.params
     }
   },
-  created() {
+  mounted() {
     console.log(this.source)
-    window.location.href = this.$store.state.externalLink[this.source]
+    console.log(this.params)
+    //window.location.href = this.$store.state.externalLink[this.source]
   }
 }
 </script>

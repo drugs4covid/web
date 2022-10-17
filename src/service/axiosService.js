@@ -11,7 +11,7 @@ export default {
 function bioNLPAnalyze(text) {
     return Axios({
         method: 'POST',
-        url: store.state.bioNer.api,
+        url: store.state.links.librairy.bioNerEntities,
         data: {
             text: text,
         },
@@ -21,7 +21,7 @@ function bioNLPAnalyze(text) {
 function solrQueryService(core, query, fieldList, filterQuery, rows) {
     return Axios({
         method: 'GET',
-        url: store.state.api.solr + core + '/select',
+        url: store.state.links.librairy.solrApi + core + '/select',
         params: {
             q: query,
             ...((fieldList) && {fl: fieldList}),
@@ -34,7 +34,7 @@ function solrQueryService(core, query, fieldList, filterQuery, rows) {
 function qaAnswers(question, maxAnswers, useWiki, useDBPedia, useD4C) {
     return Axios({
         method: 'GET',
-        url: store.state.bioQa.api,
+        url: store.state.links.d4c.qaAnswers,
         params: {
             q: question,
             max: maxAnswers,
@@ -48,7 +48,7 @@ function qaAnswers(question, maxAnswers, useWiki, useDBPedia, useD4C) {
 function bioAPISearch(type, size, keywords, level) {
     return Axios({
         method: 'GET',
-        url: store.state.api.bioApi + type,
+        url: store.state.links.librairy.bioApi + type,
         params: {
             size: size,
             keywords: keywords,

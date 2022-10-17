@@ -55,7 +55,7 @@ const routes = [
   },
   {
     path: '/knowledge-graph',
-    name: 'kg',
+    name: 'knowledge-graph',
     component: KnowledgeGraphView
   },
   {
