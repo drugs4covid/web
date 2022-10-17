@@ -30,8 +30,15 @@
             <v-card-subtitle v-text="$t(section.subtitle)"/>
             <v-card-text v-html="$t(section.text)"/>
             <v-card-actions>
-              <v-btn v-text="$t(section.btnText)"
+              <v-btn v-if="section.href"
+                     v-text="$t(section.btnText)"
+                     :href="section.href"
+                     color="primary" outlined
+              />
+              <v-btn v-else
+                     v-text="$t(section.btnText)"
                      :to="{name: section.to}"
+                     color="primary" outlined
               />
             </v-card-actions>
           </v-col>
@@ -57,6 +64,7 @@ import Section2Img from "@/assets/Home-Images/parse-diagram.png";
 import Section3Img from "@/assets/Home-Images/extract-table.png";
 import Section4Img from "@/assets/Home-Images/integrate-ontology.png";
 import Section5Img from "@/assets/Home-Images/publish-diagram.png";
+import store from "@/store";
 
 export default {
   name: 'HomeView',
@@ -95,6 +103,7 @@ export default {
         text: "home.section4.text",
         btnText: "home.section4.btnText",
         to: "ontology",
+        href: store.state.links.d4c.ontology,
         img: Section4Img,
         imgPosition: "left",
       },
