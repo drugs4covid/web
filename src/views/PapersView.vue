@@ -36,14 +36,14 @@
               <span v-show="cite.publisher">
                 <em><span class="journal" v-text="cite.publisher"/></em>
               </span>
-              <span v-if="cite.publisher && cite.issued">, </span>
-              <span v-if="cite.publisher && !cite.issued">. </span>
+              <span v-show="cite.publisher && cite.issued">, </span>
+              <span v-show="cite.publisher && !cite.issued">. </span>
               <span v-show="cite.issued">
                 <span v-for="(datePart, index) in cite.issued['date-parts']"
                       :key="index"
                 >
-                  <span v-show="datePart[1]" v-text="$t('month.' + datePart[1])"/>
-                  <span v-if="datePart[1]">, </span>
+                  <span v-if="datePart[1]" v-text="$t('month.' + datePart[1])"/>
+                  <span v-show="datePart[1]">, </span>
                   <span v-show="datePart[0]" v-text="datePart[0]"/>.
                 </span>
               </span>
@@ -74,14 +74,15 @@ import Cite from 'citation-js';
 export default {
   name: "PapersView",
   data: () => ({
+    citationsData: []
   }),
-  computed: {
-    citationsData() {
-      return this.$store.state.citedDocuments.map(([cite,pdf]) => {
-        let citeData = new Cite(cite).data[0]
-        citeData.pdf = pdf
-        return citeData
-      })
+  mounted() {
+    let docList = this.$store.state.citedDocuments
+
+    for (let i=0; i<docList.length; i++){
+      let citeData = new Cite(docList[i][0]).data[0]
+      citeData.pdf = docList[i][1]
+      this.citationsData.push(citeData)
     }
   }
 }
