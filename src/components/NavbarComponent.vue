@@ -80,7 +80,13 @@
             </v-list-item-content>
           </template>
 
-          <v-list-item v-for="(view, index) in navItem.views"
+          <template #appendIcon>
+              <v-icon v-show="navItem.views">
+                mdi-chevron-down
+              </v-icon>
+          </template>
+
+          <v-list-item v-show="navItem.views" v-for="(view, index) in navItem.views"
                        :key="index"
           >
             <v-list-item-content v-if="view.href">
