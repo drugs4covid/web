@@ -14,6 +14,7 @@ import DiseaseView from "@/views/DiseaseView";
 import ResourcesView from "@/views/ResourcesView";
 import PapersView from "@/views/PapersView";
 import ExternalLinkView from "@/views/ExternalLinkView";
+import NotebooksView from "@/views/NotebooksView";
 
 Vue.use(VueRouter)
 
@@ -106,7 +107,7 @@ const routes = [
   {
     path: '/resources/notebooks',
     name: 'notebooks',
-    component: ExternalLinkView
+    component: NotebooksView
   },
   {
     path: '/resources/annotated-corpus',

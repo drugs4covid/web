@@ -28,7 +28,8 @@
     "version": "Version",
     "and": "and",
     "filterBy": "Filter by",
-    "goTo": "Go to"
+    "goTo": "Go to",
+    "test": "TEST"
   },
 
   "month": {
@@ -154,6 +155,7 @@
     "notebooks": {
       "title": "Notebooks",
       "text": "To facilitate the use of our resources and speed up proof-of-concept testing, we have also created <strong>Jupyter notebooks</strong> that are openly available",
+      "btnText": "@:label.goTo Notebooks",
       "sources": {
         "cord19Indexing": {
           "title": "CORD-19 Indexing",

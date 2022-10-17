@@ -17,19 +17,7 @@
               </v-card-title>
               <v-card-text class="text-justify" v-html="$t(card.text)"/>
 
-              <v-card-actions v-if="card.to==='notebooks'">
-                <v-col>
-                  <v-btn v-for="(btn, index) in card.btnList"
-                         :key="index"
-                         :href="btn.href"
-                         v-text="$t(btn.text)"
-                         color="primary" outlined label
-                         style="margin: 5px"
-                  />
-                </v-col>
-              </v-card-actions>
-
-              <v-card-actions v-else-if="card.to==='code'">
+              <v-card-actions v-if="card.to==='code'">
                 <v-spacer/>
                 <v-btn icon plain :href="card.href">
                   <v-icon large color="#c9510c">mdi-github</v-icon>
@@ -41,6 +29,15 @@
                 <v-spacer/>
                 <v-btn v-text="$t(card.btnText)"
                        :href="card.href"
+                       color="primary" outlined
+                />
+                <v-spacer/>
+              </v-card-actions>
+
+              <v-card-actions v-else>
+                <v-spacer/>
+                <v-btn v-text="$t(card.btnText)"
+                       :to="{name: card.to}"
                        color="primary" outlined
                 />
                 <v-spacer/>
@@ -74,20 +71,7 @@ export default {
         title: "resources.notebooks.title",
         text: "resources.notebooks.text",
         to: "notebooks",
-        btnList: [
-          {
-            text: "resources.notebooks.sources.cord19Indexing.title",
-            href: store.state.links.github.notebooks.cord19Indexing
-          },
-          {
-            text: "resources.notebooks.sources.atcProcessing.title",
-            href: store.state.links.github.notebooks.atcProcessing
-          },
-          {
-            text: "resources.notebooks.sources.meshProcessing.title",
-            href: store.state.links.github.notebooks.meshProcessing
-          },
-        ],
+        btnText: "resources.notebooks.btnText",
       },
       {
         title: "resources.annotatedCorpus.title",
