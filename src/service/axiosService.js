@@ -48,7 +48,7 @@ function qaAnswers(question, maxAnswers, useWiki, useDBPedia, useD4C) {
 function bioAPISearch(type, size, keywords, level) {
     return Axios({
         method: 'GET',
-        url: store.state.links.librairy.bioApi + type,
+        url: store.state.links.librairy.bioApi + '/' + type,
         params: {
             size: size,
             keywords: keywords,
