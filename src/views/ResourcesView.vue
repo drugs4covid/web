@@ -9,6 +9,7 @@
 
           <v-col v-for="(card, index) in cardItems"
                  :key="index"
+                 cols="12"
           >
             <v-card>
               <v-card-title>
