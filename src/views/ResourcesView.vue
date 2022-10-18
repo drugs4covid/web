@@ -26,15 +26,6 @@
                 <v-spacer/>
               </v-card-actions>
 
-              <v-card-actions v-else-if="card.to==='annotatedCorpus'">
-                <v-spacer/>
-                <v-btn v-text="$t(card.btnText)"
-                       :href="card.href"
-                       color="primary" outlined
-                />
-                <v-spacer/>
-              </v-card-actions>
-
               <v-card-actions v-else>
                 <v-spacer/>
                 <v-btn v-text="$t(card.btnText)"
@@ -73,13 +64,6 @@ export default {
         text: "resources.notebooks.text",
         to: "notebooks",
         btnText: "resources.notebooks.btnText",
-      },
-      {
-        title: "resources.annotatedCorpus.title",
-        text: "resources.annotatedCorpus.text",
-        btnText: "resources.annotatedCorpus.btnText",
-        to: "annotatedCorpus",
-        href: null
       },
     ],
 

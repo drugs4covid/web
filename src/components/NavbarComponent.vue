@@ -183,6 +183,10 @@ export default {
             to: "keyQ",
             href: store.state.links.d4c.keyQ
           },
+          {
+            label: "title.annotatedCorpus",
+            to: "annotated-corpus",
+          },
         ]
       },
       {
@@ -197,10 +201,6 @@ export default {
           {
             label: "title.jupiterNotebooks",
             to: "notebooks",
-          },
-          {
-            label: "title.annotatedCorpus",
-            to: "annotated-corpus",
           },
         ]
       },

@@ -95,6 +95,11 @@ const routes = [
     component: ExternalLinkView
   },
   {
+    path: '/corpus/annotated-corpus',
+    name: 'annotated-corpus',
+    component: ExternalLinkView
+  },
+  {
     path: '/resources',
     name: 'resources',
     component: ResourcesView
@@ -108,11 +113,6 @@ const routes = [
     path: '/resources/notebooks',
     name: 'notebooks',
     component: NotebooksView
-  },
-  {
-    path: '/resources/annotated-corpus',
-    name: 'annotated-corpus',
-    component: ExternalLinkView
   },
   {
     path: '/papers',

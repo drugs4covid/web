@@ -36,7 +36,7 @@
                 </v-col>
               </v-card-actions>
 
-              <v-card-actions v-else-if="card.to==='keyQ'">
+              <v-card-actions v-else-if="['keyQ', 'annotatedCorpus'].includes(card.to)">
                 <v-spacer/>
                 <v-btn v-text="$t(card.btnText)"
                        :href="card.href"
@@ -73,7 +73,6 @@ export default {
     cardItems: [
       {
         title: "corpus.textSearch.title",
-        subtitle: "corpus.textSearch.subtitle",
         text: "corpus.textSearch.text",
         btnText: "corpus.textSearch.btnText",
         to: "text-search",
@@ -82,7 +81,6 @@ export default {
       },
       {
         title: "corpus.repository.title",
-        subtitle: "corpus.repository.subtitle",
         text: "corpus.repository.text",
         to: "repository",
         btnList: [
@@ -109,8 +107,14 @@ export default {
         ],
       },
       {
+        title: "resources.annotatedCorpus.title",
+        text: "resources.annotatedCorpus.text",
+        btnText: "resources.annotatedCorpus.btnText",
+        to: "annotatedCorpus",
+        href: null
+      },
+      {
         title: "corpus.keyQ.title",
-        subtitle: "corpus.keyQ.subtitle",
         text: "corpus.keyQ.text",
         btnText: "corpus.keyQ.btnText",
         to: "keyQ",
