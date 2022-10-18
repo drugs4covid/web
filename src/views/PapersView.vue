@@ -1,66 +1,22 @@
 <template>
   <v-container>
     <v-card flat>
-      <v-col v-for="(cite, index) in citationsData"
-             :key="index"
-             cols="12"
+
+      <v-card-text v-for="(cite, index) in citationsList"
+                   :key="index"
       >
-        <div>
-          <a :href="cite.URL">
-            <h2 class="title" v-text="cite.title"/>
-            <span v-show="cite.version">
-              ({{ $t('label.version') }} {{cite.version}})
-            </span>
-          </a>
-          <v-btn v-show="cite.pdf" :href="cite.pdf" icon plain>
-            <v-icon color="#B0321F">mdi-file-download</v-icon>
-          </v-btn>
-        </div>
 
-        <h3 class="subtitle-2">
-          <span v-for="(author, index) in cite.author"
-                :key="index"
-          >
-            {{author.given}} {{author.family}}
-            <span v-if="index === cite.author.length-2" v-text="$t('label.and')"/>
-            <span v-else-if="index === cite.author.length-1">.</span>
-            <span v-else>, </span>
-          </span>
-        </h3>
+        <v-btn v-show="cite.pdf" :href="cite.pdf" icon plain>
+          <v-icon color="#B0321F">mdi-file-download</v-icon>
+        </v-btn>
 
-        <v-card-text v-text="cite.abstract"/>
+        <a :href="cite.href" style="text-decoration: none">
+          [{{index + 1}}]
+        </a>
 
-        <v-card-actions>
-          <v-row>
-            <v-col cols="12">
-              <span v-show="cite.publisher">
-                <em><span class="journal" v-text="cite.publisher"/></em>
-              </span>
-              <span v-show="cite.publisher && cite.issued">, </span>
-              <span v-show="cite.publisher && !cite.issued">. </span>
-              <span v-show="cite.issued">
-                <span v-for="(datePart, index) in cite.issued['date-parts']"
-                      :key="index"
-                >
-                  <span v-if="datePart[1]" v-text="$t('month.' + datePart[1])"/>
-                  <span v-show="datePart[1]">, </span>
-                  <span v-show="datePart[0]" v-text="datePart[0]"/>.
-                </span>
-              </span>
-            </v-col>
-            <v-col cols="12">
-              <v-chip-group column>
-                <v-chip v-for="(category) in new Set(cite.categories)"
-                        :key="category"
-                        v-text="category"
-                        color="success"
-                        label small
-                />
-              </v-chip-group>
-            </v-col>
-          </v-row>
-        </v-card-actions>
-      </v-col>
+        <span v-text="cite.text"/>
+
+      </v-card-text>
 
     </v-card>
   </v-container>
@@ -74,15 +30,23 @@ import Cite from 'citation-js';
 export default {
   name: "PapersView",
   data: () => ({
-    citationsData: []
+    citationsList: []
   }),
   mounted() {
     let docList = this.$store.state.citedDocuments
 
     for (let i=0; i<docList.length; i++){
-      let citeData = new Cite(docList[i][0]).data[0]
-      citeData.pdf = docList[i][1]
-      this.citationsData.push(citeData)
+      let citeText = new Cite(docList[i][0]).format('bibliography', {
+        type: 'html',
+        style: 'citation-apa',
+        lang: 'en-US',
+      })
+
+      this.citationsList.push({
+        text: citeText.substring(0, citeText.indexOf("http")),
+        pdf: docList[i][1],
+        href: citeText.slice(citeText.indexOf("http"))
+      })
     }
   }
 }
