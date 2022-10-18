@@ -7,26 +7,29 @@
       <v-container>
         <v-form ref="form">
 
+          <!-- Search Input -->
           <v-row>
-            <v-col cols="11">
+            <v-col cols="12">
               <v-text-field v-model="inputText"
                             :placeholder="$t('textSearch.placeholder')"
-                            outlined required hide-details
+                            :rules="rules.inputText"
+                            outlined required
               >
+                <template #append-outer>
+                  <v-btn height="56px" width="56px"
+                         class="search-btn"
+                         :loading="loading"
+                         outlined
+                         @click="clickSearchHandler"
+                  >
+                    <v-icon size="xx-large">mdi-magnify</v-icon>
+                  </v-btn>
+                </template>
               </v-text-field>
-            </v-col>
-
-            <v-col>
-              <v-btn height="56px" width="56px"
-                     :loading="loading"
-                     outlined
-                     @click="clickSearchHandler"
-              >
-                <v-icon size="xx-large">mdi-magnify</v-icon>
-              </v-btn>
             </v-col>
           </v-row>
 
+          <!-- Max results slider -->
           <v-row>
             <v-subheader class="subheader" v-text="$t('textSearch.subheader1')+':'"/>
             <v-text-field id="max-result-field"
@@ -48,26 +51,32 @@
             </v-col>
           </v-row>
 
+          <!-- Resources Checkboxes -->
           <v-row>
             <v-subheader class="subheader" v-text="$t('textSearch.subheader2')+':'"/>
 
-              <v-checkbox class="filter-checkbox"
-                          v-model="diseases.isActive"
-                          :label="$t('textSearch.diseases')"
-                          hide-spin-buttons dense
-              />
-              <v-checkbox class="filter-checkbox"
-                          v-model="drugs.isActive"
-                          :label="$t('textSearch.drugs')"
-                          hide-spin-buttons dense
-              />
-              <v-checkbox class="filter-checkbox"
-                          v-model="texts.isActive"
-                          :label="$t('textSearch.texts')"
-                          hide-spin-buttons dense
-              />
+            <v-checkbox class="filter-checkbox"
+                        v-model="diseases.isActive"
+                        :label="$t('textSearch.diseases')"
+                        :rules="rules.resource"
+                        hide-spin-buttons dense
+            />
+            <v-checkbox class="filter-checkbox"
+                        v-model="drugs.isActive"
+                        :label="$t('textSearch.drugs')"
+                        :rules="rules.resource"
+                        hide-spin-buttons dense
+            />
+            <v-checkbox class="filter-checkbox"
+                        v-model="texts.isActive"
+                        :label="$t('textSearch.texts')"
+                        :rules="rules.resource"
+                        hide-spin-buttons dense
+            />
+
           </v-row>
 
+          <!-- Level Filters -->
           <v-row>
             <v-subheader class="subheader" v-text="$t('textSearch.subheader3')+':'"/>
             <v-col>
@@ -75,9 +84,9 @@
                             v-model="drugs.levelFilter"
                             :label="$t('textSearch.drugsFilter')"
                             :disabled="!drugs.isActive || !drugs.enableLevelFiler"
+                            :rules="rules.drugLevelFilter"
                             type="number"
-                            max="5"
-                            min="1"
+                            max="5" min="1"
                             outlined dense
               >
                 <template #append-outer>
@@ -91,9 +100,9 @@
                             v-model="diseases.levelFilter"
                             :label="$t('textSearch.diseasesFilter')"
                             :disabled="!diseases.isActive || !diseases.enableLevelFiler"
+                            :rules="rules.diseaseLevelFilter"
                             type="number"
-                            max="20"
-                            min="1"
+                            max="20" min="1"
                             outlined dense
               >
                 <template #append-outer>
@@ -131,6 +140,9 @@
         >
           <template #top>
             <v-card-title v-text="diseases.tableTitle"></v-card-title>
+          </template>
+          <template #header="header">
+            {{$t(header.text)}}
           </template>
         </v-data-table>
         <br/>
@@ -195,14 +207,33 @@ export default {
       results: []
     },
     maxResults: 1,
-    headers: [
-      { text: "Name", value: "name", align: "start", sortable: false,},
-      { text: "Code", value: "code"},
-      { text: "Level", value: "level" },
-      { text: "Frequency", value: "freq" },
-    ],
-
   }),
+  computed:{
+    headers() {
+      return [
+        { text: this.$t("tableHeader.name"), value: "name", align: "start", sortable: false,},
+        { text: this.$t("tableHeader.code"), value: "code" },
+        { text: this.$t("tableHeader.level"), value: "level" },
+        { text: this.$t("tableHeader.frequency"), value: "freq" },
+      ]
+    },
+    rules() {
+      return {
+        inputText: [
+          v => !!v || this.$t("error.validation.required"),
+        ],
+        drugLevelFilter: [
+          v => (1 <= v && v <= 5) || this.$t("error.validation.outOfRange", {min: 1, max: 5}),
+        ],
+        diseaseLevelFilter: [
+          v => (1 <= v && v <= 20) || this.$t("error.validation.outOfRange", {min: 1, max: 20 }),
+        ],
+        resource: [
+          this.drugs.isActive || this.diseases.isActive || this.texts.isActive
+        ],
+      }
+    }
+  },
   methods:{
     clickSearchHandler(){
       if (!this.$refs.form.validate()) {
@@ -279,6 +310,9 @@ export default {
 }
 .filter-switch{
   margin-top: -3px;
+}
+.search-btn{
+  margin-top: -18px;
 }
 .filter-text-field{
   width: 275px;

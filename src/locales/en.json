@@ -32,6 +32,13 @@
     "test": "TEST"
   },
 
+  "error": {
+    "validation": {
+      "required": "This field is required",
+      "outOfRange": "Value must be between {min} and {max}"
+    }
+  },
+
   "month": {
     "1": "Jan",
     "2": "Feb",
@@ -45,6 +52,13 @@
     "10": "Oct",
     "11": "Nov",
     "12": "Dec"
+  },
+
+  "tableHeader": {
+    "name": "Name",
+    "code": "Code",
+    "level": "Level",
+    "frequency": "Frequency"
   },
 
   "footer": {
