@@ -1,8 +1,9 @@
 <template>
   <v-container>
     <v-card flat>
+      <v-skeleton-loader v-if="isLoading" type="article@5"/>
 
-      <v-card-text v-for="(cite, index) in citationsList"
+      <v-card-text v-else v-for="(cite, index) in citationsList"
                    :key="index"
       >
 
@@ -30,9 +31,11 @@ import Cite from 'citation-js';
 export default {
   name: "PapersView",
   data: () => ({
-    citationsList: []
+    citationsList: [],
+    isLoading: true,
   }),
   mounted() {
+    this.isLoading = true
     let docList = this.$store.state.citedDocuments
 
     for (let i=0; i<docList.length; i++){
@@ -48,6 +51,7 @@ export default {
         href: citeText.slice(citeText.indexOf("http"))
       })
     }
+    this.isLoading = false
   }
 }
 </script>
