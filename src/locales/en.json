@@ -238,7 +238,6 @@
       "target": "Target",
       "associationScore": "COVID-19 Association Score",
       "prId": "PR ID"
-
     }
   },
 
@@ -246,7 +245,11 @@
     "title": "@:title.qa",
     "subtitle": "Make any question to our engine and select the number of answers",
     "placeholder": "Write a question",
-    "maxAnswers": "Max Answers"
+    "subheader1": "Max Answers",
+    "subheader2": "Database",
+    "d4c": "D4C",
+    "dbPedia": "DB Pedia",
+    "wikidata": "Wikidata"
   },
 
   "searchEngineView": {
