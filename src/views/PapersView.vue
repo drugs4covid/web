@@ -34,25 +34,30 @@ export default {
     citationsList: [],
     isLoading: true,
   }),
+  methods:{
+    fetchDocs(){
+      let docList = this.$store.state.citedDocuments
+
+      for (let i=0; i<docList.length; i++){
+        let citeText = new Cite(docList[i][0]).format('bibliography', {
+          type: 'html',
+          style: 'citation-apa',
+          lang: 'en-US',
+        })
+
+        this.citationsList.push({
+          text: citeText.substring(0, citeText.indexOf("http")),
+          pdf: docList[i][1],
+          href: citeText.slice(citeText.indexOf("http"))
+        })
+      }
+    }
+  },
   mounted() {
     this.isLoading = true
-    let docList = this.$store.state.citedDocuments
-
-    for (let i=0; i<docList.length; i++){
-      let citeText = new Cite(docList[i][0]).format('bibliography', {
-        type: 'html',
-        style: 'citation-apa',
-        lang: 'en-US',
-      })
-
-      this.citationsList.push({
-        text: citeText.substring(0, citeText.indexOf("http")),
-        pdf: docList[i][1],
-        href: citeText.slice(citeText.indexOf("http"))
-      })
-    }
+    this.fetchDocs()
     this.isLoading = false
-  }
+  },
 }
 </script>
 
