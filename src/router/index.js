@@ -15,6 +15,7 @@ import ResourcesView from "@/views/ResourcesView";
 import PapersView from "@/views/PapersView";
 import ExternalLinkView from "@/views/ExternalLinkView";
 import NotebooksView from "@/views/NotebooksView";
+import RepositoryView from "@/views/RepositoryView";
 
 Vue.use(VueRouter)
 
@@ -87,7 +88,7 @@ const routes = [
   {
     path: '/corpus/repository',
     name: 'repository',
-    component: ExternalLinkView
+    component: RepositoryView
   },
   {
     path: '/corpus/keyQ',

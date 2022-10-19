@@ -2,7 +2,9 @@
   <v-container>
     <v-card flat>
       <v-card-title>
-        <v-img max-width="50px" src="@/assets/jupyter-logo.svg"></v-img>
+        <v-img max-width="50px" src="@/assets/jupyter-logo.svg"
+               style="margin: 7px"
+        />
         {{$t('resources.notebooks.title')}}
       </v-card-title>
       <v-card-subtitle v-html="$t('resources.notebooks.text')"/>
@@ -24,9 +26,6 @@
 
 export default {
   name: "NotebooksView",
-  // data: ()=>({
-  //   notebooksList: []
-  // }),
   computed:{
     notebooksList(){
       return Object.entries(this.$store.state.links.github.notebooks)
