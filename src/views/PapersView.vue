@@ -6,16 +6,23 @@
       <v-card-text v-else v-for="(cite, index) in citationsList"
                    :key="index"
       >
+        <v-row>
+          <!-- Document ID -->
+          <span>[{{cite.id.split('_')[1]}}]</span>
+          <!-- Authors -->
+          <span>{{authorsToString(cite.author)}}.</span>
+          <!-- Title -->
+          <a :href="cite.URL" style="text-decoration: none">
+            <em>"{{cite.title}}"</em>
+          </a>
+        </v-row>
 
-        <v-btn v-show="cite.pdf" :href="cite.pdf" icon plain>
-          <v-icon color="#B0321F">mdi-file-download</v-icon>
-        </v-btn>
+        <v-row>
+          <v-btn v-show="getDocPDF(cite.id)" :href="getDocPDF(cite.id)" icon plain>
+            <v-icon color="#B0321F">mdi-file-download</v-icon>
+          </v-btn>
+        </v-row>
 
-        <a :href="cite.href" style="text-decoration: none">
-          [{{index + 1}}]
-        </a>
-
-        <span v-text="cite.text"/>
 
       </v-card-text>
 
@@ -25,6 +32,7 @@
 
 <script>
 import Cite from 'citation-js';
+import BibFile from '@/static/cites.bib'
 
 // More info about Cite input formats in:
 // https://citation.js.org/api/0.3/tutorial-input_formats.html
@@ -34,28 +42,24 @@ export default {
     citationsList: [],
     isLoading: true,
   }),
-  methods:{
-    fetchDocs(){
-      let docList = this.$store.state.citedDocuments
-
-      for (let i=0; i<docList.length; i++){
-        let citeText = new Cite(docList[i][0]).format('bibliography', {
-          type: 'html',
-          style: 'citation-apa',
-          lang: 'en-US',
-        })
-
-        this.citationsList.push({
-          text: citeText.substring(0, citeText.indexOf("http")),
-          pdf: docList[i][1],
-          href: citeText.slice(citeText.indexOf("http"))
-        })
-      }
+  methods: {
+    parseBibtexFile(){
+      this.citationsList = new Cite(BibFile).data
+    },
+    authorsToString(authorList) {
+      return authorList.map(author => {
+        return author.given + ' ' + author.family
+      }).toString().replaceAll(',',", ")
+    },
+    getDocPDF(citeId){
+      return this.$store.state.pdfDocuments[citeId]
     }
   },
   mounted() {
     this.isLoading = true
-    this.fetchDocs()
+    this.parseBibtexFile()
+    console.log(this.citationsList)
+
     this.isLoading = false
   },
 }

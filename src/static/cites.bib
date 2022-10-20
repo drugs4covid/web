@@ -1,0 +1,134 @@
+@misc{id_1,
+    author       = {Oscar Piette Gómez and
+                  Carlos Badenes Olmedo and
+                  María Poveda Villalón},
+    title        = {{Definition of a guide of best practices in the
+                   creation and updating of Knowledge Graphs from
+                   scientific literature on coronaviruses and
+                   creation of a data actualization pipeline for
+                   Drugs4Covid.}},
+    month        = oct,
+    year         = 2022,
+    publisher    = {Zenodo},
+    doi          = {10.5281/zenodo.7181114},
+    url          = {https://doi.org/10.5281/zenodo.7181114}
+}
+
+@unpublished{id_2,
+    year = {2021},
+    title = {Named entity recognition and normalization in biomedical literature: a practical case in SARS-CoV-2 literature},
+    school = {ETSI\_Informatica},
+    author = {{\'A}lvaro Alonso Casero},
+    month = {Julio},
+    url = {https://oa.upm.es/67933/},
+    abstract = {Las tareas de recuperaci{\'o}n de informaci{\'o}n se han convertido en una herramienta esencial para la investigaci{\'o}n biom{\'e}dica. La tendencia creciente en el n{\'u}mero de publicaciones ha hecho necesario desarrollar e implementar estas herramientas para ayudar a los investigadores a mantenerse al d{\'i}a con los {\'u}ltimos avances en su campo. Una de las tareas de miner{\'i}a de texto m{\'a}s fundamentales en la recuperaci{\'o}n de informaci{\'o}n en el {\'a}rea biom{\'e}dica es el reconocimiento de entidades nombradas biom{\'e}dicas, como enfermedades, sustancias qu{\'i}micas o genes, lo que se conoce com{\'u}nmente como BioNER. Como complemento a este reconocimiento, las entidades detectadas suelen vincularse a bases de datos curadas en un proceso denominado linkeo o normalizaci{\'o}n de entidades (BioNEN). Las metodolog{\'i}as aplicadas en BioNER han ido evolucionando durante a{\~n}os hasta llegar al estado del arte actual, que se basa fundamentalmente en el uso de modelos de lenguaje como BERT que son preentrenados en el campo biom{\'e}dico para especificar su conocimiento subyacente. La revisi{\'o}n realizada recorrer{\'a} c{\'o}mo se realizan las tareas de NER y como ha sido su evoluci{\'o}n hasta llegar a estos modelos del estado del arte actual. Esta revisi{\'o}n nos ha ayudado a implementar un sistema que se basa en el actual modelo del estado del arte, BioBERT. Un modelo BioBERT se ha puesto a punto para realizar la tarea NER para cada una de las clases de entidades consideradas: enfermedades, productos qu{\'i}micos y gen{\'e}tica. Los resultados han sido normalizados mediante una b{\'u}squeda de {\'i}ndice inverso en una base de datos construida con la uni{\'o}n y mapeo de t{\'e}rminos de m{\'u}ltiples fuentes. Este sistema se aplica en dos casos pr{\'a}cticos, uno como pieza central en una plataforma web a la que se pueden enviar textos para ser procesados por el sistema y otro para procesar el corpus CORD-19, compuesto por art{\'i}culos relacionados con el SARS-CoV-2. Se ha evaluado el sistema, mostrando una puntuaci{\'o}n F1 de 0,86 en PGxCorpus (en Micro-Average para coincidencias parciales, los resultados variar{\'a}n ligeramente dependiendo del escenario considerado). Con un an{\'a}lisis de errores, concluimos que la mayor{\'i}a de los errores se observaron debido a la detecci{\'o}n incorrecta de los l{\'i}mites de las entidades.---ABSTRACT---Information retrieval tasks have become an essential tool for biomedical research. The growing tendency in the number of publications has made it necessary to develop and implement these tools to help researchers to keep up with the latest advances in their field. One of the most fundamental text-mining tasks in information retrieval in the biomedical area is the recognition of biomedical named entities like diseases, chemicals, genes. . . which is commonly known as BioNER. Complementarily to this recognition, detected entities are usually linked to curated databases in a process called entity linking or normalization (BioNEN). Methodologies applied in BioNER have been evolving for years until the current state-of-the-art, which is mainly based on the use of language models such as BERT that are pretrained in the biomedical field to specify its underlying knowledge. A review will walk through how the NER tasks are carried out and about its evolution until these current state-of-theart models. This review has allowed us to implement a system which is based on the current state-of-the-art model, BioBERT. One BioBERT model has been fine-tuned to perform NER task for each of the considered entity classes: diseases, chemicals and genetics. Results have been normalized through an inverse index search in a built database in which we join and map terms from multiple sources. This system is applied in two practical cases, a first one as the core piece in a web platform where text can be sent to be processed by the system and a second one for processing the CORD-19 corpus, composed by papers related to SARS-CoV-2. The system has been evaluated, showing an F1-Score of 0,86 in PGxCorpus (in Micro-Average for partial matches, the results will slightly vary depending on the considered scenario). With an error analysis, we conclude that most errors were observed to be due to incorrect boundary detection.}
+}
+
+@article{id_3,
+    author = {Carlos Badenes-Olmedo and Álvaro Alonso and Oscar Corcho},
+    title = {An Overview of Drugs, Diseases, Genes and Proteins in the CORD-19 Corpus},
+    journal = {Procesamiento del Lenguaje Natural},
+    volume = {69},
+    number = {0},
+    year = {2022},
+    keywords = {},
+    abstract = {Several initiatives have emerged during the COVID-19 pandemic to gather scientific publications related to coronaviruses. Among them, the COVID-19 Open Research Dataset (CORD-19) has proven to be a valuable resource that provides full-text articles from the PubMed Central, bioRxiv and medRxiv repositories. Such a large amount of biomedical literature needs to be properly managed to facilitate and promote its use by health professionals, for example by tagging documents with the biomedical entities that appear on them. We created a biomedical named entity recognizer (NER) that normalizes (NEN) the drugs, diseases, genes and proteins mentioned in texts with the codes of the main standardization systems such as MeSH, ICD-10, ATC, SNOMED, ChEBI, GARD and NCBI. It is based on fine-tuning the BioBERT language model independently for each entity type using domain-specific datasets and an inverse index search to normalize the references. We have used the resultant BioNER+BioNEN system to process the CORD-19 corpus and offer an overview of the drugs, diseases, genes and proteins related to coronaviruses in the last fifty years.},
+    issn = {1989-7553},
+    url = {http://journal.sepln.org/sepln/ojs/ojs/index.php/pln/article/view/6437},
+    pages = {165--176}
+}
+
+@unpublished{id_4,
+    school = {ETSI\_Informatica},
+    author = {Christian Marlon Paneque Moreda},
+    month = {Julio},
+    title = {Relation extraction between biomedical entities from scientific texts},
+    year = {2022},
+    abstract = {The current growth in biomedical digital publications has made necessary the development of tools that are capable of synthetize the information. To this end, a specific task has become fundamental, the capability of extracting biomedical relations between named entities, such as genes, chemicals or diseases. BioRE (Biomedical Relation Extraction) has allowed investigators to build taxonomies based on biomedical relations, and facilitate the creation of ontologies and graph-based databases. Methods for extracting relations have evolved in recent years in a variety of approaches, from co-concurrence statistical methods and Rule-based methods, to Machine Learning and Deep Learning methods. Recent approaches are mainly based on pre training language models created from biomedical corpus. This work proposes BioREx a BioRE system based on the state-of-the-art, BioBert, which was fine-tuned with a dataset specifically adapted for this task. Our model is composed of two classifiers created from representations on biomedical data in to perform intra sentence relation classification between Genes-Diseases, Chemical-Disease and ChemicalsGenes. A web platform capable of extracting relations from biomedical text has been also created based on these classifiers. The BioRE solution was evaluated showing a F1 score of 82.37, 86.74 and 69.1 to classify Genes-Diseases, Chemical-Disease and Chemicals-Genes, respectively.},
+    url = {https://oa.upm.es/71455/}
+}
+
+@unpublished{id_5,
+    year = {2022},
+    title = {Aplicaci{\'o}n para la exploraci{\'o}n de contenidos de una base de datos orientada a documentos},
+    author = {Diego Fraile Egido},
+    month = {Julio},
+    address = {Madrid, Espa{\~n}a},
+    url = {https://oa.upm.es/71427/},
+    abstract = {Este trabajo consiste en el dise{\~n}o y desarrollo de una aplicaci{\'o}n Web que facilita la gesti{\'o}n y exploraci{\'o}n de documentos orientada a la b{\'u}squeda de documentos dentro de una base de datos nosql orientada a documentos (motor de b{\'u}squeda). El objetivo es acercar, facilitar y generar una ?user-experience? intuitiva que acerque esta tecnolog{\'i}a a usuarios no expertos. Esto quiere decir, que la clave del proyecto reside en que un usuario no experto pueda hacer operaciones sobre un motor de b{\'u}squeda anal{\'i}tica de documentos sin necesidad alguna de conocer con anterioridad ninguna tecnolog{\'i}a usada en el desarrollo de la app. La construcci{\'o}n de esta aplicaci{\'o}n se ha desarrollado aplicando distintas capas de software haciendo de este un proyecto con m{\'o}dulos independientes, funcionales y escalables de forma individual. Dentro de este documento se detalla el desarrollo de esta aplicaci{\'o}n web en todas sus fases, tecnolog{\'i}as utilizadas, test y pruebas realizadas, conclusiones y posibles casos de mejora.---ABSTRACT---This work consists of the design and development of a Web application that facilitates the management and exploration of documents oriented to the search of documents within a nosql database oriented to documents (search engine). This work was carried out taking into account as main premise and objective to approach, facilitate and generate an intuitive "user-experience" of this technology to non-expert users. This means that the key to the project lies in the fact that a non-expert user can perform operations on an analytical document search engine without any need to know previously any technology used in the development of the app. The construction of this application has been developed by applying different software layers making this a project with independent, functional and individually scalable modules. This document details the development of this web application in all its phases, technologies used, tests, conclusions and possible cases of improvement.}
+}
+
+@misc{id_6,
+    author       = {Ibai Guillen Pacho},
+    title        = {{Impact of SARS-CoV-2 on the Coronavirus Literature
+    through Dynamic Topics}},
+    month        = oct,
+    year         = 2022,
+    publisher    = {Zenodo},
+    version      = {1.0},
+    doi          = {10.5281/zenodo.7185255},
+    url          = {https://doi.org/10.5281/zenodo.7185255}
+}
+
+@phdthesis{id_7,
+    author       = {Lucía Sánchez González},
+    title        = {{Master's thesis: Generation of a spanish annotated
+    corpus with biomedical entities}},
+    school       = {Universidad Politécnica de Madrid},
+    year         = 2022,
+    month        = oct,
+    doi          = {10.5281/zenodo.7180962},
+    url          = {https://doi.org/10.5281/zenodo.7180962}
+}
+
+@unpublished{id_8,
+    year = {2022},
+    title = {Interfaz de usuario para acceso a sistema de pregunta-respuesta},
+    author = {Jos{\'e} Manuel Vega Gradit},
+    month = {Junio},
+    address = {Madrid, Espa{\~n}a},
+    abstract = {La b{\'u}squeda de respuestas o Question Answering es una de las principales vertientes del Procesamiento de Lenguaje Natural, la cual se ha beneficiado enormemente de los recientes avances de la Inteligencia Artificial y la Web Sem{\'a}ntica. Una de sus pincipales variantes, el Knowledge Graph Question Answering (KGQA), tiene como objetivo responder preguntas en lenguaje natural a partir de consultas a bases de conocimiento estructuradas. La accesibilidad a los sistemas de pregunta-respuesta en el {\'a}rea del KGQA, as{\'i} como las maneras de evaluarlos objetivamente, est{\'a}n todav{\'i}a en desarrollo, dificultando el crecimiento de este campo. El objetivo de este proyecto ser{\'a} realizar un servicio que resuelva las cuestiones anteriormente planteadas. Para ello, hemos dise{\~n}ado una aplicaci{\'o}n en el lenguaje de programaci{\'o}n Python que integra bajo un mismo servicio una interfaz web, una base de datos no relacional (MongoDB) para la gesti{\'o}n de conjuntos de datos de KGQA y un sistema de pregunta-respuesta con acceso API REST (mediante peticiones HTTP). Como resultado de este trabajo se ha desarrollado un servicio desplegable con Docker que facilita el uso de sistemas de pregunta-respuesta de KGQA por medio de una interfaz visual. Este permite al usuario realizar preguntas libres, introduci{\'e}ndolas por teclado, o seleccionar la pregunta de entre uno de los conjuntos de datos de preguntas y respuestas subido previamente a la interfaz web. Tras recibir la respuesta del sistema, el usuario puede validar si las respuestas obtenidas son correctas, permitiendo as{\'i} evaluar el sistema y generar nuevos conjuntos de datos anotados autom{\'a}ticamente. Por otro lado, tambi{\'e}n ser{\'a} posible obtener una serie de m{\'e}tricas sobre la fluidez de escritura y los tipos de preguntas de los conjuntos de datos subidos.---ABSTRACT---Recent advancements in Artificial Intelligence and Semantic Web have greatly benefited Question Answering, one of the major tasks of Natural Language Processing. Knowledge Graph Question Answering (KGQA) is one of the main subareas of this field, which aims to answer natural language questions by querying structured knowledge bases. Question-answering systems accessibility and objective evaluation in the KGQA area are still under development, hindering the growth of this field. Our objective is to develop an application that solves the issues raised above. To do so, we have designed a Python service that integrates under a single system a web interface, a non-relational database (MongoDB) for KGQA dataset management and a question-answering system with REST API access (via HTTP requests). As a result of this project, we have developed a Docker deployable service that facilitates the use of KGQA question-answering systems through a visual interface. This service allows the user to ask free-form questions by typing them or selecting the questions from one of the datasets uploaded onto the interface. After receiving the system?s answers, the user can validate if the answers obtained are correct, thus allowing to evaluate the system and generate new annotated datasets automatically. Furthermore, it is also possible to obtain a series of metrics on written fluency and question types by answer on the uploaded datasets.},
+    url = {https://oa.upm.es/70949/}
+}
+
+
+
+@unpublished{id_9,
+    school = {ETSI\_Informatica},
+    month = {Junio},
+    title = {Explainable QA over KG},
+    year = {2021},
+    author = {Rafael In{\'e}s Guill{\'e}n},
+    url = {https://oa.upm.es/67901/},
+    abstract = {Durante los {\'u}ltimos a{\~n}os se ha observado que la gran mayor{\'i}a de informaci{\'o}n ha pasado de estar contenida en textos de manera no estructurada, como enciclopedias, art{\'i}culos de investigaci{\'o}n o libros, a estar estructurada en grafos del conocimiento. Esta evoluci{\'o}n ha a{\~n}adido toda una nueva dimensi{\'o}n a la tarea de responder preguntas en lenguaje natural, surgiendo los sistemas de pregunta-respuesta basados en grafos de conocimiento que aportan una forma intuitiva de consultar fuentes de datos estructurados para usuarios no expertos. Aunque la informaci{\'o}n que responde a la pregunta est{\'a} en el grafo de conocimiento, el desaf{\'i}o de estos sistemas reside en la complejidad para crear la consulta al grafo. Las t{\'e}cnicas de Extractive Question Answering podr{\'i}an extraer la respuesta a partir de la pregunta y un texto en lenguaje natural que contenga la informaci{\'o}n de la entidad del KG. Entonces, ?c{\'o}mo funcionar{\'i}a un sistema de preguntas y respuestas que generase un texto en lenguaje natural a partir de un grafo de conocimiento para responder en lenguaje natural a una pregunta tambi{\'e}n formulada en lenguaje natural? Este sistema tendr{\'i}a las tres tareas t{\'i}picas de los sistemas de pregunta-respuesta, que son el an{\'a}lisis de la pregunta, recuperaci{\'o}n de informaci{\'o}n y extracci{\'o}n de la respuesta. En la primera se identificar{\'i}an las entidades de la pregunta y se enlazar{\'i}an con sus recursos correspondientes del grafo de conocimiento. La segunda tarea se encargar{\'a} de realizar la consulta al grafo y redactar un texto en lenguaje natural con dicha informaci{\'o}n. Finalmente, se extraer{\'a} la respuesta a partir del texto y la pregunta utilizando t{\'e}cnicas de Extractive Question Answering. La soluci{\'o}n se ha desarrollado como una API REST basado en spaCy [42] para la identificaci{\'o}n de entidades, DBpedia Spotlight [49] para el mapeo de recursos, una consulta en SPARQL [27] para extraer la informaci{\'o}n, se apoya en el grafo de conocimiento DBpedia [23] y utiliza BERT [39] para extraer la respuesta. Adem{\'a}s, se han realizado otras implementaciones en idioma espa{\~n}ol o con otras tecnolog{\'i}as como Stanza [45] y grafos del conocimiento como Wikidata [22]. Los resultados, al evaluar las respuestas generadas sobre un conjunto de prueba, han revelado algunas limitaciones c{\'o}mo que la precisi{\'o}n disminuye en las preguntas complejas con varias entidades respecto a las simples, c{\'o}mo la falta de contexto restringe la desambiguaci{\'o}n de entidades o el texto redactado en lenguaje natural puede ser mejorado si se realizara de manera semi supervisada. Por el contrario, el sistema facilita la utilizaci{\'o}n de distintas tecnolog{\'i}as gracias a su arquitectura extensible, se desenvuelve bien en preguntas de dominio general, admite cualquier grafo de conocimiento como base de informaci{\'o}n y tiene soporte para m{\'u}ltiples idiomas.---ABSTRACT---In recent years, the vast majority of information has gone from being in unstructured texts, such as encyclopedias, research articles or books, to being structured in knowledge graphs. This evolution has added a whole new dimension to the task of answering questions in natural language, with the appearance of question and answer systems based on knowledge graphs, which provide an intuitive way of consulting structured data sources for non-expert users. Although the information that answers the question is in the knowledge graph, the challenge of these systems lies in the complexity of creating the query to the graph. However, Extractive Question Answering techniques could easily extract the answer from the question and a natural language text with the KG entity information. So, how would a question and answer system that generates a natural language text from a knowledge graph to answer the question in natural lenguage work? This system would have the three typical tasks of question and answer systems: question analysis, information retrieval, and answer extraction. In the first task, the entities of the questions would be identified and linked to their corresponding resources of the knowledge graph. The second task will be in charge of consulting the graph and writing the text in natural language with the information. Finally, the answer will be extracted from the text and the question using Extractive Question Answering techniques. The solution has been developed as a REST API with spaCy [42] for the identification of entities, DBpedia Spotlight [49] for resource mapping, a query in SPARQL [27] to extract the information, it is supported by the knowledge graph DBpedia [23] and it uses BERT [39] to extract the response . In addition, other implementations have been made in Spanish or with other technologies such as Stanza [45] and other knowledge graphs such as Wikidata [22]. The results, when evaluating the answers generated on a test set, have revealed some limitations such as the precision of complex questions with several entities decreases compared to simple ones, how the lack of context restricts the recognition of entities or the text written in natural language can be improved if it is carried out in a semi-supervised way. On the other hand, the system allows the use of different technologies thanks to its modular architecture, it performs well with general domain questions, any knowledge graph can be used as an information base and it has support for multiple languages.}
+}
+
+
+@InProceedings{id_12,
+    author="P{\'e}rez, Andrea {\'A}lvarez
+and Iglesias-Molina, Ana
+and Santamar{\'i}a, Luc{\'i}a Prieto
+and Poveda-Villal{\'o}n, Mar{\'i}a
+and Badenes-Olmedo, Carlos
+and Rodr{\'i}guez-Gonz{\'a}lez, Alejandro",
+    editor="Corcho, Oscar
+and Hollink, Laura
+and Kutz, Oliver
+and Troquard, Nicolas
+and Ekaputra, Fajar J.",
+    title="EBOCA: Evidences for BiOmedical Concepts Association Ontology",
+    booktitle="Knowledge Engineering and Knowledge Management",
+    year="2022",
+    publisher="Springer International Publishing",
+    address="Cham",
+    pages="152--166",
+    abstract="There is a large number of online documents data sources available nowadays. The lack of structure and the differences between formats are the main difficulties to automatically extract information from them, which also has a negative impact on its use and reuse. In the biomedical domain, the DISNET platform emerged to provide researchers with a resource to obtain information in the scope of human disease networks by means of large-scale heterogeneous sources. Specifically in this domain, it is critical to offer not only the information extracted from different sources, but also the evidence that supports it. This paper proposes EBOCA, an ontology that describes (i) biomedical domain concepts and associations between them, and (ii) evidences supporting these associations; with the objective of providing an schema to improve the publication and description of evidences and biomedical associations in this domain. The ontology has been successfully evaluated to ensure there are no errors, modelling pitfalls and that it meets the previously defined functional requirements. Test data coming from a subset of DISNET and automatic association extractions from texts has been transformed according to the proposed ontology to create a Knowledge Graph that can be used in real scenarios, and which has also been used for the evaluation of the presented ontology.",
+    isbn="978-3-031-17105-5"
+}
+
+
+
+
+
+
+

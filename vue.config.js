@@ -12,5 +12,13 @@ module.exports = defineConfig({
       enableInSFC: true,
       enableBridge: false
     }
-  }
+  },
+  chainWebpack: config => {
+    config.module
+        .rule('raw')
+        .test(/\.bib$/)
+        .use('raw-loader')
+        .loader('raw-loader')
+        .end()
+  },
 })
