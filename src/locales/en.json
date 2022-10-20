@@ -203,7 +203,13 @@
     "drugs": "Drugs",
     "texts": "Texts",
     "drugsFilter": "@:label.filterBy ATC level",
-    "diseasesFilter": "@:label.filterBy MESH level"
+    "diseasesFilter": "@:label.filterBy MESH level",
+    "tableTitles": {
+      "drugs": "Related Drugs",
+      "diseases": "Related Diseases",
+      "texts": "Related Texts"
+    },
+    "btnSource": "Go to Source"
   },
 
   "bioNLPView": {

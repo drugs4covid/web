@@ -32,12 +32,11 @@
           <!-- Max results slider -->
           <v-row>
             <v-subheader class="subheader" v-text="$t('textSearch.subheader1')+':'"/>
-            <v-text-field id="max-result-field"
-                          v-model="maxResults"
+            <v-text-field v-model="maxResults"
                           class="mt-0 pt-0 align-center"
                           hide-details single-line outlined dense
                           type="number"
-                          style="max-width: 72px"
+                          style="max-width: 70px"
             />
             <v-col align-self="start">
               <v-slider
@@ -56,14 +55,14 @@
             <v-subheader class="subheader" v-text="$t('textSearch.subheader2')+':'"/>
 
             <v-checkbox class="filter-checkbox"
-                        v-model="diseases.isActive"
-                        :label="$t('textSearch.diseases')"
+                        v-model="drugs.isActive"
+                        :label="$t('textSearch.drugs')"
                         :rules="rules.resource"
                         hide-spin-buttons dense
             />
             <v-checkbox class="filter-checkbox"
-                        v-model="drugs.isActive"
-                        :label="$t('textSearch.drugs')"
+                        v-model="diseases.isActive"
+                        :label="$t('textSearch.diseases')"
                         :rules="rules.resource"
                         hide-spin-buttons dense
             />
@@ -125,7 +124,10 @@
                       disable-sort hide-default-footer
         >
           <template #top>
-            <v-card-title v-text="drugs.tableTitle"></v-card-title>
+            <v-card-title v-text="$t('textSearch.tableTitles.texts')"/>
+          </template>
+          <template #header="header">
+            {{$t(header.text)}}
           </template>
         </v-data-table>
         <br/>
@@ -139,7 +141,7 @@
                       disable-sort hide-default-footer
         >
           <template #top>
-            <v-card-title v-text="diseases.tableTitle"></v-card-title>
+            <v-card-title v-text="$t('textSearch.tableTitles.diseases')"/>
           </template>
           <template #header="header">
             {{$t(header.text)}}
@@ -150,7 +152,7 @@
 
         <!-- Article results -->
         <v-row v-show="texts.results.length !== 0">
-          <v-card-title v-text="$t('texts.tableTitle')"></v-card-title>
+          <v-card-title v-text="$t('textSearch.tableTitles.texts')"/>
 
           <v-col v-for="(text, index) in texts.results"
                  :key="index"
@@ -163,7 +165,7 @@
               <v-card-text v-text="text.text"/>
               <v-card-actions>
                 <v-spacer/>
-                <v-btn v-text="$t('textSearch.button.source')"
+                <v-btn v-text="$t('textSearch.btnSource')"
                        :href="text.article.url"
                        outlined color="primary"
                 />
@@ -188,21 +190,18 @@ export default {
     inputText: "",
     loading: false,
     drugs:{
-      tableTitle: "textSearch.tableTitles.drugs",
       isActive: true,
       enableLevelFiler: false,
       levelFilter: 1,
       results: []
     },
     diseases:{
-      tableTitle: "textSearch.tableTitles.diseases",
       isActive: true,
       enableLevelFiler: false,
       levelFilter: 1,
       results: []
     },
     texts:{
-      tableTitle: "textSearch.tableTitles.texts",
       isActive: true,
       results: []
     },
@@ -223,10 +222,12 @@ export default {
           v => !!v || this.$t("error.validation.required"),
         ],
         drugLevelFilter: [
-          v => (1 <= v && v <= 5) || this.$t("error.validation.outOfRange", {min: 1, max: 5}),
+          v => ((1 <= v && v <= 5) || !(this.drugs.isActive && this.drugs.enableLevelFiler))
+              || this.$t("error.validation.outOfRange", {min: 1, max: 5}),
         ],
         diseaseLevelFilter: [
-          v => (1 <= v && v <= 20) || this.$t("error.validation.outOfRange", {min: 1, max: 20 }),
+          v => ((1 <= v && v <= 20) || !(this.diseases.isActive && this.diseases.enableLevelFiler))
+              || this.$t("error.validation.outOfRange", {min: 1, max: 20 }),
         ],
         resource: [
           this.drugs.isActive || this.diseases.isActive || this.texts.isActive
@@ -237,7 +238,7 @@ export default {
   methods:{
     clickSearchHandler(){
       if (!this.$refs.form.validate()) {
-        setTimeout(() => {this.$refs.form.resetValidation();}, 5000);
+        setTimeout(() => {this.$refs.form.resetValidation()}, 5000);
       }
       else{
         this.loading = true
@@ -302,7 +303,7 @@ export default {
 
 <style scoped>
 .subheader{
-  min-width: 180px;
+  width: 125px;
 }
 .filter-checkbox{
   min-width: 200px;
