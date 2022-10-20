@@ -7,14 +7,16 @@
                    :key="index"
       >
         <v-row>
-          <!-- Document ID -->
-          <span>[{{cite.id.split('_')[1]}}]</span>
-          <!-- Authors -->
-          <span>{{authorsToString(cite.author)}}.</span>
-          <!-- Title -->
-          <a :href="cite.URL" style="text-decoration: none">
-            <em>"{{cite.title}}"</em>
-          </a>
+          <div>
+            <!-- Document ID -->
+            <span>[{{cite.id.split('_')[1]}}]{{' '}}</span>
+            <!-- Authors -->
+            <span>{{authorsToString(cite.author)}}.</span>
+            <!-- Title -->
+            <a :href="cite.URL" style="text-decoration: none">
+              <em>"{{cite.title}}"</em>
+            </a>
+          </div>
         </v-row>
 
         <v-row>
