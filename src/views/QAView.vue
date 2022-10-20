@@ -28,26 +28,26 @@
           </v-row>
 
           <!-- Source Checkboxes -->
-          <v-row>
-            <v-subheader class="v-label ml-0 pl-0"
+          <v-row style="height: 50px" align-content="center">
+            <span class="v-label theme--light ml-0 pl-0"
                          v-text="$t('qaView.subheader2')+':'"
             />
-            <v-row justify="space-around" >
+            <v-row justify="space-around" align-content="center">
 
               <v-checkbox v-model="useD4C"
-                          class="mx-4"
+                          class="mx-4 my-0 py-0"
                           :label="$t('qaView.d4c')"
                           :rules="rules.resource"
                           hide-spin-buttons hide-details
               />
               <v-checkbox v-model="useDBPedia"
-                          class="mx-4"
+                          class="mx-4 my-0 py-0"
                           :label="$t('qaView.dbPedia')"
                           hide-spin-buttons hide-details
                           :rules="rules.resource"
               />
               <v-checkbox v-model="useWiki"
-                          class="mx-4"
+                          class="mx-4 my-0 py-0"
                           :label="$t('qaView.wikidata')"
                           hide-spin-buttons hide-details
                           :rules="rules.resource"
