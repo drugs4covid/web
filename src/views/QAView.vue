@@ -8,10 +8,10 @@
         <v-form ref="form">
 
           <!-- QA Input -->
-          <v-row align-content="center">
+          <v-row align-content="center" class="mx-0">
               <v-text-field v-model="input"
                             :placeholder="$t('qaView.placeholder')"
-                            :rules="rules.inputText"
+                            :rules="rules.input"
                             outlined
               >
                 <template #append-outer>
@@ -19,7 +19,7 @@
                          class="search-btn"
                          :loading="loading"
                          outlined
-                         @click="clickAskHandler()"
+                         @click="clickAskHandler"
                   >
                     <v-icon size="xx-large">mdi-chat-question-outline</v-icon>
                   </v-btn>
@@ -28,36 +28,35 @@
           </v-row>
 
           <!-- Source Checkboxes -->
-          <v-row style="height: 50px" align-content="center">
+          <v-row style="height: 50px" align-content="center" class="mx-0">
             <span class="v-label theme--light ml-0 pl-0"
                          v-text="$t('qaView.subheader2')+':'"
             />
             <v-row justify="space-around" align-content="center">
 
               <v-checkbox v-model="useD4C"
-                          class="mx-4 my-0 py-0"
+                          class="my-0 py-0"
                           :label="$t('qaView.d4c')"
                           :rules="rules.resource"
                           hide-spin-buttons hide-details
               />
               <v-checkbox v-model="useDBPedia"
-                          class="mx-4 my-0 py-0"
+                          class="my-0 py-0"
                           :label="$t('qaView.dbPedia')"
-                          hide-spin-buttons hide-details
                           :rules="rules.resource"
+                          hide-spin-buttons hide-details
               />
               <v-checkbox v-model="useWiki"
-                          class="mx-4 my-0 py-0"
+                          class="my-0 py-0"
                           :label="$t('qaView.wikidata')"
-                          hide-spin-buttons hide-details
                           :rules="rules.resource"
+                          hide-spin-buttons hide-details
               />
             </v-row>
-
           </v-row>
 
           <!-- Max Answers -->
-          <v-row style="height: 50px">
+          <v-row style="height: 50px" class="mx-0">
             <v-slider v-model="maxAnswers.value"
                       :max="maxAnswers.max"
                       :min="maxAnswers.min"
@@ -118,7 +117,7 @@ export default {
   computed: {
    rules() {
       return {
-        inputText: [
+        input: [
           v => !!v || this.$t("error.validation.required"),
         ],
         maxAnswers: [
