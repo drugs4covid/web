@@ -8,8 +8,7 @@
         <v-form ref="form">
 
           <!-- QA Input -->
-          <v-row>
-            <v-col cols="12">
+          <v-row align-content="center">
               <v-text-field v-model="input"
                             :placeholder="$t('qaView.placeholder')"
                             :rules="rules.inputText"
@@ -26,50 +25,51 @@
                   </v-btn>
                 </template>
               </v-text-field>
-            </v-col>
-          </v-row>
-
-          <!-- Max Answers -->
-          <v-row>
-            <v-subheader class="subheader" v-text="$t('qaView.subheader1')+':'"/>
-            <v-slider v-model="maxAnswers"
-                      class="align-center"
-                      max="25" min="1"
-                      hide-details
-            >
-              <template #prepend>
-                <v-text-field v-model="maxAnswers"
-                              :rules="rules.maxAnswers"
-                              class="mt-0 pt-0 align-center"
-                              single-line outlined dense hide-details
-                              type="number"
-                              style="width: 100px"
-                />
-              </template>
-            </v-slider>
           </v-row>
 
           <!-- Source Checkboxes -->
-          <v-row >
-            <v-subheader class="subheader" v-text="$t('qaView.subheader2')+':'"/>
+          <v-row>
+            <v-subheader class="v-label ml-0 pl-0"
+                         v-text="$t('qaView.subheader2')+':'"
+            />
+            <v-row justify="space-around" >
 
-            <v-checkbox v-model="useD4C"
-                        class="filter-checkbox"
-                        :label="$t('qaView.d4c')"
-                        :rules="rules.resource"
-                        hide-spin-buttons
-            />
-            <v-checkbox v-model="useDBPedia"
-                        class="filter-checkbox"
-                        :label="$t('qaView.dbPedia')"
-                        hide-spin-buttons
-                        :rules="rules.resource"
-            />
-            <v-checkbox v-model="useWiki"
-                        class="filter-checkbox"
-                        :label="$t('qaView.wikidata')"
-                        hide-spin-buttons
-                        :rules="rules.resource"
+              <v-checkbox v-model="useD4C"
+                          class="mx-4"
+                          :label="$t('qaView.d4c')"
+                          :rules="rules.resource"
+                          hide-spin-buttons hide-details
+              />
+              <v-checkbox v-model="useDBPedia"
+                          class="mx-4"
+                          :label="$t('qaView.dbPedia')"
+                          hide-spin-buttons hide-details
+                          :rules="rules.resource"
+              />
+              <v-checkbox v-model="useWiki"
+                          class="mx-4"
+                          :label="$t('qaView.wikidata')"
+                          hide-spin-buttons hide-details
+                          :rules="rules.resource"
+              />
+            </v-row>
+
+          </v-row>
+
+          <!-- Max Answers -->
+          <v-row style="height: 50px">
+            <v-slider v-model="maxAnswers.value"
+                      :max="maxAnswers.max"
+                      :min="maxAnswers.min"
+                      :label="$t('qaView.subheader1')+':'"
+            >
+            </v-slider>
+            <v-text-field v-model="maxAnswers.value"
+                          :rules="rules.maxAnswers"
+                          type="number"
+                          class="mt-0 pt-0"
+                          style="max-width: 75px"
+                          dense
             />
           </v-row>
 
@@ -105,7 +105,11 @@ export default {
     answerList: [],
     input: "What traditional medicine has been used to treat Covid-19?",
     question: "",
-    maxAnswers: 3,
+    maxAnswers: {
+      max: 25,
+      min: 1,
+      value: 3,
+    },
     useWiki: true,
     useDBPedia: true,
     useD4C: true,
@@ -118,7 +122,8 @@ export default {
           v => !!v || this.$t("error.validation.required"),
         ],
         maxAnswers: [
-          v => (1 <= v && v <= 5) || this.$t("error.validation.outOfRange", {min: 1, max: 25}),
+          v => (this.maxAnswers.min <= v && v <= this.maxAnswers.max)
+              || this.$t("error.validation.outOfRange", {min: this.maxAnswers.min, max: this.maxAnswers.max}),
         ],
         resource: [
           this.useWiki || this.useD4C || this.useDBPedia
@@ -135,7 +140,7 @@ export default {
         this.loading = true
         this.question = this.input
 
-        this.askQuestion(this.question, this.maxAnswers, this.useWiki, this.useDBPedia, this.useD4C)
+        this.askQuestion(this.question, this.maxAnswers.value, this.useWiki, this.useDBPedia, this.useD4C)
       }
    },
     askQuestion(question, maxAnswers, useWiki, useDBPedia, useD4C){
@@ -159,14 +164,7 @@ export default {
 </script>
 
 <style scoped>
-.subheader{
-  width: 145px;
-}
 .search-btn{
   margin-top: -18px;
-}
-.filter-checkbox{
-  min-width: 200px;
-  margin-top: 8px;
 }
 </style>
