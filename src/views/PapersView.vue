@@ -19,9 +19,10 @@
               <span v-show="cite.title">
                 {{' '}}
                 <a v-if="cite.URL" :href="cite.URL" style="text-decoration: none">
-                  <em>"{{cite.title}}".</em>
+                  <em>"{{cite.title}}"</em>
                 </a>
-                <em v-else>"{{cite.title}}".</em>
+                <em v-else>"{{cite.title}}"</em>
+                <span>.</span>
               </span>
 
               <!-- Genre -->
