@@ -111,7 +111,7 @@ export default {
         text: "resources.annotatedCorpus.text",
         btnText: "resources.annotatedCorpus.btnText",
         to: "annotatedCorpus",
-        href: null
+        href: store.state.links.zenodo.annotatedCorpus
       },
       {
         title: "corpus.keyQ.title",

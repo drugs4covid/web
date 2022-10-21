@@ -186,6 +186,7 @@ export default {
           {
             label: "title.annotatedCorpus",
             to: "annotated-corpus",
+            href: store.state.links.zenodo.annotatedCorpus
           },
         ]
       },

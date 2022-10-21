@@ -49,7 +49,7 @@ export default new Vuex.Store({
         search: "https://search.drugs4covid.oeg-upm.net/search/",
       },
       zenodo: {
-        annotatedCorpus: null
+        annotatedCorpus: "https://doi.org/10.5281/zenodo.7193680"
       },
     },
 
