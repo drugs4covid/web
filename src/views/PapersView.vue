@@ -25,6 +25,11 @@
                 <span>.</span>
               </span>
 
+              <!-- Notes -->
+              <span v-show="cite.note">
+                [{{cite.note}}]
+              </span>
+
               <!-- Genre -->
               <span v-show="cite.genre">
                 {{' '}} {{cite.genre}}.
