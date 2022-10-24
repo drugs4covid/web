@@ -104,3 +104,9 @@ export default {
   width: 100%;
 }
 </style>
+<!--
+               __
+             <(o )___
+              ( ._> /
+               `---'   @Vitoriox
+-->
