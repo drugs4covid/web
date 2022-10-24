@@ -5,7 +5,7 @@
                       :items="resultsList"
                       :search-input.sync="searchInput"
                       :value="searchInput"
-                      :placeholder="$t('searchEngineView.placeholder', {numChar:2})"
+                      :placeholder="$t('bioSearch.placeholder', {numChar:2})"
                       prepend-inner-icon="mdi-magnify"
                       hide-no-data hide-selected cache-items
                       auto-select-first return-object outlined

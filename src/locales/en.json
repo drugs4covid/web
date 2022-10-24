@@ -1,35 +1,11 @@
 {
-  "title": {
-    "about": "About",
-    "annotatedCorpus": "Annotated Corpus",
-    "articles": "Papers",
-    "bioNLP": "BioNER",
-    "corpus": "Corpus",
-    "customSearch": "Text Search",
-    "code": "Code",
-    "graphDB": "RDF",
-    "home": "Home",
-    "jupiterNotebooks": "Notebooks",
-    "keyQ": "KeyQ",
-    "knowledgeGraph": "Knowledge Graph",
-    "oeg": "Ontology Engineering Group (OEG)",
-    "ontology": "Ontology",
-    "qa": "BioQA",
-    "queryBuilder": "Repository",
-    "resources": "Resources",
-    "searchEngine": "BioSearch",
-    "services": "Services",
-    "sparql": "SPARQL"
-  },
-
   "label": {
-    "type": "Type",
-    "confidence": "Confidence",
-    "version": "Version",
     "and": "and",
+    "confidence": "Confidence",
     "filterBy": "Filter by",
     "goTo": "Go to",
-    "test": "TEST"
+    "type": "Type",
+    "version": "Version"
   },
 
   "error": {
@@ -54,11 +30,26 @@
     "12": "Dec"
   },
 
-  "tableHeader": {
-    "name": "Name",
+  "nav": {
+    "about": "About",
+    "annotatedCorpus": "Annotated Corpus",
+    "bioNER": "@:bioNER.title",
+    "bioQA": "@:bioQA.title",
+    "bioSearch": "@:bioSearch.title",
     "code": "Code",
-    "level": "Level",
-    "frequency": "Frequency"
+    "corpus": "@:corpus.title",
+    "home": "Home",
+    "keyQ": "KeyQ",
+    "knowledgeGraph": "Knowledge Graph",
+    "notebooks": "Notebooks",
+    "ontology": "Ontology",
+    "papers": "Papers",
+    "rdf": "RDF",
+    "repository": "Repository",
+    "resources": "Resources",
+    "services": "@:services.title",
+    "sparql": "SPARQL",
+    "textSearch": "Text Search"
   },
 
   "footer": {
@@ -97,31 +88,83 @@
   },
 
   "services": {
-    "title": "@:title.services",
+    "title": "Services",
     "header": "This is a list of services available in our webpage",
     "bioNER": {
-      "title": "@:title.bioNLP",
-      "subtitle": "@:bioNLPView.subtitle",
+      "title": "@:bioNER.title",
+      "subtitle": "@:bioNER.subtitle",
       "text": "A biomedical named entity recognizer (NER) that normalizes (NEN) the drugs, diseases, genes and proteins mentioned in texts with the codes of the main standardization systems such as MeSH, ICD-10, ATC, SNOMED, ChEBI, GARD and NCBI. It is based on fine-tuning the BioBERT language model independently for each entity type using domain-specific datasets and an inverse index search to normalize the references.",
       "btnText": "Start Analyzing"
     },
     "bioSearch": {
-      "title": "@:title.searchEngine",
-      "subtitle": "@:searchEngineView.subtitle",
+      "title": "@:bioSearch.title",
+      "subtitle": "@:bioSearch.subtitle",
       "text": "An open web service to exploit the existing scientific literature about coronavirus identifying drugs, diseases and articles and displaying their relations inside the corpus. You can search by ATC code, Generic Name, Disease Name or MESH code.",
       "btnText": "Start Searching"
     },
     "bioQA": {
-      "title": "@:title.qa",
-      "subtitle": "@:qaView.subtitle",
+      "title": "@:bioQA.title",
+      "subtitle": "@:bioQA.subtitle",
       "text": "A novel <strong>Question-Answering (QA) system</strong> based on natural language questions that is domain-independent and enables the combination of knowledge graphs with unstructured information sources to build the answer. It combines <strong>DBPedia</strong> and <strong>Wikidata</strong> with the Drugs4Covid database to provide natural language answers.",
       "btnText": "Start Asking"
     }
   },
 
+  "bioNER": {
+    "title": "Bio NER",
+    "subtitle": "Find the biomedical entities hidden in text",
+    "placeholder": "Place some text to start analyzing",
+    "description": "BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.",
+    "resultsTitle": "Results",
+    "tableTitles": {
+      "disease": "Diseases",
+      "chemicals": "Drugs/Chemicals",
+      "genetics": "Genetics",
+      "covid": "COVID-19"
+    },
+    "tableHeaders": {
+      "atc": "ATC",
+      "associationScore": "COVID-19 Association Score",
+      "atcLevel": "ATC Level",
+      "chebiId": "CHEBI ID",
+      "cid": "CID",
+      "crossReferences": "Other IDs",
+      "cui": "CUI",
+      "ebiReference": "EBI Reference",
+      "evidence": "Evidence",
+      "foundTerm": "Found Term",
+      "icd10": "ICD10",
+      "meshId": "Mesh ID",
+      "ncbiTaxonId": "NCBItaxon ID",
+      "ncbiGeneId": "NCBIgene ID",
+      "prId": "PR ID",
+      "semanticType": "Semantic Type",
+      "target": "Target",
+      "term": "Term",
+      "uniprotId": "UniProt ID"
+    }
+  },
+
+  "bioSearch": {
+    "title": "Bio Search",
+    "subtitle": "Search among all scientific literature about coronavirus",
+    "placeholder": "Type at least {numChar} characters to start searching"
+  },
+
+  "bioQA": {
+    "title": "Bio QA",
+    "subtitle": "Make any question to our engine and select the number of answers",
+    "placeholder": "Write a question",
+    "subheader1": "Max Answers",
+    "subheader2": "Database",
+    "d4c": "D4C",
+    "dbPedia": "DB Pedia",
+    "wikidata": "Wikidata"
+  },
+
   "knowledgeGraph": {
     "title": "Knowledge Graph",
-    "header": "header",
+    "header": "",
     "rdf": {
       "title": "RDF",
       "text": "The Drugs4Covid Knowledge Graph uses two declarative mapping languages to transform input data into RDF: the W3C Recommendation R2RML for EBOCA SEM-DISNET, and RML for EBOCA Evidences. Both mappings have been created using Mapeathor ans were materialized using the mapping engine Morph-KGC.",
@@ -135,7 +178,7 @@
   },
 
   "corpus": {
-    "title": "",
+    "title": "Corpus",
     "header": "",
     "textSearch": {
       "title": "Text Search",
@@ -158,9 +201,37 @@
     }
   },
 
+  "textSearch": {
+    "title": "Keyword-guided Resource Finder",
+    "subtitle": "Type one or more keywords and select the resource to retrieve: text, medicine or disease.",
+    "placeholder": "Remdesivir",
+    "subheader1": "Max Results",
+    "subheader2": "Resources",
+    "subheader3": "Filters",
+    "diseases": "Diseases",
+    "drugs": "Drugs",
+    "texts": "Texts",
+    "drugsFilter": "@:label.filterBy ATC level",
+    "diseasesFilter": "@:label.filterBy MESH level",
+    "tables": {
+      "titles": {
+        "drugs": "Related Drugs",
+        "diseases": "Related Diseases",
+        "texts": "Related Texts"
+      },
+      "headers": {
+        "name": "Name",
+        "code": "Code",
+        "level": "Level",
+        "frequency": "Frequency"
+      }
+    },
+    "btnSource": "Go to Source"
+  },
+
   "resources": {
     "title": "Resources",
-    "header": "header",
+    "header": "",
     "code": {
       "title": "Code",
       "text": "All resources created on Drugs4Covid are open source and publicly available. We have created an organisation on Github to centralise them. Feel free to use them and leave us feedback to help us keep improving.",
@@ -192,79 +263,8 @@
     }
   },
 
-  "textSearch": {
-    "title": "Keyword-guided Resource Finder",
-    "subtitle": "Type one or more keywords and select the resource to retrieve: text, medicine or disease.",
-    "placeholder": "Remdesivir",
-    "subheader1": "Max Results",
-    "subheader2": "Resources",
-    "subheader3": "Filters",
-    "diseases": "Diseases",
-    "drugs": "Drugs",
-    "texts": "Texts",
-    "drugsFilter": "@:label.filterBy ATC level",
-    "diseasesFilter": "@:label.filterBy MESH level",
-    "tableTitles": {
-      "drugs": "Related Drugs",
-      "diseases": "Related Diseases",
-      "texts": "Related Texts"
-    },
-    "btnSource": "Go to Source"
-  },
-
-  "bioNLPView": {
-    "title": "@:title.bioNLP",
-    "subtitle": "Find the biomedical entities hidden in text",
-    "placeholder": "Place some text to start analyzing",
-    "description": "BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.",
-    "resultsTitle": "Results",
-    "tableTitles": {
-      "disease": "Diseases",
-      "chemicals": "Drugs/Chemicals",
-      "genetics": "Genetics",
-      "covid": "COVID-19"
-    },
-    "tableHeaders": {
-      "term": "Term",
-      "foundTerm": "Found Term",
-      "meshId": "Mesh ID",
-      "cui": "CUI",
-      "icd10": "ICD10",
-      "crossReferences": "Other IDs",
-      "semanticType": "Semantic Type",
-      "chebiId": "CHEBI ID",
-      "atc": "ATC",
-      "atcLevel": "ATC Level",
-      "cid": "CID",
-      "ncbiGeneId": "NCBIgene ID",
-      "uniprotId": "UniProt ID",
-      "ncbiTaxonId": "NCBItaxon ID",
-      "ebiReference": "EBI Reference",
-      "evidence": "Evidence",
-      "target": "Target",
-      "associationScore": "COVID-19 Association Score",
-      "prId": "PR ID"
-    }
-  },
-
-  "qaView": {
-    "title": "@:title.qa",
-    "subtitle": "Make any question to our engine and select the number of answers",
-    "placeholder": "Write a question",
-    "subheader1": "Max Answers",
-    "subheader2": "Database",
-    "d4c": "D4C",
-    "dbPedia": "DB Pedia",
-    "wikidata": "Wikidata"
-  },
-
-  "searchEngineView": {
-    "title": "@:title.searchEngine",
-    "subtitle": "Search among all scientific literature about coronavirus",
-    "placeholder": "Type at least {numChar} characters to start searching"
-  },
   "about": {
-    "title": "@:title.oeg",
+    "title": "Ontology Engineering Group (OEG)",
     "team": "Our Team",
     "subtitle": "@:about.lab <br> @:about.faculty <br> @:about.university <br> @:about.address",
     "lab": "Laboratory 3206",

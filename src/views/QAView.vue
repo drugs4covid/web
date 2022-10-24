@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-card flat>
-      <v-card-title v-text="$t('qaView.title')"/>
-      <v-card-subtitle v-text="$t('qaView.subtitle')"/>
+      <v-card-title v-text="$t('bioQA.title')"/>
+      <v-card-subtitle v-text="$t('bioQA.subtitle')"/>
 
       <v-container>
         <v-form ref="form">
@@ -10,7 +10,7 @@
           <!-- QA Input -->
           <v-row align-content="center" class="mx-0">
               <v-text-field v-model="input"
-                            :placeholder="$t('qaView.placeholder')"
+                            :placeholder="$t('bioQA.placeholder')"
                             :rules="rules.input"
                             outlined
               >
@@ -30,25 +30,25 @@
           <!-- Source Checkboxes -->
           <v-row style="height: 50px" align-content="center" class="mx-0">
             <span class="v-label theme--light ml-0 pl-0"
-                         v-text="$t('qaView.subheader2')+':'"
+                         v-text="$t('bioQA.subheader2')+':'"
             />
             <v-row justify="space-around" align-content="center">
 
               <v-checkbox v-model="useD4C"
                           class="my-0 py-0"
-                          :label="$t('qaView.d4c')"
+                          :label="$t('bioQA.d4c')"
                           :rules="rules.resource"
                           hide-spin-buttons hide-details
               />
               <v-checkbox v-model="useDBPedia"
                           class="my-0 py-0"
-                          :label="$t('qaView.dbPedia')"
+                          :label="$t('bioQA.dbPedia')"
                           :rules="rules.resource"
                           hide-spin-buttons hide-details
               />
               <v-checkbox v-model="useWiki"
                           class="my-0 py-0"
-                          :label="$t('qaView.wikidata')"
+                          :label="$t('bioQA.wikidata')"
                           :rules="rules.resource"
                           hide-spin-buttons hide-details
               />
@@ -60,7 +60,7 @@
             <v-slider v-model="maxAnswers.value"
                       :max="maxAnswers.max"
                       :min="maxAnswers.min"
-                      :label="$t('qaView.subheader1')+':'"
+                      :label="$t('bioQA.subheader1')+':'"
             >
             </v-slider>
             <v-text-field v-model="maxAnswers.value"

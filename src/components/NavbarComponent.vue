@@ -128,89 +128,89 @@ export default {
     pageLogo: NavbarLogo,
     navItems:[
       {
-        label: "title.services",
+        label: "nav.services",
         to: "services",
         views:[
           {
-            label: "title.bioNLP",
+            label: "nav.bioNER",
             to: "bio-ner",
           },
           {
-            label: "title.searchEngine",
+            label: "nav.bioSearch",
             to: "bio-search",
           },
           {
-            label: "title.qa",
+            label: "nav.bioQA",
             to: "bio-qa",
           },
         ]
       },
       {
-        label: "title.knowledgeGraph",
+        label: "nav.knowledgeGraph",
         to: "knowledge-graph",
         views:[
           {
-            label: "title.graphDB",
+            label: "nav.rdf",
             to: "rdf",
             href: store.state.links.d4c.rdf
           },
           {
-            label: "title.sparql",
+            label: "nav.sparql",
             to: "sparql",
             href: store.state.links.d4c.sparql
           },
           {
-            label: "title.ontology",
+            label: "nav.ontology",
             to: "ontology",
             href: store.state.links.d4c.ontology
           },
         ]
       },
       {
-        label: "title.corpus",
+        label: "nav.corpus",
         to: "corpus",
         views:[
           {
-            label: "title.customSearch",
+            label: "nav.textSearch",
             to: "text-search"
           },
           {
-            label: "title.queryBuilder",
+            label: "nav.repository",
             to: "repository",
           },
           {
-            label: "title.keyQ",
+            label: "nav.keyQ",
             to: "keyQ",
             href: store.state.links.d4c.keyQ
           },
           {
-            label: "title.annotatedCorpus",
+            label: "nav.annotatedCorpus",
             to: "annotated-corpus",
             href: store.state.links.zenodo.annotatedCorpus
           },
         ]
       },
       {
-        label: "title.resources",
+        label: "nav.resources",
         to: "resources",
         views:[
           {
-            label: "title.code",
+            label: "nav.code",
             to: "code",
             href: store.state.links.github.d4c
           },
           {
-            label: "title.jupiterNotebooks",
+            label: "nav.notebooks",
             to: "notebooks",
           },
         ]
       },
       {
-        label: "title.articles",
+        label: "nav.papers",
         to: "papers",
       },
       {
-        label: "title.about",
+        label: "nav.about",
         to: "about",
       },
     ],

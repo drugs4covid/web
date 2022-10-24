@@ -1,20 +1,20 @@
 <template>
   <v-container>
     <v-card flat>
-      <v-card-title v-text="$t('bioNLPView.title')"/>
-      <v-card-subtitle v-text="$t('bioNLPView.subtitle')"/>
+      <v-card-title v-text="$t('bioNER.title')"/>
+      <v-card-subtitle v-text="$t('bioNER.subtitle')"/>
 
       <v-form>
         <v-textarea v-model="sampleTxt"
                     @input="analyzeSample()"
-                    :placeholder="$t('bioNLPView.placeholder')"
+                    :placeholder="$t('bioNER.placeholder')"
                     outlined
         />
       </v-form>
 
         <br/>
         <div v-show="entities">
-          <h2 style="text-align: center">{{ $t('bioNLPView.resultsTitle') }}</h2>
+          <h2 style="text-align: center">{{ $t('bioNER.resultsTitle') }}</h2>
 
           <div v-show="sampleTxt" v-html="sampleHTML"></div>
 
@@ -46,7 +46,7 @@ export default {
     sampleTxt: "",
     tableList: [
       {
-        title: "bioNLPView.tableTitles.disease",
+        title: "bioNER.tableTitles.disease",
         entityName: "diseases",
         items: [],
         headers: [
@@ -60,7 +60,7 @@ export default {
         ],
       },
       {
-        title: "bioNLPView.tableTitles.chemicals",
+        title: "bioNER.tableTitles.chemicals",
         entityName: "chemicals",
         items: [],
         headers: [
@@ -75,7 +75,7 @@ export default {
         ],
       },
       {
-        title: "bioNLPView.tableTitles.genetics",
+        title: "bioNER.tableTitles.genetics",
         entityName: "genetics",
         items: [],
         headers: [
@@ -88,7 +88,7 @@ export default {
         ],
       },
       {
-        title: "bioNLPView.tableTitles.covid",
+        title: "bioNER.tableTitles.covid",
         entityName: "covid",
         items: [],
         headers: [

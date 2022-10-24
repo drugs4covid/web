@@ -124,7 +124,7 @@
                       disable-sort hide-default-footer
         >
           <template #top>
-            <v-card-title v-text="$t('textSearch.tableTitles.texts')"/>
+            <v-card-title v-text="$t('textSearch.tables.titles.drugs')"/>
           </template>
           <template #header="header">
             {{$t(header.text)}}
@@ -141,7 +141,7 @@
                       disable-sort hide-default-footer
         >
           <template #top>
-            <v-card-title v-text="$t('textSearch.tableTitles.diseases')"/>
+            <v-card-title v-text="$t('textSearch.tables.titles.diseases')"/>
           </template>
           <template #header="header">
             {{$t(header.text)}}
@@ -152,7 +152,7 @@
 
         <!-- Article results -->
         <v-row v-show="texts.results.length !== 0">
-          <v-card-title v-text="$t('textSearch.tableTitles.texts')"/>
+          <v-card-title v-text="$t('textSearch.tables.titles.texts')"/>
 
           <v-col v-for="(text, index) in texts.results"
                  :key="index"
@@ -222,10 +222,10 @@ export default {
   computed:{
     headers() {
       return [
-        { text: this.$t("tableHeader.name"), value: "name", align: "start", sortable: false,},
-        { text: this.$t("tableHeader.code"), value: "code" },
-        { text: this.$t("tableHeader.level"), value: "level" },
-        { text: this.$t("tableHeader.frequency"), value: "freq" },
+        { text: this.$t("textSearch.tables.headers.name"), value: "name", align: "start", sortable: false,},
+        { text: this.$t("textSearch.tables.headers.code"), value: "code" },
+        { text: this.$t("textSearch.tables.headers.level"), value: "level" },
+        { text: this.$t("textSearch.tables.headers.frequency"), value: "freq" },
       ]
     },
     rules() {
