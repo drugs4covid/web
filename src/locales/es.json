@@ -32,7 +32,7 @@
 
   "nav": {
     "about": "Acerca de",
-    "annotatedCorpus": "Corpus anotado",
+    "annotatedCorpus": "Corpus Anotado",
     "bioNER": "@:bioNER.title",
     "bioQA": "@:bioQA.title",
     "bioSearch": "@:bioSearch.title",
@@ -40,7 +40,7 @@
     "corpus": "@:corpus.title",
     "home": "Inicio",
     "keyQ": "KeyQ",
-    "knowledgeGraph": "Gráfico de conocimiento",
+    "knowledgeGraph": "Grafo de conocimiento",
     "notebooks": "Cuadernos",
     "ontology": "Ontología",
     "papers": "Papeles",
@@ -58,7 +58,7 @@
   },
 
   "home": {
-    "header": "Creamos un gráfico de conocimiento con evidencias de publicaciones científicas sobre coronavirus. Los fármacos, las enfermedades, los genes y las proteínas están identificados y normalizados para permitir búsquedas complejas en los artículos.",
+    "header": "Creamos un grafo de conocimiento con evidencias de publicaciones científicas sobre coronavirus. Los fármacos, las enfermedades, los genes y las proteínas están identificados y normalizados para permitir búsquedas complejas en los artículos.",
     "subheader": "Drugs4Covid extrae y estructura las pruebas de los artículos científicos en cinco pasos: Recoger, analizar, extraer, integrar y publicar. Prueba nuestras herramientas públicas.",
     "section1": {
       "title": "Recoger",
@@ -105,7 +105,7 @@
     "bioQA": {
       "title": "@:bioQA.title",
       "subtitle": "@:bioQA.subtitle",
-      "text": "Un novedoso <strong>sistema de respuesta a preguntas (QA</strong> ) basado en preguntas en lenguaje natural que es independiente del dominio y permite la combinación de gráficos de conocimiento con fuentes de información no estructuradas para construir la respuesta. Combina <strong>DBPedia</strong> y <strong>Wikidata</strong> con la base de datos Drugs4Covid para proporcionar respuestas en lenguaje natural.",
+      "text": "Un novedoso <strong>sistema de respuesta a preguntas (QA</strong> ) basado en preguntas en lenguaje natural que es independiente del dominio y permite la combinación de grafos de conocimiento con fuentes de información no estructuradas para construir la respuesta. Combina <strong>DBPedia</strong> y <strong>Wikidata</strong> con la base de datos Drugs4Covid para proporcionar respuestas en lenguaje natural.",
       "btnText": "Empezar a preguntar"
     }
   },
@@ -169,11 +169,13 @@
     "header": "",
     "rdf": {
       "title": "RDF",
-      "text": "El Grafo de Conocimiento de Drugs4Covid utiliza dos lenguajes de mapeo declarativo para transformar los datos de entrada en RDF: la recomendación W3C R2RML para EBOCA SEM-DISNET y RML para EBOCA Evidences. Ambos mapeos se crearon con Mapeathor y se materializaron usando el mapeo motor Morph-KGC.",      "btnText": "@:label.goTo Repository"
+      "text": "El Grafo de Conocimiento de Drugs4Covid utiliza dos lenguajes de mapeo declarativo para transformar los datos de entrada en RDF: la recomendación W3C R2RML para EBOCA SEM-DISNET y RML para EBOCA Evidences. Ambos mapeos se crearon con Mapeathor y se materializaron usando el mapeo motor Morph-KGC.",
+      "btnText": "@:label.goTo Repository"
     },
     "sparql": {
       "title": "SPARQL",
-      "text": "Se ha creado una interfaz web basada en el <strong>marco HELIO</strong> para acceder al gráfico de conocimiento de Drugs4Covid. Permite consultas en formato SPARQL y gestiona el acceso a los recursos a través de sus URIs.",      "btnText": "@:label.goTo SPARQL Endpoint"
+      "text": "Se ha creado una interfaz web basada en el <strong>marco HELIO</strong> para acceder al grafo de conocimiento de Drugs4Covid. Permite consultas en formato SPARQL y gestiona el acceso a los recursos a través de sus URIs.",
+      "btnText": "@:label.goTo SPARQL Endpoint"
     }
   },
 
@@ -182,12 +184,13 @@
     "header": "",
     "textSearch": {
       "title": "Búsqueda Textual",
-      "text": "Explotamos los modelos de reconocimiento de entidades y las representaciones tópicas probabilísticas de Drugs4Covid para proporcionar un <strong>motor de búsqueda</strong> basado en entidades biomédicas. Se han utilizado bases de datos adicionales para ampliar la información sobre medicamentos y relacionarla con otros términos. \n",
+      "text": "Explotamos los modelos de reconocimiento de entidades y las representaciones tópicas probabilísticas de Drugs4Covid para proporcionar un <strong>motor de búsqueda</strong> basado en entidades biomédicas. Se han utilizado bases de datos adicionales para ampliar la información sobre medicamentos y relacionarla con otros términos.",
       "btnText": "Empezar a buscar"
     },
     "repository": {
       "title": "Repositorio",
-      "text": "Soportado por Solr, hemos creado índices para cada una de las entidades biomédicas que pueden aportar evidencias",      "btnDiseases": "Diseases",
+      "text": "Soportado por Solr, hemos creado índices para cada una de las entidades biomédicas que pueden aportar evidencias",
+      "btnDiseases": "Diseases",
       "btnDrugs": "Medicamentos",
       "btnGenes": "Genes y Proteinas",
       "btnPapers": "Documenos",
@@ -202,7 +205,8 @@
 
   "textSearch": {
     "title": "Buscador de recursos guiado por palabras clave",
-    "subtitle": "Escriba una o más palabras clave y seleccione el recurso para recuperar: texto, medicina o enfermedad.",    "placeholder": "Remdesivir",
+    "subtitle": "Escriba una o más palabras clave y seleccione el recurso para recuperar: texto, medicina o enfermedad.",
+    "placeholder": "Remdesivir",
     "subheader1": "Resultados Máximos",
     "subheader2": "Recursos",
     "subheader3": "Filtros",
@@ -232,11 +236,13 @@
     "header": "",
     "code": {
       "title": "Código",
-      "text": "Todos los recursos creados en Drugs4Covid son de código abierto y están disponibles públicamente. Hemos creado una organización en Github para centralizarlos. Siéntete libre de usarlos y déjanos tus comentarios para ayudarnos a seguir mejorando.",      "btnText": ""
+      "text": "Todos los recursos creados en Drugs4Covid son de código abierto y están disponibles públicamente. Hemos creado una organización en Github para centralizarlos. Siéntete libre de usarlos y déjanos tus comentarios para ayudarnos a seguir mejorando.",
+      "btnText": ""
     },
     "notebooks": {
       "title": "Cuadernos",
-      "text": "Para facilitar el uso de nuestros recursos y acelerar las pruebas de concepto, también hemos creado <strong>cuadernos de Jupyter</strong> que están disponibles abiertamente.",      "btnText": "@:label.goTo Notebooks",
+      "text": "Para facilitar el uso de nuestros recursos y acelerar las pruebas de concepto, también hemos creado <strong>cuadernos de Jupyter</strong> que están disponibles abiertamente.",
+      "btnText": "@:label.goTo Notebooks",
       "sources": {
         "cord19Indexing": {
           "title": "CORD-19 Indexing",
@@ -254,7 +260,8 @@
     },
     "annotatedCorpus": {
       "title": "Corpus Anotado",
-      "text": "Hemos creado un corpus biomédico en español con doce entidades <strong>biomédicas</strong> (Enfermedad/Síndrome, Gen, Parte del Cuerpo/Órgano, Glúcido, Procedimiento Diagnóstico, Proteína, Procedimiento Terapéutico, Síntoma/Signo, Sustancia Farmacológica, Lípido, Organismo y Químico Orgánico), una entidad <strong>lingüística</strong> (Abreviatura/Sigla/Alias) y siete <strong>relaciones semánticas</strong> (analiza, altera, causa, diagnostica, manifestación_de, produce, refiere y trata). En total, se anotaron 200 informes clínicos, y se identificaron manualmente 6636 entidades biomédicas y 4864 relaciones semánticas.",      "btnText": "@:label.goTo Zenodo"
+      "text": "Hemos creado un corpus biomédico en español con doce entidades <strong>biomédicas</strong> (Enfermedad/Síndrome, Gen, Parte del Cuerpo/Órgano, Glúcido, Procedimiento Diagnóstico, Proteína, Procedimiento Terapéutico, Síntoma/Signo, Sustancia Farmacológica, Lípido, Organismo y Químico Orgánico), una entidad <strong>lingüística</strong> (Abreviatura/Sigla/Alias) y siete <strong>relaciones semánticas</strong> (analiza, altera, causa, diagnostica, manifestación_de, produce, refiere y trata). En total, se anotaron 200 informes clínicos, y se identificaron manualmente 6636 entidades biomédicas y 4864 relaciones semánticas.",
+      "btnText": "@:label.goTo Zenodo"
     }
   },
 
