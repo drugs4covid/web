@@ -96,7 +96,7 @@ import axiosService from "@/service/axiosService";
 import QACard from "@/components/QACard";
 
 export default {
-  name: "QAView",
+  name: "BioQAView",
   components: {
     QACard
   },

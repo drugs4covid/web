@@ -60,7 +60,7 @@
           </v-btn>
         </template>
 
-        <search-engine-input id="search-engine-input" redirect/>
+        <bio-search-input id="search-engine-input" redirect/>
       </v-menu>
 
     </v-app-bar>
@@ -110,7 +110,7 @@
 </template>
 
 <script>
-import SearchEngineInput from "@/components/SearchEngineInput";
+import BioSearchInput from "@/components/BioSearchInput";
 import LocaleSwitch from "@/components/LocaleSwitch";
 import store from "@/store";
 import NavbarLogo from "@/assets/d4c-logo.svg";
@@ -119,7 +119,7 @@ export default {
   name: "NavbarComponent",
   components: {
     LocaleSwitch,
-    SearchEngineInput
+    BioSearchInput
   },
 
   data: () =>({

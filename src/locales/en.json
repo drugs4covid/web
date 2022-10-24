@@ -116,32 +116,34 @@
     "placeholder": "Place some text to start analyzing",
     "description": "BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.",
     "resultsTitle": "Results",
-    "tableTitles": {
-      "disease": "Diseases",
-      "chemicals": "Drugs/Chemicals",
-      "genetics": "Genetics",
-      "covid": "COVID-19"
-    },
-    "tableHeaders": {
-      "atc": "ATC",
-      "associationScore": "COVID-19 Association Score",
-      "atcLevel": "ATC Level",
-      "chebiId": "CHEBI ID",
-      "cid": "CID",
-      "crossReferences": "Other IDs",
-      "cui": "CUI",
-      "ebiReference": "EBI Reference",
-      "evidence": "Evidence",
-      "foundTerm": "Found Term",
-      "icd10": "ICD10",
-      "meshId": "Mesh ID",
-      "ncbiTaxonId": "NCBItaxon ID",
-      "ncbiGeneId": "NCBIgene ID",
-      "prId": "PR ID",
-      "semanticType": "Semantic Type",
-      "target": "Target",
-      "term": "Term",
-      "uniprotId": "UniProt ID"
+    "tables": {
+      "titles": {
+        "disease": "Diseases",
+        "chemicals": "Drugs/Chemicals",
+        "genetics": "Genetics",
+        "covid": "COVID-19"
+      },
+      "headers": {
+        "associationScore": "COVID-19 Association Score",
+        "atc": "ATC",
+        "atcLevel": "ATC Level",
+        "chebiId": "CHEBI ID",
+        "cid": "CID",
+        "crossReferences": "Other IDs",
+        "cui": "CUI",
+        "ebiReference": "EBI Reference",
+        "evidence": "Evidence",
+        "foundTerm": "Found Term",
+        "icd10": "ICD10",
+        "meshId": "Mesh ID",
+        "ncbiTaxonId": "NCBItaxon ID",
+        "ncbiGeneId": "NCBIgene ID",
+        "prId": "PR ID",
+        "semanticType": "Semantic Type",
+        "target": "Target",
+        "term": "Term",
+        "uniprotId": "UniProt ID"
+      }
     }
   },
 

@@ -27,7 +27,7 @@ const TYPE_DRUG = "drug"
 const TYPE_DISEASE = "disease"
 
 export default {
-  name: "SearchEngineInput",
+  name: "BioSearchInput",
   props: {
     /** Redirect(): Tells the component how it should handle the input:
      * True: Redirects to default external search website

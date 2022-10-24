@@ -4,9 +4,9 @@ import HomeView from '@/views/HomeView'
 import AboutView from '@/views/AboutView'
 import CorpusView from '@/views/CorpusView'
 import KnowledgeGraphView from "@/views/KnowledgeGraphView";
-import BioNLPView from "@/views/BioNLPView";
-import SearchEngineView from "@/views/SearchEngineView";
-import QAView from "@/views/QAView";
+import BioNERView from "@/views/BioNERView";
+import BioSearchView from "@/views/BioSearchView";
+import BioQAView from "@/views/BioQAView";
 import ServicesView from "@/views/ServicesView";
 import TextSearchView from "@/views/TextSearchView";
 import DrugView from "@/views/DrugView";
@@ -31,29 +31,29 @@ const routes = [
     component: ServicesView
   },
   {
-    path: '/services/bio-nlp',
+    path: '/services/bio-ner',
     name: 'bio-ner',
-    component: BioNLPView
+    component: BioNERView
   },
   {
-    path: '/services/search-engine',
+    path: '/services/bio-search',
     name: 'bio-search',
-    component: SearchEngineView
+    component: BioSearchView
   },
   {
-    path: '/services/search/drug/:id',
+    path: '/services/bio-search/drug/:id',
     name: 'bio-search-drug',
     component: DrugView
   },
   {
-    path: '/services/search/disease/:id',
+    path: '/services/bio-search/disease/:id',
     name: 'bio-search-disease',
     component: DiseaseView
   },
   {
-    path: '/services/qa',
+    path: '/services/bio-qa',
     name: 'bio-qa',
-    component: QAView
+    component: BioQAView
   },
   {
     path: '/knowledge-graph',
