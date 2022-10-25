@@ -5,7 +5,8 @@
     "filterBy": "Filtrar por",
     "goTo": "Ir a",
     "type": "Tipo",
-    "version": "Versión"
+    "version": "Versión",
+    "unpublished": "Unpublished Article"
   },
 
   "error": {
@@ -41,7 +42,7 @@
     "home": "Inicio",
     "keyQ": "KeyQ",
     "knowledgeGraph": "Grafo de conocimiento",
-    "notebooks": "Cuadernos",
+    "notebooks": "Cuadernos de Trabajo",
     "ontology": "Ontología",
     "papers": "Papeles",
     "rdf": "RDF",
@@ -58,31 +59,31 @@
   },
 
   "home": {
-    "header": "Creamos un grafo de conocimiento con evidencias de publicaciones científicas sobre coronavirus. Los fármacos, las enfermedades, los genes y las proteínas están identificados y normalizados para permitir búsquedas complejas en los artículos.",
-    "subheader": "Drugs4Covid extrae y estructura las pruebas de los artículos científicos en cinco pasos: Recoger, analizar, extraer, integrar y publicar. Prueba nuestras herramientas públicas.",
+    "header": "Hemos creado un grafo de conocimientos con evidencias sobre coronavirus extraídas de publicaciones científicas. Los fármacos, las enfermedades, los genes y las proteínas se identifican y normalizan para permitir búsquedas complejas en los artículos.",
+    "subheader": "Drugs4Covid procesa artículos científicos en cinco pasos: Recogida, Análisis, Extracción, Integración y Publicación. Nuestras herramientas están disponibles para que puedas utilizarlas.",
     "section1": {
-      "title": "Recoger",
-      "text": "En esta fase se recogen los datos. Utilizamos fuentes de información fiables para recuperar artículos científicos sobre coronavirus. <strong>El corpus CORD-19</strong> ha sido la principal base de datos utilizada en este estudio. La última actualización indexada es la de enero de 2022, con 334.572 artículos científicos y más de 7 millones de párrafos.",
+      "title": "Recogida",
+      "text": "    Utilizamos fuentes de información fiables para recopilar artículos científicos sobre coronavirus. El <strong>corpus CORD-19</strong> ha sido la principal base de datos utilizada en este estudio, con más 400 mil artículos científicos y 7 millones de párrafos.",
       "btnText": "Ir al corpus"
     },
     "section2": {
-      "title": "Analizar",
-      "text": "Una de las tareas de minería de textos más fundamentales en la recuperación de información en el ámbito médico es el reconocimiento de entidades biomédicas, como <strong>enfermedades, sustancias químicas o genes</strong>, comúnmente conocidas como BioNER. Como complemento a este reconocimiento, hemos vinculado las entidades detectadas a <strong>bases de datos curadas</strong> en un proceso denominado vinculación o normalización de entidades BioNEN.",
+      "title": "Análisis",
+      "text": "Una de las tareas de minería de texto críticas en la recuperación de información en el ámbito clínico es el reconocimiento de entidades biomédicas. Se identifican <strong>enfermedades, sustancias químicas o genes</strong>, y comúnmente se conoce a esta tarea como BioNER. Como complemento a este reconocimiento, hemos vinculado las entidades detectadas a <strong>bases de datos curadas</strong> en un proceso denominado normalización de entidades o BioNER.",
       "btnText": "Ir a BioNER"
     },
     "section3": {
-      "title": "Extraer",
-      "text": "El uso combinado de tareas de procesamiento del lenguaje natural con técnicas de representación de palabras y tecnologías de extracción de conocimiento proporciona a los profesionales e investigadores clínicos herramientas que facilitan su trabajo de estructuración de la información contenida en los artículos. En particular, para establecer relaciones entre fármacos o enfermedades, y con el fin de mejorar las búsquedas en los corpus, hemos creado modelos de representación basados en <strong>tópicos probabilísticos</strong> capaces de abstraer entidades de sus formas textuales y relacionarlas entre sí.",
+      "title": "Extraccion",
+      "text": "El uso combinado de tareas de procesamiento del lenguaje natural con técnicas de representación de palabras y tecnologías de extracción de conocimiento proporciona a los profesionales e investigadores clínicos herramientas que facilitan su trabajo de estructuración de la información contenida en los artículos. En particular, para establecer relaciones entre fármacos y enfermedades, y con el fin de mejorar las búsquedas en los corpus, hemos creado modelos de representación basados en <strong>tópicos probabilísticos</strong> capaces de abstraer las entidades y descubrir relaciones entre ellas.",
       "btnText": "Ir a BioSearch"
     },
     "section4": {
-      "title": "Integrar",
-      "text": "Para afrontar el reto de integrar el conocimiento biomédico en un único espacio de representación que además proporcione trazabilidad, hemos creado la ontología <strong>EBOCA</strong> donde se modela la Asociación de Conceptos Biomédicos.  La ontología describe y asocia conceptos del dominio biomédico, así como las evidencias que soportan estas asociaciones. Con esta ontología definimos el modelo conceptual sobre el que se construye el grafo de conocimiento Drugs4Covid.",
+      "title": "Integración",
+      "text": "Para afrontar el reto de organizar el conocimiento biomédico en un único espacio de representación que además proporcione evidencias, hemos creado la <strong>ontología EBOCA</strong> que modela la asociación de conceptos Biomédicos. La ontología describe y asocia medicamentos, enfermedades, síntomas y sustancias químicas, así como las evidencias que soportan asociaciones entre ellos. Con esta ontología definimos el modelo conceptual sobre el que se construye el grafo de conocimientos de Drugs4Covid.",
       "btnText": "Ir a EBOCA"
     },
     "section5": {
       "title": "Publicar",
-      "text": "Hemos creado un sistema <strong>híbrido de pregunta-respuesta (QA</strong> ) basado en lenguaje natural que proporciona respuestas combinando información de grafos de conocimiento y documentos de texto. Se trata de un novedoso algoritmo KGQA que funciona sin entrenamiento previo y sin necesidad de traducir la pregunta a un lenguaje de consulta formal.",
+      "text": "Hemos creado un sistema <strong>híbrido de pregunta-respuesta (QA)</strong> basado en lenguaje natural que proporciona respuestas combinando información estructurada en grafos de conocimientos con documentos de textos. Se trata de un novedoso algoritmo KGQA que no requiere entrenamiento previo sobre la base de conocimiento, ni utiliza un lenguaje formal de consulta para extraer las respuestas.",
       "btnText": "Ir a BioQA"
     }
   },
@@ -165,16 +166,16 @@
   },
 
   "knowledgeGraph": {
-    "title": "Grafo de Conocimiento",
+    "title": "Grafo de Conocimientos",
     "header": "",
     "rdf": {
       "title": "RDF",
-      "text": "El Grafo de Conocimiento de Drugs4Covid utiliza dos lenguajes de mapeo declarativo para transformar los datos de entrada en RDF: la recomendación W3C R2RML para EBOCA SEM-DISNET y RML para EBOCA Evidences. Ambos mapeos se crearon con Mapeathor y se materializaron usando el mapeo motor Morph-KGC.",
-      "btnText": "@:label.goTo Repository"
+      "text": "El Grafo de Conocimientos de Drugs4Covid utiliza dos lenguajes declarativos de mapeo para transformar los datos de entrada en tripletas RDF: R2RML para EBOCA SEM-DISNET y RML para EBOCA Evidences. Ambos mapeos se crearon con Mapeathor y se materializaron usando el motor de mapeo Morph-KGC.",
+      "btnText": "Ir al Repositorio"
     },
     "sparql": {
       "title": "SPARQL",
-      "text": "Se ha creado una interfaz web basada en el <strong>marco HELIO</strong> para acceder al grafo de conocimiento de Drugs4Covid. Permite consultas en formato SPARQL y gestiona el acceso a los recursos a través de sus URIs.",
+      "text": "Se ha creado una interfaz web basada en el <strong>marco de trabajo HELIO</strong> para acceder al grafo de conocimientos de Drugs4Covid. Permite consultas SPARQL y gestiona el acceso a los recursos a través de sus URIs.",
       "btnText": "@:label.goTo SPARQL Endpoint"
     }
   },
@@ -184,12 +185,12 @@
     "header": "",
     "textSearch": {
       "title": "Búsqueda Textual",
-      "text": "Explotamos los modelos de reconocimiento de entidades y las representaciones tópicas probabilísticas de Drugs4Covid para proporcionar un <strong>motor de búsqueda</strong> basado en entidades biomédicas. Se han utilizado bases de datos adicionales para ampliar la información sobre medicamentos y relacionarla con otros términos.",
+      "text": "A partir de los modelos de reconocimiento de entidades y las representaciones basadas en tópicos probabilísticos, hemos creado un <strong>motor de búsqueda documental</strong> basado en entidades biomédicas. Se han utilizado bases de datos adicionales para extender la información sobre medicamentos y relacionarla con otros términos.",
       "btnText": "Empezar a buscar"
     },
     "repository": {
       "title": "Repositorio",
-      "text": "Soportado por Solr, hemos creado índices para cada una de las entidades biomédicas que pueden aportar evidencias",
+      "text": "Soportado por Solr, hemos creado índices para cada una de las entidades biomédicas que pueden aportar evidencias.",
       "btnDiseases": "Diseases",
       "btnDrugs": "Medicamentos",
       "btnGenes": "Genes y Proteinas",
@@ -198,8 +199,13 @@
     },
     "keyQ": {
       "title": "KeyQ",
-      "text": "",
+      "text": "Explora el corpus a partir de la terminología extraída automáticamente de sus documentos.",
       "btnText": "@:label.goTo KeyQ"
+    },
+    "annotatedCorpus": {
+      "title": "Corpus Anotado",
+      "text": "Hemos creado un corpus clínico en español con doce <strong>entidades biomédicas</strong> (Enfermedad/Síndrome, Gen, Parte del Cuerpo/Órgano, Glúcido, Procedimiento Diagnóstico, Proteína, Procedimiento Terapéutico, Síntoma/Signo, Sustancia Farmacológica, Lípido, Organismo y Químico Orgánico), una <strong>entidad lingüística</strong> (Abreviatura/Sigla/Alias) y siete <strong>relaciones semánticas</strong> (analiza, altera, causa, diagnostica, manifestacion_de, produce, refiere_a y trata). En total, se anotaron 200 informes clínicos, y se identificaron manualmente 6.636 entidades biomédicas y 4.864 relaciones semánticas.",
+      "btnText": "@:label.goTo Zenodo"
     }
   },
 
@@ -232,16 +238,16 @@
   },
 
   "resources": {
-    "title": "Recursos",
+    "title": "Herramientas",
     "header": "",
     "code": {
-      "title": "Código",
-      "text": "Todos los recursos creados en Drugs4Covid son de código abierto y están disponibles públicamente. Hemos creado una organización en Github para centralizarlos. Siéntete libre de usarlos y déjanos tus comentarios para ayudarnos a seguir mejorando.",
+      "title": "Código Fuente",
+      "text": "Todas las herramientas creadas en Drugs4Covid son de <strong>código abierto</strong> y están disponibles públicamente. Hemos creado una organización en GitHub para centralizarlos. Siéntete libre de usarlos y déjanos tus comentarios para ayudarnos a seguir mejorando.",
       "btnText": ""
     },
     "notebooks": {
-      "title": "Cuadernos",
-      "text": "Para facilitar el uso de nuestros recursos y acelerar las pruebas de concepto, también hemos creado <strong>cuadernos de Jupyter</strong> que están disponibles abiertamente.",
+      "title": "Cuadernos de Trabajo",
+      "text": "Para facilitar el uso de nuestros recursos y acelerar las pruebas de concepto, también hemos creado <strong>cuadernos de trabajo en Jupyter</strong> que están disponibles en abierto.",
       "btnText": "@:label.goTo Notebooks",
       "sources": {
         "cord19Indexing": {
@@ -257,17 +263,12 @@
           "description": "Recuperar información de medicamentos y enfermedades del sistema MeSH en Solr."
         }
       }
-    },
-    "annotatedCorpus": {
-      "title": "Corpus Anotado",
-      "text": "Hemos creado un corpus biomédico en español con doce entidades <strong>biomédicas</strong> (Enfermedad/Síndrome, Gen, Parte del Cuerpo/Órgano, Glúcido, Procedimiento Diagnóstico, Proteína, Procedimiento Terapéutico, Síntoma/Signo, Sustancia Farmacológica, Lípido, Organismo y Químico Orgánico), una entidad <strong>lingüística</strong> (Abreviatura/Sigla/Alias) y siete <strong>relaciones semánticas</strong> (analiza, altera, causa, diagnostica, manifestación_de, produce, refiere y trata). En total, se anotaron 200 informes clínicos, y se identificaron manualmente 6636 entidades biomédicas y 4864 relaciones semánticas.",
-      "btnText": "@:label.goTo Zenodo"
     }
   },
 
   "about": {
     "title": "Ontology Engineering Group (OEG)",
-    "team": "Nuestro Equipo",
+    "team": "Quienes somos",
     "subtitle": "@:about.lab <br> @:about.faculty <br> @:about.university <br> @:about.address",
     "lab": "Laboratorio 3206",
     "faculty": "Escuela Técnica Superior de Ingenieros Informáticos (ETSIINF)",

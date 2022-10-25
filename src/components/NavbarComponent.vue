@@ -179,15 +179,15 @@ export default {
             to: "repository",
           },
           {
-            label: "nav.keyQ",
-            to: "keyQ",
-            href: store.state.links.d4c.keyQ
-          },
-          {
             label: "nav.annotatedCorpus",
             to: "annotated-corpus",
             href: store.state.links.zenodo.annotatedCorpus
           },
+          {
+            label: "nav.keyQ",
+            to: "keyQ",
+            href: store.state.links.d4c.keyQ
+          }
         ]
       },
       {

@@ -107,9 +107,9 @@ export default {
         ],
       },
       {
-        title: "resources.annotatedCorpus.title",
-        text: "resources.annotatedCorpus.text",
-        btnText: "resources.annotatedCorpus.btnText",
+        title: "corpus.annotatedCorpus.title",
+        text: "corpus.annotatedCorpus.text",
+        btnText: "corpus.annotatedCorpus.btnText",
         to: "annotatedCorpus",
         href: store.state.links.zenodo.annotatedCorpus
       },

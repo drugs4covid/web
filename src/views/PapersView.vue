@@ -27,7 +27,7 @@
 
               <!-- Notes -->
               <span v-show="cite.note">
-                [{{cite.note}}]
+                [{{cite.note === "Unpublished Article" ? $t('label.unpublished') : cite.note}}]
               </span>
 
               <!-- Genre -->

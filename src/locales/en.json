@@ -5,7 +5,8 @@
     "filterBy": "Filter by",
     "goTo": "Go to",
     "type": "Type",
-    "version": "Version"
+    "version": "Version",
+    "unpublished": "Pendiente de Publicación"
   },
 
   "error": {
@@ -198,8 +199,13 @@
     },
     "keyQ": {
       "title": "Key",
-      "text": "",
+      "text": "Explore the corpus from the terminology extracted automatically from its documents.",
       "btnText": "@:label.goTo KeyQ"
+    },
+    "annotatedCorpus": {
+      "title": "Annotated Corpus",
+      "text": "We have created a biomedical corpus in Spanish with twelve <strong>biomedical entities</strong> (Disease/Syndrome, Gene, Body Part/Organ, Glucid, Diagnostic Procedure, Protein, Therapeutic Procedure, Symptom/Sign, Pharmacological Substance, Lipid, Organism and Organic Chemical), one <strong>linguistic entity</strong> (Abbreviation/Sigla/Alias) and seven <strong>semantic relations</strong> (analyzes, alters, causes, diagnoses, manifestation_of, produces, refers_to, and treats). In total, 200 clinical reports were annotated, and 6636 biomedical entities and 4864 semantic relations were manually identified",
+      "btnText": "@:label.goTo Zenodo"
     }
   },
 
@@ -236,7 +242,7 @@
     "header": "",
     "code": {
       "title": "Code",
-      "text": "All resources created on Drugs4Covid are open source and publicly available. We have created an organisation on Github to centralise them. Feel free to use them and leave us feedback to help us keep improving.",
+      "text": "All resources created on Drugs4Covid are <strong>open source</strong> and publicly available. We have created an organisation on Github to centralise them. Feel free to use them and leave us feedback to help us keep improving.",
       "btnText": ""
     },
     "notebooks": {
@@ -257,11 +263,6 @@
           "description": "Retrieve drug and disease information from the MeSH system in Solr"
         }
       }
-    },
-    "annotatedCorpus": {
-      "title": "Annotated Corpus",
-      "text": "We have created a biomedical corpus in Spanish with twelve <strong>biomedical</strong> entities (Disease/Syndrome, Gene, Body Part/Organ, Glucid, Diagnostic Procedure, Protein, Therapeutic Procedure, Symptom/Sign, Pharmacological Substance, Lipid, Organism and Organic Chemical), one <strong>linguistic</strong> entity (Abbreviation/Sigla/Alias) and seven <strong>semantic relations</strong> (analyzes, alters, causes, diagnoses, manifestation_of, produces, refers_to, and treats). In total, 200 clinical reports were annotated, and 6636 biomedical entities and 4864 semantic relations were manually identified",
-      "btnText": "@:label.goTo Zenodo"
     }
   },
 
