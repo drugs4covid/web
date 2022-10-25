@@ -4,13 +4,15 @@
       <v-card-title v-text="$t('bioNER.title')"/>
       <v-card-subtitle v-text="$t('bioNER.subtitle')"/>
 
-      <v-form>
-        <v-textarea v-model="sampleTxt"
-                    @input="analyzeSample()"
-                    :placeholder="$t('bioNER.placeholder')"
-                    outlined
-        />
-      </v-form>
+      <v-container>
+        <v-form>
+          <v-textarea v-model="sampleTxt"
+                      @input="analyzeSample()"
+                      :placeholder="$t('bioNER.placeholder')"
+                      outlined
+          />
+        </v-form>
+      </v-container>
 
         <br/>
         <div v-if="entities">
