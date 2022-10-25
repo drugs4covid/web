@@ -1,9 +1,9 @@
 <template>
   <v-container fluid>
-    <v-app-bar app dark>
+    <v-app-bar app dark :key="key">
 
       <!-- Lang switch -->
-      <locale-switch/>
+      <locale-switch @locale="reloadNav"/>
 
       <!-- Navigation Drawer Icon -->
       <v-app-bar-nav-icon @click="drawer = true"
@@ -123,6 +123,7 @@ export default {
   },
 
   data: () =>({
+    key: "nav",
     drawer: false,
     tab: null,
     pageLogo: NavbarLogo,
@@ -214,8 +215,12 @@ export default {
         to: "about",
       },
     ],
-
-  })
+  }),
+  methods: {
+    reloadNav(key){
+      this.key = key
+    }
+  }
 }
 </script>
 
