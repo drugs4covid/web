@@ -7,7 +7,7 @@
 
       <!-- Navigation Drawer Icon -->
       <v-app-bar-nav-icon @click="drawer = true"
-                          class="d-flex d-md-none"
+                          class="d-flex d-lg-none"
       />
 
       <!-- Navbar title -->
@@ -16,7 +16,7 @@
       </router-link>
 
       <!-- Navigation tabs -->
-      <v-tabs id="tab" v-model="tab" class="d-none d-md-flex">
+      <v-tabs id="nav-tabs" v-model="tab" class="d-none d-lg-flex">
         <v-menu v-for="(navItem, index) in navItems"
                 :key="index"
                 offset-y bottom open-on-hover
@@ -81,9 +81,9 @@
           </template>
 
           <template #appendIcon>
-              <v-icon v-show="navItem.views">
-                mdi-chevron-down
-              </v-icon>
+            <v-icon v-show="navItem.views">
+              mdi-chevron-down
+            </v-icon>
           </template>
 
           <v-list-item v-show="navItem.views" v-for="(view, index) in navItem.views"
@@ -225,7 +225,7 @@ export default {
 </script>
 
 <style scoped>
-#tab{
+#nav-tabs{
   justify-content: right;
 }
 #search-engine-input{
