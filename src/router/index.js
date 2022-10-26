@@ -9,8 +9,6 @@ import BioSearchView from "@/views/BioSearchView";
 import BioQAView from "@/views/BioQAView";
 import ServicesView from "@/views/ServicesView";
 import TextSearchView from "@/views/TextSearchView";
-import DrugView from "@/views/DrugView";
-import DiseaseView from "@/views/DiseaseView";
 import ResourcesView from "@/views/ResourcesView";
 import PapersView from "@/views/PapersView";
 import ExternalLinkView from "@/views/ExternalLinkView";
@@ -43,12 +41,12 @@ const routes = [
   {
     path: '/services/bio-search/drug/:id',
     name: 'bio-search-drug',
-    component: DrugView
+    component: ExternalLinkView
   },
   {
     path: '/services/bio-search/disease/:id',
     name: 'bio-search-disease',
-    component: DiseaseView
+    component: ExternalLinkView
   },
   {
     path: '/services/bio-qa',
