@@ -53,6 +53,11 @@ export default new Vuex.Store({
       },
     },
 
+    solrCores: {
+      atc: "atc",
+      disease: "disease"
+    },
+
     pdfDocuments: {
       id_1: "https://oa.upm.es/67901/1/TFM_RAFAEL_INES_GUILLEN.pdf",
       id_2: "https://oa.upm.es/67933/1/TFM_ALVARO_ALONSO_CASERO.pdf",

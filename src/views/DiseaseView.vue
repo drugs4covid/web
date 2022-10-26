@@ -10,8 +10,9 @@
 
 <script>
 import axiosService from "@/service/axiosService";
+import store from "@/store";
 
-const SOLR_CORE_DISEASES = "diseases"
+const SOLR_CORE_DISEASES = store.state.solrCores.atc
 
 export default {
   name: "DiseaseView",

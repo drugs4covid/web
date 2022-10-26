@@ -19,9 +19,10 @@
 
 <script>
 import axiosService from "@/service/axiosService";
+import store from "@/store";
 
-const SOLR_CORE_ATC = "atc"
-const SOLR_CORE_DISEASES = "diseases"
+const SOLR_CORE_ATC = store.state.solrCores.atc
+const SOLR_CORE_DISEASES = store.state.solrCores.disease
 
 const TYPE_DRUG = "drug"
 const TYPE_DISEASE = "disease"
