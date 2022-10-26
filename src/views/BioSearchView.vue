@@ -3,7 +3,7 @@
     <v-card flat>
       <v-card-title v-text="$t('bioSearch.title')"/>
       <v-card-subtitle v-text="$t('bioSearch.subtitle')"/>
-      <bio-search-input redirect/>
+      <bio-search-input @select="selectHandler"/>
     </v-card>
   </v-container>
 </template>
@@ -13,7 +13,13 @@ import BioSearchInput from "@/components/BioSearchInput";
 export default {
   name: "BioSearchView",
   components: {BioSearchInput},
-
+  methods: {
+    selectHandler(selection) {
+      this.$router.push({
+        path: "/services/bio-search/" + selection.type + "/" + selection.value,
+      })
+    }
+  }
 }
 </script>
 
