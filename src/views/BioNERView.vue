@@ -7,10 +7,20 @@
       <v-container>
         <v-form>
           <v-textarea v-model="sampleTxt"
-                      @input="analyzeSample()"
+                      @input="analyzeSample"
                       :placeholder="$t('bioNER.placeholder')"
                       outlined
           />
+
+          <v-btn-toggle mandatory
+                        @change="analyzeSample"
+          >
+            <v-btn v-text="$t('lang.en')"
+                   @click="sampleLang='en'"/>
+            <v-btn v-text="$t('lang.es')"
+                   @click="sampleLang='es'"
+            />
+          </v-btn-toggle>
         </v-form>
       </v-container>
 
@@ -50,6 +60,7 @@ export default {
     entities: null,
     sampleHTML: null,
     sampleTxt: "",
+    sampleLang: "en",
     tableList: [
       {
         title: "bioNER.tables.titles.disease",
@@ -111,6 +122,8 @@ export default {
   }),
   methods:{
     analyzeSample(){
+      if(!this.sampleTxt) return
+
       axiosService.bioNLPAnalyze(this.sampleTxt)
           .then(response =>{
             this.entities = response.data.entities

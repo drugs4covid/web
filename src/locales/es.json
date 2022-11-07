@@ -1,4 +1,9 @@
 {
+  "lang": {
+    "es": "Español",
+    "en": "Inglés"
+  },
+
   "label": {
     "and": "y",
     "confidence": "Confianza",
