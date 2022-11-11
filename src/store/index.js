@@ -44,6 +44,7 @@ export default new Vuex.Store({
         qaAnswers: D4C_BASE_URL.concat("qa/answers"),
         rdf: D4C_BASE_URL.concat("rdf"),
         sparql: D4C_BASE_URL.concat("sparql"),
+        bioNerEntitiesES: D4C_BASE_URL + "platform/entities",
         ontology  : "https://drugs4covid.github.io/EBOCA-portal/index.html",
         keyQ: "https://aiproc.linkeddata.es/",
         search: "https://search.drugs4covid.oeg-upm.net/search/",

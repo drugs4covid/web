@@ -24,28 +24,28 @@
         </v-form>
       </v-container>
 
+      <br/>
+      <div v-if="entities">
+        <h2 style="text-align: center">{{ $t('bioNER.resultsTitle') }}</h2>
+
+        <div v-show="sampleHTML" v-html="sampleHTML"/>
+
         <br/>
-        <div v-if="entities">
-          <h2 style="text-align: center">{{ $t('bioNER.resultsTitle') }}</h2>
-
-          <div v-show="sampleTxt" v-html="sampleHTML"></div>
-
-          <br/>
-          <div v-for="(table, index) in tableList"
-               :key="index"
+        <div v-for="(table, index) in tableList"
+             :key="index"
+        >
+          <v-data-table :headers="table.headers"
+                        :items="table.items"
+                        v-if="table.items.length !== 0"
+                        dense disable-filtering disable-pagination
+                        disable-sort hide-default-footer
           >
-            <v-data-table :headers="table.headers"
-                          :items="table.items"
-                          v-if="table.items.length !== 0"
-                          dense disable-filtering disable-pagination
-                          disable-sort hide-default-footer
-            >
-              <template #top>
-                <v-card-title v-text="$t(table.title)"></v-card-title>
-              </template>
-            </v-data-table>
-          </div>
+            <template #top>
+              <v-card-title v-text="$t(table.title)"></v-card-title>
+            </template>
+          </v-data-table>
         </div>
+      </div>
     </v-card>
   </v-container>
 </template>
@@ -124,12 +124,19 @@ export default {
     analyzeSample(){
       if(!this.sampleTxt) return
 
-      axiosService.bioNLPAnalyze(this.sampleTxt)
+      this.entities = null
+      this.sampleHTML = null
+
+      axiosService.bioNerEntities(this.sampleTxt, this.sampleLang)
           .then(response =>{
-            this.entities = response.data.entities
-            this.tableList.map(table => {
-              table.items = this.entities[table.entityName]
-            })
+            console.log(response.data)
+
+              this.entities = response.data.entities
+              this.tableList.map(table => {
+                table.items = this.entities[table.entityName]
+              })
+
+
             this.sampleHTML = response.data.html
           })
           .catch(error => {
