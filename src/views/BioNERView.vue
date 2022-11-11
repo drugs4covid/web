@@ -28,7 +28,7 @@
       <div v-if="entities">
         <h2 style="text-align: center">{{ $t('bioNER.resultsTitle') }}</h2>
 
-        <div v-show="sampleHTML" v-html="sampleHTML"/>
+        <div v-if="sampleHTML" v-html="sampleHTML"/>
 
         <br/>
         <div v-for="(table, index) in tableList"
@@ -126,18 +126,19 @@ export default {
 
       this.entities = null
       this.sampleHTML = null
+      this.tableList.map(table => {table.items = []})
 
       axiosService.bioNerEntities(this.sampleTxt, this.sampleLang)
           .then(response =>{
-            console.log(response.data)
+            this.entities = response.data.entities
+            this.sampleHTML = response.data.html
 
-              this.entities = response.data.entities
+            if(this.sampleLang==="en"){
               this.tableList.map(table => {
                 table.items = this.entities[table.entityName]
               })
+            }
 
-
-            this.sampleHTML = response.data.html
           })
           .catch(error => {
             console.log(error)
