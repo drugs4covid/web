@@ -2,16 +2,18 @@ import Axios from "axios";
 import store from "@/store/index.js"
 
 export default {
-    bioNLPAnalyze,
+    bioNerEntities,
     solrQueryService,
     qaAnswers,
     bioAPISearch,
 }
 
-function bioNLPAnalyze(text) {
+function bioNerEntities(text, lang) {
     return Axios({
         method: 'POST',
-        url: store.state.links.librairy.bioNerEntities,
+        url: lang==="es" ?
+            store.state.links.d4c.bioNerEntitiesES :
+            store.state.links.librairy.bioNerEntities,
         data: {
             text: text,
         },

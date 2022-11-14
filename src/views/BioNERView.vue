@@ -7,35 +7,48 @@
       <v-container>
         <v-form>
           <v-textarea v-model="sampleTxt"
-                      @input="analyzeSample()"
+                      @input="analyzeSample"
                       :placeholder="$t('bioNER.placeholder')"
                       outlined
           />
+
+          <v-btn-toggle mandatory
+                        @change="analyzeSample"
+          >
+            <v-btn v-text="$t('lang.en')"
+                   @click="sampleLang='en'"/>
+            <v-btn v-text="$t('lang.es')"
+                   @click="sampleLang='es'"
+            />
+          </v-btn-toggle>
         </v-form>
       </v-container>
 
+      <v-skeleton-loader v-if="loading" type="article@1"/>
+      <v-skeleton-loader v-if="loading" type="table@1"/>
+
+      <br/>
+      <div v-if="entities">
+        <h2 style="text-align: center">{{ $t('bioNER.resultsTitle') }}</h2>
+
+        <div v-if="sampleHTML" v-html="sampleHTML"/>
+
         <br/>
-        <div v-if="entities">
-          <h2 style="text-align: center">{{ $t('bioNER.resultsTitle') }}</h2>
-
-          <div v-show="sampleTxt" v-html="sampleHTML"></div>
-
-          <br/>
-          <div v-for="(table, index) in tableList"
-               :key="index"
+        <div v-for="(table, index) in tableList"
+             :key="index"
+        >
+          <v-data-table :headers="table.headers"
+                        :items="table.items"
+                        v-if="table.items.length !== 0"
+                        dense disable-filtering disable-pagination
+                        disable-sort hide-default-footer
           >
-            <v-data-table :headers="table.headers"
-                          :items="table.items"
-                          v-if="table.items.length !== 0"
-                          dense disable-filtering disable-pagination
-                          disable-sort hide-default-footer
-            >
-              <template #top>
-                <v-card-title v-text="$t(table.title)"></v-card-title>
-              </template>
-            </v-data-table>
-          </div>
+            <template #top>
+              <v-card-title v-text="$t(table.title)"></v-card-title>
+            </template>
+          </v-data-table>
         </div>
+      </div>
     </v-card>
   </v-container>
 </template>
@@ -49,7 +62,8 @@ export default {
   data: () => ({
     entities: null,
     sampleHTML: null,
-    sampleTxt: "",
+    sampleTxt: null,
+    sampleLang: "en",
     tableList: [
       {
         title: "bioNER.tables.titles.disease",
@@ -109,15 +123,30 @@ export default {
       },
     ],
   }),
+  computed: {
+    loading(){
+      return !this.entities && this.sampleTxt
+    }
+  },
   methods:{
     analyzeSample(){
-      axiosService.bioNLPAnalyze(this.sampleTxt)
+      if(!this.sampleTxt) return
+
+      this.entities = null
+      this.sampleHTML = null
+      this.tableList.map(table => {table.items = []})
+
+      axiosService.bioNerEntities(this.sampleTxt, this.sampleLang)
           .then(response =>{
             this.entities = response.data.entities
-            this.tableList.map(table => {
-              table.items = this.entities[table.entityName]
-            })
             this.sampleHTML = response.data.html
+
+            if(this.sampleLang==="en"){
+              this.tableList.map(table => {
+                table.items = this.entities[table.entityName]
+              })
+            }
+
           })
           .catch(error => {
             console.log(error)
