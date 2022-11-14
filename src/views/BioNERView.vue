@@ -24,6 +24,9 @@
         </v-form>
       </v-container>
 
+      <v-skeleton-loader v-if="loading" type="article@1"/>
+      <v-skeleton-loader v-if="loading" type="table@1"/>
+
       <br/>
       <div v-if="entities">
         <h2 style="text-align: center">{{ $t('bioNER.resultsTitle') }}</h2>
@@ -59,7 +62,7 @@ export default {
   data: () => ({
     entities: null,
     sampleHTML: null,
-    sampleTxt: "",
+    sampleTxt: null,
     sampleLang: "en",
     tableList: [
       {
@@ -120,6 +123,11 @@ export default {
       },
     ],
   }),
+  computed: {
+    loading(){
+      return !this.entities && this.sampleTxt
+    }
+  },
   methods:{
     analyzeSample(){
       if(!this.sampleTxt) return
