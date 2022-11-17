@@ -141,11 +141,9 @@ export default {
             this.entities = response.data.entities
             this.sampleHTML = response.data.html
 
-            if(this.sampleLang==="en"){
-              this.tableList.map(table => {
-                table.items = this.entities[table.entityName]
-              })
-            }
+            this.tableList.map(table => {
+              table.items = this.entities[table.entityName]
+            })
 
           })
           .catch(error => {
