@@ -51,6 +51,7 @@
     "ontology": "Ontología",
     "papers": "Publicaciones",
     "rdf": "RDF",
+    "platform_es": "@:platform_es.title",
     "repository": "Repositorio",
     "resources": "@:resources.title",
     "services": "@:services.title",
@@ -148,6 +149,44 @@
         "semanticType": "Tipo Semántico",
         "target": "Objetivo",
         "term": "Término",
+        "uniprotId": "UniProt ID"
+      }
+    }
+  },
+
+   "platform_es": {
+    "title": "Plataforma",
+    "subtitle": "Encuentra las entidades médicas en el texto y sus textos relacionados",
+    "placeholder": "Introduce un texto",
+    "description": "BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.",
+    "resultsTitle": "Resultados",
+     "entitiesTitle": "Entidades detectadas",
+     "enfermedades": "Enfermedades",
+     "medicamentos": "Medicamentos",
+    "tables": {
+      "titles": {
+        "disease": "Enfermedades",
+        "chemicals": "Medicamentos"
+      },
+      "headers": {
+        "associationScore": "COVID-19 Association Score",
+        "atc": "ATC",
+        "atcLevel": "ATC Level",
+        "chebiId": "CHEBI ID",
+        "cid": "CID",
+        "crossReferences": "Other IDs",
+        "cui": "CUI",
+        "ebiReference": "EBI Reference",
+        "evidence": "Evidencia",
+        "foundTerm": "Término detectado",
+        "icd10": "ICD10",
+        "meshId": "Mesh ID",
+        "ncbiTaxonId": "NCBItaxon ID",
+        "ncbiGeneId": "NCBIgene ID",
+        "prId": "PR ID",
+        "semanticType": "Semantic Type",
+        "target": "Target",
+        "term": "Term",
         "uniprotId": "UniProt ID"
       }
     }

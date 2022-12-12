@@ -8,6 +8,8 @@ const LIBRAIRY_BASE_URL = "https://librairy.linkeddata.es/"
 const HUGGINGFACE_BASE_URL = "https://huggingface.co/"
 const D4C_BASE_URL = "https://drugs4covid.oeg.fi.upm.es/"
 
+//const ELVI_BASE="https://localhost:2525/"
+
 export default new Vuex.Store({
   state: {
     links: {
@@ -48,6 +50,8 @@ export default new Vuex.Store({
         ontology  : "https://drugs4covid.github.io/EBOCA-portal/index.html",
         keyQ: "https://aiproc.linkeddata.es/",
         search: "https://search.drugs4covid.oeg-upm.net/search/",
+        platform: D4C_BASE_URL+'platform/all',
+        platform_evidence: D4C_BASE_URL+'platform/evidences'
       },
       zenodo: {
         annotatedCorpus: "https://doi.org/10.5281/zenodo.7193680"
