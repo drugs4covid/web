@@ -7,7 +7,7 @@ export default {
     solrQueryService,
     qaAnswers,
     bioAPISearch,
-    platformEs_get_evidence,
+    platformEsGetEvidences,
 }
 
 function bioNerEntities(text, lang) {
@@ -32,7 +32,7 @@ function platformEs(text) {
     });
 }
 
-function platformEs_get_evidence(terms) {
+function platformEsGetEvidences(terms) {
     return Axios({
         method: 'POST',
         url: store.state.links.d4c.platform_evidence,

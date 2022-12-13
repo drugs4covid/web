@@ -35,18 +35,18 @@
             type="warning"
             elevation="2"
           >
-          Sólo se pueden seleccionar dos términos de manera simultánea. Por favor, deseleccione un término antes de continuar
+             {{$t('error.validation.tooManyTerms',{value:2})}}
           </v-alert>
         </div>
         <br/>
-        <h3 style="text-align: center">{{ $t('platform_es.enfermedades') }}</h3>
+        <h3 style="text-align: center">{{ $t('platform_es.tables.titles.diseases') }}</h3>
         <v-btn-toggle v-model="idx_sel_e"  v-on:change="get_selected_entities" multiple>
         <div v-for="(e, idx_e) in enfermedades" :key="idx_e" style="padding-right: 5%">
           <entity-button :entity_value="e" :entity_type="'E'"/>
         </div>
         </v-btn-toggle>
         <br/>
-        <h3 style="text-align: center">{{ $t('platform_es.medicamentos') }}</h3>
+        <h3 style="text-align: center">{{ $t('platform_es.tables.titles.chemicals') }}</h3>
         <v-btn-toggle v-model="idx_sel_m" v-on:change="get_selected_entities" multiple>
         <div v-for="(m, idx_m) in medicamentos" :key="idx_m" style="padding-right: 5%">
           <entity-button :entity_value="m" :entity_type="'M'"/>
@@ -54,7 +54,7 @@
           </v-btn-toggle>
         <br/>
         <div v-if="evidences">
-          <h2 style="text-align: center">Evidencias encontradas</h2>
+          <h2 style="text-align: center">{{ $t('platform_es.entitiesTitle') }}</h2>
             <div v-for="(ev, idx_ev) in evidences" :key="idx_ev" style="padding-top: 1%">
               <v-card>
                 <v-card-title>{{titles[idx_ev]}}</v-card-title>
@@ -89,7 +89,7 @@ import i18n from "@/i18n";
 import EntityButton from "@/components/EntityButton";
 
 export default {
-  name: "PlatformEs",
+  name: "PlatformEsView",
   components: {EntityButton},
 
   data: () => ({
@@ -107,7 +107,7 @@ export default {
     medicamentos: null,
     tableList: [
       {
-        title: "platform_es.tables.titles.disease",
+        title: "platform_es.tables.titles.diseases",
         entityName: "enfermedades",
         items: [],
         headers: [
@@ -159,9 +159,8 @@ export default {
       })
       if (this.selected_terms.length > 2){
         this.error_terms=true
-        return
       }else{
-        axiosService.platformEs_get_evidence(this.selected_terms)
+        axiosService.platformEsGetEvidences(this.selected_terms)
           .then(response => {
             this.evidences = response.data.evidences
             this.titles= response.data.titles

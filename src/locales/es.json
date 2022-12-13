@@ -17,7 +17,8 @@
   "error": {
     "validation": {
       "required": "Este campo es obligatorio",
-      "outOfRange": "El valor debe estar entre {min} y {max}"
+      "outOfRange": "El valor debe estar entre {min} y {max}",
+      "tooManyTerms": "Sólo se pueden seleccionar {value} términos de manera simultánea. Por favor, deseleccione un término antes de continuar."
     }
   },
 
@@ -154,39 +155,37 @@
     }
   },
 
-   "platform_es": {
+  "platform_es": {
     "title": "Plataforma",
     "subtitle": "Encuentra las entidades médicas en el texto y sus textos relacionados",
-    "placeholder": "Introduce un texto",
-    "description": "BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.",
+    "placeholder": "Introduce algún fragmento de texto para empezar a analizar",
+    "description": "La herramienta BioNER aplica los ultimos modelos de reconocimiento de Entidades Biomèdicas: Enfermedades, Químicos, y Entidades Geneticas.",
     "resultsTitle": "Resultados",
-     "entitiesTitle": "Entidades detectadas",
-     "enfermedades": "Enfermedades",
-     "medicamentos": "Medicamentos",
+    "entitiesTitle": "Entidades detectadas",
     "tables": {
       "titles": {
-        "disease": "Enfermedades",
-        "chemicals": "Medicamentos"
+        "diseases": "Enfermedades",
+        "chemicals": "Medicamentos/Químicos"
       },
       "headers": {
-        "associationScore": "COVID-19 Association Score",
+        "associationScore": "COVID-19 Puntuación de Asociación",
         "atc": "ATC",
-        "atcLevel": "ATC Level",
+        "atcLevel": "Nivel ATC",
         "chebiId": "CHEBI ID",
         "cid": "CID",
-        "crossReferences": "Other IDs",
+        "crossReferences": "Otros IDs",
         "cui": "CUI",
-        "ebiReference": "EBI Reference",
+        "ebiReference": "Referencia EBI",
         "evidence": "Evidencia",
-        "foundTerm": "Término detectado",
+        "foundTerm": "Término Encontrado",
         "icd10": "ICD10",
         "meshId": "Mesh ID",
         "ncbiTaxonId": "NCBItaxon ID",
         "ncbiGeneId": "NCBIgene ID",
         "prId": "PR ID",
-        "semanticType": "Semantic Type",
-        "target": "Target",
-        "term": "Term",
+        "semanticType": "Tipo Semántico",
+        "target": "Objetivo",
+        "term": "Término",
         "uniprotId": "UniProt ID"
       }
     }

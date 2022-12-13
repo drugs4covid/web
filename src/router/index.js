@@ -14,7 +14,7 @@ import PapersView from "@/views/PapersView";
 import ExternalLinkView from "@/views/ExternalLinkView";
 import NotebooksView from "@/views/NotebooksView";
 import RepositoryView from "@/views/RepositoryView";
-import PlatformEs from "@/views/PlatformEs"
+import PlatformEsView from "@/views/PlatformEsView.vue";
 
 Vue.use(VueRouter)
 
@@ -117,7 +117,7 @@ const routes = [
   {
     path: '/platform_es',
     name: 'platform_es',
-    component: PlatformEs
+    component: PlatformEsView
   },
   {
     path: '/papers',
