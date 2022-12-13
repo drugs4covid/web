@@ -56,6 +56,6 @@ export default {
 
 <style scoped>
 #answer{
-  color: olivedrab;
+  color:#5E35B1;
 }
 </style>

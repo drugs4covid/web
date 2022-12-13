@@ -206,6 +206,10 @@ export default {
           },
         ]
       },
+        {
+        label: "nav.platform_es",
+        to: "platform_es",
+      },
       {
         label: "nav.papers",
         to: "papers",

@@ -3,9 +3,11 @@ import store from "@/store/index.js"
 
 export default {
     bioNerEntities,
+    platformEs,
     solrQueryService,
     qaAnswers,
     bioAPISearch,
+    platformEsGetEvidences,
 }
 
 function bioNerEntities(text, lang) {
@@ -16,6 +18,26 @@ function bioNerEntities(text, lang) {
             store.state.links.librairy.bioNerEntities,
         data: {
             text: text,
+        },
+    });
+}
+
+function platformEs(text) {
+    return Axios({
+        method: 'POST',
+        url: store.state.links.d4c.platform,
+        data: {
+            text: text,
+        },
+    });
+}
+
+function platformEsGetEvidences(terms) {
+    return Axios({
+        method: 'POST',
+        url: store.state.links.d4c.platform_evidence,
+        data: {
+            terms: terms,
         },
     });
 }

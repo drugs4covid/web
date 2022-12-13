@@ -17,7 +17,8 @@
   "error": {
     "validation": {
       "required": "Este campo es obligatorio",
-      "outOfRange": "El valor debe estar entre {min} y {max}"
+      "outOfRange": "El valor debe estar entre {min} y {max}",
+      "tooManyTerms": "Sólo se pueden seleccionar {value} términos de manera simultánea. Por favor, deseleccione un término antes de continuar."
     }
   },
 
@@ -51,6 +52,7 @@
     "ontology": "Ontología",
     "papers": "Publicaciones",
     "rdf": "RDF",
+    "platform_es": "@:platform_es.title",
     "repository": "Repositorio",
     "resources": "@:resources.title",
     "services": "@:services.title",
@@ -128,6 +130,42 @@
         "chemicals": "Medicamentos/Químicos",
         "genetics": "Genéticos",
         "covid": "COVID-19"
+      },
+      "headers": {
+        "associationScore": "COVID-19 Puntuación de Asociación",
+        "atc": "ATC",
+        "atcLevel": "Nivel ATC",
+        "chebiId": "CHEBI ID",
+        "cid": "CID",
+        "crossReferences": "Otros IDs",
+        "cui": "CUI",
+        "ebiReference": "Referencia EBI",
+        "evidence": "Evidencia",
+        "foundTerm": "Término Encontrado",
+        "icd10": "ICD10",
+        "meshId": "Mesh ID",
+        "ncbiTaxonId": "NCBItaxon ID",
+        "ncbiGeneId": "NCBIgene ID",
+        "prId": "PR ID",
+        "semanticType": "Tipo Semántico",
+        "target": "Objetivo",
+        "term": "Término",
+        "uniprotId": "UniProt ID"
+      }
+    }
+  },
+
+  "platform_es": {
+    "title": "Plataforma",
+    "subtitle": "Encuentra las entidades médicas en el texto y sus textos relacionados",
+    "placeholder": "Introduce algún fragmento de texto para empezar a analizar",
+    "description": "La herramienta BioNER aplica los ultimos modelos de reconocimiento de Entidades Biomèdicas: Enfermedades, Químicos, y Entidades Geneticas.",
+    "resultsTitle": "Resultados",
+    "entitiesTitle": "Entidades detectadas",
+    "tables": {
+      "titles": {
+        "diseases": "Enfermedades",
+        "chemicals": "Medicamentos/Químicos"
       },
       "headers": {
         "associationScore": "COVID-19 Puntuación de Asociación",

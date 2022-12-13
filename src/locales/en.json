@@ -17,7 +17,8 @@
   "error": {
     "validation": {
       "required": "This field is required",
-      "outOfRange": "Value must be between {min} and {max}"
+      "outOfRange": "Value must be between {min} and {max}",
+      "tooManyTerms": "You can only select {2} terms simultaneously. Please unselect one term before continuing."
     }
   },
 
@@ -51,6 +52,7 @@
     "ontology": "Ontology",
     "papers": "Papers",
     "rdf": "RDF",
+    "platform_es": "@:platform_es.title",
     "repository": "Repository",
     "resources": "@:resources.title",
     "services": "@:services.title",
@@ -152,6 +154,45 @@
       }
     }
   },
+
+  "platform_es": {
+    "title": "Platform (ES)",
+    "subtitle": "Find medical entities in the text and texts related to them",
+    "placeholder": "Place some text to start analyzing",
+    "description": "BioNER tool which aims to apply last state of the art models for the recognition of Biomedical Entities: Diseases, Chemicals and Genetical ents.",
+    "resultsTitle": "Results",
+    "entitiesTitle": "Found Entities",
+    "tables": {
+      "titles": {
+        "diseases": "Diseases",
+        "chemicals": "Drugs/Chemicals",
+        "genetics": "Genetics",
+        "covid": "COVID-19"
+      },
+      "headers": {
+        "associationScore": "COVID-19 Association Score",
+        "atc": "ATC",
+        "atcLevel": "ATC Level",
+        "chebiId": "CHEBI ID",
+        "cid": "CID",
+        "crossReferences": "Other IDs",
+        "cui": "CUI",
+        "ebiReference": "EBI Reference",
+        "evidence": "Evidence",
+        "foundTerm": "Found Term",
+        "icd10": "ICD10",
+        "meshId": "Mesh ID",
+        "ncbiTaxonId": "NCBItaxon ID",
+        "ncbiGeneId": "NCBIgene ID",
+        "prId": "PR ID",
+        "semanticType": "Semantic Type",
+        "target": "Target",
+        "term": "Term",
+        "uniprotId": "UniProt ID"
+      }
+    }
+  },
+
 
   "bioSearch": {
     "title": "Bio Search",
