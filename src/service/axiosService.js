@@ -22,12 +22,13 @@ function bioNerEntities(text, lang) {
     });
 }
 
-function platformEs(text) {
+function platformEs(text,pipeline) {
     return Axios({
         method: 'POST',
         url: store.state.links.d4c.platform,
         data: {
             text: text,
+            pipeline: pipeline,
         },
     });
 }

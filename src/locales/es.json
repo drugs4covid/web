@@ -4,6 +4,11 @@
     "en": "Inglés"
   },
 
+  "pipeline": {
+    "default": "Por defecto",
+    "translate": "Basado en traducción"
+  },
+
   "label": {
     "and": "y",
     "confidence": "Confianza",
@@ -18,7 +23,8 @@
     "validation": {
       "required": "Este campo es obligatorio",
       "outOfRange": "El valor debe estar entre {min} y {max}",
-      "tooManyTerms": "Sólo se pueden seleccionar {value} términos de manera simultánea. Por favor, deseleccione un término antes de continuar."
+      "tooManyTerms": "Sólo se pueden seleccionar {value} términos de manera simultánea. Por favor, deseleccione un término antes de continuar.",
+      "timeout": "En este momento no se han podido recuperar evidencias relacionadas con los términos seleccionados. Inténtalo de nuevo más tarde."
     }
   },
 
