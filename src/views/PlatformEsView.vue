@@ -13,7 +13,15 @@
           />
         </v-form>
       </v-container>
-
+      <v-btn-toggle mandatory
+                        @change="analyzeSample"
+          >
+            <v-btn v-text="$t('pipeline.default')"
+                   @click="pipeline='default'"/>
+            <v-btn v-text="$t('pipeline.translate')"
+                   @click="pipeline='translate'"
+            />
+          </v-btn-toggle>
 
       <v-skeleton-loader v-if="loading" type="article@1"/>
       <v-skeleton-loader v-if="loading" type="table@1"/>
@@ -53,6 +61,19 @@
         </div>
           </v-btn-toggle>
         <br/>
+        <div v-if="timeout">
+          <v-alert
+          v-model="alert"
+          border="left"
+          close-text="Close Alert"
+          color="purple accent-1"
+          dark
+          dismissible
+        >
+            {{$t('error.validation.timeout')}}
+          </v-alert>
+
+        </div>
         <div v-if="evidences">
           <h2 style="text-align: center">{{ $t('platform_es.entitiesTitle') }}</h2>
             <div v-for="(ev, idx_ev) in evidences" :key="idx_ev" style="padding-top: 1%">
@@ -96,6 +117,7 @@ export default {
     idx_sel_m: [],
     idx_sel_e: [],
     error_terms: false,
+    timeout: false,
     selected_terms:[],
     evidences: null,
     titles: null,
@@ -103,6 +125,7 @@ export default {
     sampleHTML: null,
     sampleTxt: null,
     sampleLang: "es",
+    pipeline: "default",
     enfermedades: null,
     medicamentos: null,
     tableList: [
@@ -150,6 +173,7 @@ export default {
       this.evidences=null
       this.error_terms=false
       this.titles=null
+      this.timeout=false
 
       this.idx_sel_e.forEach((e_item) => {
         this.selected_terms.push(this.enfermedades[e_item])
@@ -162,6 +186,9 @@ export default {
       }else{
         axiosService.platformEsGetEvidences(this.selected_terms)
           .then(response => {
+            if(response.status==504){
+              this.timeout=true
+            }
             this.evidences = response.data.evidences
             this.titles= response.data.titles
           })
@@ -177,7 +204,7 @@ export default {
       this.enfermedades = null
       this.medicamentos = null
 
-      axiosService.platformEs(this.sampleTxt)
+      axiosService.platformEs(this.sampleTxt,this.pipeline)
           .then(response =>{
             this.entities = response.data.entities
             this.sampleHTML = response.data.html

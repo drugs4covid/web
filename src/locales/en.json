@@ -3,7 +3,10 @@
     "es": "Spanish",
     "en": "English"
   },
-
+  "pipeline": {
+    "default": "Default",
+    "translate": "Translation-based"
+  },
   "label": {
     "and": "and",
     "confidence": "Confidence",
@@ -18,7 +21,8 @@
     "validation": {
       "required": "This field is required",
       "outOfRange": "Value must be between {min} and {max}",
-      "tooManyTerms": "You can only select {2} terms simultaneously. Please unselect one term before continuing."
+      "tooManyTerms": "You can only select {2} terms simultaneously. Please unselect one term before continuing.",
+      "timeout": "No evidences relating to the input terms can be retrieved at the moment. Please, try again later."
     }
   },
 
