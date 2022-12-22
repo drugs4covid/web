@@ -8,6 +8,7 @@ export default {
     qaAnswers,
     bioAPISearch,
     platformEsGetEvidences,
+    platformEsGetEntity,
 }
 
 function bioNerEntities(text, lang) {
@@ -22,12 +23,13 @@ function bioNerEntities(text, lang) {
     });
 }
 
-function platformEs(text) {
+function platformEs(text,pipeline) {
     return Axios({
         method: 'POST',
         url: store.state.links.d4c.platform,
         data: {
             text: text,
+            pipeline: pipeline,
         },
     });
 }
@@ -38,6 +40,17 @@ function platformEsGetEvidences(terms) {
         url: store.state.links.d4c.platform_evidence,
         data: {
             terms: terms,
+        },
+    });
+}
+
+function platformEsGetEntity(entity,type) {
+    return Axios({
+        method: 'POST',
+        url: store.state.links.d4c.platform_single_entity,
+        data: {
+            entity: entity,
+            type: type,
         },
     });
 }

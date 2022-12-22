@@ -4,6 +4,13 @@
     "en": "Inglés"
   },
 
+  "pipeline": {
+    "default": "Por defecto",
+    "translate": "Basado en traducción",
+    "input_type": "Por favor, indica el tipo de entidad seleccionada",
+    "warning": "Para buscar información sobre entidades no detectadas por el sistema, selecciónalas con el ratón e indica a qué tipo de entidad corresponde."
+  },
+
   "label": {
     "and": "y",
     "confidence": "Confianza",
@@ -18,7 +25,8 @@
     "validation": {
       "required": "Este campo es obligatorio",
       "outOfRange": "El valor debe estar entre {min} y {max}",
-      "tooManyTerms": "Sólo se pueden seleccionar {value} términos de manera simultánea. Por favor, deseleccione un término antes de continuar."
+      "tooManyTerms": "Sólo se pueden seleccionar {value} términos de manera simultánea. Por favor, deseleccione un término antes de continuar.",
+      "timeout": "En este momento no se han podido recuperar evidencias relacionadas con los términos seleccionados. Inténtalo de nuevo más tarde."
     }
   },
 
@@ -158,6 +166,8 @@
   "platform_es": {
     "title": "Plataforma",
     "subtitle": "Encuentra las entidades médicas en el texto y sus textos relacionados",
+    "disease": "Enfermedad",
+    "chemical": "Medicamento",
     "placeholder": "Introduce algún fragmento de texto para empezar a analizar",
     "description": "La herramienta BioNER aplica los ultimos modelos de reconocimiento de Entidades Biomèdicas: Enfermedades, Químicos, y Entidades Geneticas.",
     "resultsTitle": "Resultados",
