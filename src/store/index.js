@@ -51,7 +51,8 @@ export default new Vuex.Store({
         keyQ: "https://aiproc.linkeddata.es/",
         search: "https://search.drugs4covid.oeg-upm.net/search/",
         platform: D4C_BASE_URL+'platform/all',
-        platform_evidence: D4C_BASE_URL+'platform/evidences'
+        platform_evidence: D4C_BASE_URL+'platform/evidences',
+        platform_single_entity: D4C_BASE_URL+'platform/single_entity'
       },
       zenodo: {
         annotatedCorpus: "https://doi.org/10.5281/zenodo.7193680"
