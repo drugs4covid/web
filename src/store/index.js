@@ -50,9 +50,9 @@ export default new Vuex.Store({
         ontology  : "https://drugs4covid.github.io/EBOCA-portal/index.html",
         keyQ: "https://aiproc.linkeddata.es/",
         search: "https://search.drugs4covid.oeg-upm.net/search/",
-        platform: D4C_BASE_URL+'platform/all',
-        platform_evidence: D4C_BASE_URL+'platform/evidences',
-        platform_single_entity: D4C_BASE_URL+'platform/single_entity'
+        platform: D4C_BASE_URL+'platform_es/all',
+        platform_evidence: D4C_BASE_URL+'platform_es/evidences',
+        platform_single_entity: D4C_BASE_URL+'platform_es/single_entity'
       },
       zenodo: {
         annotatedCorpus: "https://doi.org/10.5281/zenodo.7193680"
