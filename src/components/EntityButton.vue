@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <v-btn  v-text="entity_value" v-bind:color="entity_type ==='E' ? '#f1d6fa':'#d4fcd5'"
-      depressed
-  >
+  <div style="margin: auto; margin-top:1%;">
+    <v-btn v-text="entity_value" v-bind:color="entity_type ==='E' ? '#f1d6fa':'#d4fcd5'">
     </v-btn>
     </div>
 </template>
