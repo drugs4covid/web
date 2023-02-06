@@ -3,7 +3,6 @@
     <v-card flat>
       <v-card-title v-text="$t('platform_es.title')"/>
       <v-card-subtitle v-text="$t('platform_es.subtitle')"/>
-
       <v-container>
         <v-form>
           <v-textarea v-model="sampleTxt"
@@ -48,18 +47,18 @@
         </div>
         <br/>
         <h3 style="text-align: center">{{ $t('platform_es.tables.titles.diseases') }}</h3>
-        <v-btn-toggle v-model="idx_sel_e"  v-on:change="get_selected_entities" multiple>
-        <v-container v-for="(e, idx_e) in enfermedades" :key="idx_e" style="padding-right: 2%">
-          <entity-button :entity_value="e" :entity_type="'E'"/>
-        </v-container>
+        <v-container>
+        <v-btn-toggle class="flex-wrap" v-model="idx_sel_e"  v-on:change="get_selected_entities" multiple>
+          <entity-button v-for="(e, idx_e) in enfermedades" :key="idx_e"  :entity_value="e" :entity_type="'E'"/>
         </v-btn-toggle>
+        </v-container>
         <br/>
         <h3 style="text-align: center">{{ $t('platform_es.tables.titles.chemicals') }}</h3>
-        <v-btn-toggle v-model="idx_sel_m" v-on:change="get_selected_entities" multiple>
-        <v-container v-for="(m, idx_m) in medicamentos" :key="idx_m" style="padding-right: 2%">
-          <entity-button :entity_value="m" :entity_type="'M'"/>
-        </v-container>
+        <v-container>
+        <v-btn-toggle class="flex-wrap" v-model="idx_sel_m" v-on:change="get_selected_entities" multiple>
+          <entity-button v-for="(m, idx_m) in medicamentos" :key="idx_m" :entity_value="m" :entity_type="'M'"/>
           </v-btn-toggle>
+        </v-container>
         <br/>
         <div v-if="timeout">
           <v-alert
